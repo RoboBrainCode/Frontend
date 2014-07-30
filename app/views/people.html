@@ -1,0 +1,64 @@
+<br>
+<h3>Our People</h3>
+<br>
+<div class="row">
+  <div class="col-sm-4 col-xs-9" ng-repeat="p in leads">
+    <img class="contrib-pic img-center" src="{{ p.photo }}">
+    <h4 class="text-center">
+      <a ng-href="{{ p.url }}">{{ p.name }}</a>
+      <br>
+      <small>
+        {{ p.institution }}<br>{{ p.role }}
+      </small>
+    </h4>
+    <br>
+  </div>
+</div>
+<br>
+<h3>Advisors</h3>
+<br>
+<div class="row">
+  <div class="col-sm-4 col-xs-9" ng-repeat="p in advisors">
+    <img class="contrib-pic img-center" src="{{ p.photo }}">
+    <h4 class="text-center">
+      <a ng-href="{{ p.url }}">{{ p.name }}</a>
+      <br>
+      <small>
+        {{ p.institution }}<br>{{ p.role }}
+      </small>
+    </h4>
+    <br>
+  </div>
+</div>
+<br>
+<h3>PhD Students</h3>
+<br>
+<div class="row">
+  <div class="col-sm-3 col-xs-9" ng-repeat="p in phd_students">
+    <img class="contrib-pic img-center" src="{{ p.photo }}">
+    <h4 class="text-center">
+      <a ng-href="{{ p.url }}">{{ p.name }}</a>
+      <br>
+      <small>
+        {{ p.institution }}<br>{{ p.role }}
+      </small>
+    </h4>
+    <br>
+  </div>
+</div>
+<br>
+<h3>Undergraduate Students</h3>
+<br>
+<div class="row">
+  <div class="col-sm-3 col-xs-9" ng-repeat="p in undergraduate_students">
+    <img class="contrib-pic img-center" src="{{ p.photo }}">
+    <h4 class="text-center">
+      <a ng-href="{{ p.url }}">{{ p.name }}</a>
+      <br>
+      <small>
+        {{ p.institution }}<br>{{ p.role }}
+      </small>
+    </h4>
+    <br>
+  </div>
+</div>
