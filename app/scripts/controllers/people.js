@@ -27,7 +27,7 @@ angular.module('roboBrainApp')
     {
       name: 'Ozan Sener',
       institution: 'Cornell University',
-      role: 'Unsupervised Vision and Language',
+      role: 'Vision and Language',
       photo: 'images/contrib/osener.jpg',
       url: 'http://ozansener.net/'
     },
