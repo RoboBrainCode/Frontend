@@ -117,7 +117,11 @@ body {
   font-size: $navbar-height * 0.5;
 }
 
-/* Contributor profile pic */
+/* Contributor profile */
+.contrib {
+  height: 275px;
+}
+
 .contrib-pic {
   @extend .img-responsive;
   border: 1px solid #aaa;
@@ -128,6 +132,7 @@ body {
   margin: 0 auto;
 }
 
+/* Sponsor logos */
 .sponsor-logo {
   @extend .img-responsive;
   display: inline-block;

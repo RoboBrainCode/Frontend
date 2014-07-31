@@ -18,6 +18,35 @@ angular.module('roboBrainApp')
       url: 'http://www.cs.cornell.edu/~asaxena/'
     },
     {
+      name: 'Ashesh Jain',
+      institution: 'Cornell University',
+      role: '',
+      photo: 'images/contrib/ajain.jpg',
+      url: 'http://www.cs.cornell.edu/~ashesh/'
+    },
+    {
+      name: 'Ozan Sener',
+      institution: 'Cornell University',
+      role: '',
+      photo: 'images/contrib/osener.jpg',
+      url: 'http://ozansener.com/'
+    },
+    {
+      name: 'Kevin Lee',
+      institution: 'Cornell University',
+      role: '',
+      photo: 'images/contrib/klee.jpg',
+      url: 'mailto:kkl53@cornell.edu'
+    },
+    {
+      name: 'Aditya Jami',  
+      institution: 'CTO, Zoodig',
+      role: 'Large-Scale Systems',
+      photo: 'images/contrib/ajami.jpg',
+      url: 'http://www.linkedin.com/in/adityajami'
+    }];
+    $scope.faculty = [
+    {
       name: 'Prof. Stefanie Tellex',     
       institution: 'Brown University',
       role: 'Robot Dialog',
@@ -30,13 +59,6 @@ angular.module('roboBrainApp')
       role: 'Machine Learning',
       photo: 'images/contrib/tjoachims.jpg',
       url: 'http://www.cs.cornell.edu/People/tj/'
-    },
-    {
-      name: 'Aditya Jami',  
-      institution: 'CTO, Zoodig',
-      role: 'Large-Scale Systems',
-      photo: 'images/contrib/ajami.jpg',
-      url: 'http://www.linkedin.com/in/adityajami'
     },
     {
       name: 'Prof. Bart Selman',    
@@ -65,8 +87,7 @@ angular.module('roboBrainApp')
       role: '3D Vision',
       photo: 'images/contrib/ssavarese.jpg',
       url: 'http://cvgl.stanford.edu/silvio/'
-    }];
-    $scope.advisors = [
+    },
     {
       name: 'Prof. Jitendra Malik',
       institution: 'UC Berkeley',
@@ -75,20 +96,6 @@ angular.module('roboBrainApp')
       url: 'http://www.cs.berkeley.edu/~malik/'
     }];
     $scope.phd_students = [
-    {
-      name: 'Ashesh Jain',
-      institution: 'Cornell University',
-      role: '',
-      photo: 'images/contrib/ajain.jpg',
-      url: 'http://www.cs.cornell.edu/~ashesh/'
-    },
-    {
-      name: 'Ozan Sener',
-      institution: 'Cornell University',
-      role: '',
-      photo: 'images/contrib/osener.jpg',
-      url: 'http://ozansener.com/'
-    },
     {
       name: 'Hema Koppula',
       institution: 'Cornell University',
@@ -130,27 +137,5 @@ angular.module('roboBrainApp')
       role: '',
       photo: 'images/contrib/cwu.jpg',
       url: 'http://www.cs.cornell.edu/~chenxiawu/'
-    },
-    {
-      name: 'Debarghya Das',
-      institution: 'Cornell University',
-      role: '',
-      photo: 'images/contrib/ddas.jpg',
-      url: 'http://debarghyadas.com/'
-    }];
-    $scope.undergraduate_students = [
-    {
-      name: 'Jayesh Gupta',
-      institution: 'IIT Kanpur',
-      role: '',
-      photo: 'images/contrib/jgupta.jpg',
-      url: 'http://rejuvyesh.com/'
-    },
-    {
-      name: 'Kevin Lee',
-      institution: 'Cornell University',
-      role: '',
-      photo: 'images/contrib/klee.jpg',
-      url: 'mailto:kkl53@cornell.edu'
     }];
   });
