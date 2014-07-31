@@ -26,8 +26,8 @@
   <h3>Thanks To Our Sponsors</h3>
   <br>
   <span ng-repeat="s in sponsors">
-    <a href="{{ s.url }}">
-      <img class="sponsor-logo" src="{{ s.logo }}">
+    <a ng-href="{{ s.url }}">
+      <img class="sponsor-logo" ng-src="{{ s.logo }}">
     </a>
   </span>
 </div>

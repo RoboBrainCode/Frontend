@@ -1,4 +1,4 @@
-RoboBrain Frontend v.0.01
+RoboBrain Frontend v.0.02
 ====================
 
 RoboBrain website for the web. Includes an
