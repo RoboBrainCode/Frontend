@@ -1,5 +1,13 @@
 /* Bootstrap variables */
 $navbar-height: 50px;
+$brand-primary: #34495e;
+$text-color: $brand-primary;
+$link-color: $brand-primary;
+$navbar-default-bg: #ecf0f1;
+$jumbotron-bg: $navbar-default-bg;
+$navbar-default-link-color: $brand-primary;
+$navbar-default-link-hover-color: #16a085;
+$navbar-default-brand-hover-color: $navbar-default-link-hover-color;
 
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
@@ -92,6 +100,11 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+/* Navbar with no border */
+.no-border {
+  border: 0px hidden;
 }
 
 /* Brand */
