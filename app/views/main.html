@@ -18,7 +18,7 @@
 <hr>
 <ul class="list-unstyled">
   <li ng-repeat="f in feeds">
-    <small class="pull-right">{{ f.timeText }} &#183; {{ f.location }}</small>
+    <small class="pull-right">{{ f.location }}</small>
     <br><br>
     <p class="lead">
       <span ng-repeat="s in f.text">
@@ -43,10 +43,6 @@
     <div class="row">
       <div class="col-sm-8 col-xs-12">
         <span class="label label-primary">{{ f.type }}</span>
-      </div>
-      <div class="col-sm-4 col-xs-12 text-right">
-        {{ f.likes }} <span class="glyphicon glyphicon-thumbs-up"></span>
-        {{ f.comments}} Comments
       </div>
     </div>
     <br>
