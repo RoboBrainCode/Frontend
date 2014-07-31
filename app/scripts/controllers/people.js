@@ -20,21 +20,21 @@ angular.module('roboBrainApp')
     {
       name: 'Ashesh Jain',
       institution: 'Cornell University',
-      role: 'Interactive online learning',
+      role: 'Interactive Online Learning',
       photo: 'images/contrib/ajain.jpg',
       url: 'http://www.cs.cornell.edu/~ashesh/'
     },
     {
       name: 'Ozan Sener',
       institution: 'Cornell University',
-      role: 'Unsupervised vision and language',
+      role: 'Unsupervised Vision and Language',
       photo: 'images/contrib/osener.jpg',
       url: 'http://ozansener.net/'
     },
     {
       name: 'Kevin Lee',
       institution: 'Cornell University',
-      role: 'Online robot games',
+      role: 'Online Robot Games',
       photo: 'images/contrib/klee.jpg',
       url: 'mailto:kkl53@cornell.edu'
     },
@@ -99,21 +99,21 @@ angular.module('roboBrainApp')
     {
       name: 'Hema Koppula',
       institution: 'Cornell University',
-      role: 'Machine learning and 3D perception',
+      role: 'Machine Learning and 3D Perception',
       photo: 'images/contrib/hkoppula.jpg',
       url: 'http://www.cs.cornell.edu/~hema/'
     },
     {
       name: 'Yun Jiang',
       institution: 'Cornell University',
-      role: 'Non-parametric learning',
+      role: 'Non-Parametric Learning',
       photo: 'images/contrib/yjiang.jpg',
       url: 'http://www.cs.cornell.edu/~yunjiang/'
     },
     {
       name: 'Ian Lenz',
       institution: 'Cornell University',
-      role: 'Deep learning',
+      role: 'Deep Learning',
       photo: 'images/contrib/ilenz.jpg',
       url: 'http://www.cs.cornell.edu/~ianlenz/'
     },
@@ -134,7 +134,7 @@ angular.module('roboBrainApp')
     {
       name: 'Chenxia Wu',
       institution: 'Cornell University',
-      role: '3D vision',
+      role: '3D Vision',
       photo: 'images/contrib/cwu.jpg',
       url: 'http://www.cs.cornell.edu/~chenxiawu/'
     }];
