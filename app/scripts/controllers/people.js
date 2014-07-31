@@ -20,21 +20,21 @@ angular.module('roboBrainApp')
     {
       name: 'Ashesh Jain',
       institution: 'Cornell University',
-      role: '',
+      role: 'Interactive online learning',
       photo: 'images/contrib/ajain.jpg',
       url: 'http://www.cs.cornell.edu/~ashesh/'
     },
     {
       name: 'Ozan Sener',
       institution: 'Cornell University',
-      role: '',
+      role: 'Unsupervised vision and language',
       photo: 'images/contrib/osener.jpg',
       url: 'http://ozansener.net/'
     },
     {
       name: 'Kevin Lee',
       institution: 'Cornell University',
-      role: '',
+      role: 'Online robot games',
       photo: 'images/contrib/klee.jpg',
       url: 'mailto:kkl53@cornell.edu'
     },
@@ -99,42 +99,42 @@ angular.module('roboBrainApp')
     {
       name: 'Hema Koppula',
       institution: 'Cornell University',
-      role: '',
+      role: 'Machine learning and 3D perception',
       photo: 'images/contrib/hkoppula.jpg',
       url: 'http://www.cs.cornell.edu/~hema/'
     },
     {
       name: 'Yun Jiang',
       institution: 'Cornell University',
-      role: '',
+      role: 'Non-parametric learning',
       photo: 'images/contrib/yjiang.jpg',
       url: 'http://www.cs.cornell.edu/~yunjiang/'
     },
     {
       name: 'Ian Lenz',
       institution: 'Cornell University',
-      role: '',
+      role: 'Deep learning',
       photo: 'images/contrib/ilenz.jpg',
       url: 'http://www.cs.cornell.edu/~ianlenz/'
     },
     {
       name: 'Dipendra K. Misra',
       institution: 'Cornell University',
-      role: '',
+      role: 'Robot Language (Tell Me Dave)',
       photo: 'images/contrib/dmisra.jpg',
       url: 'http://www.cs.cornell.edu/~dkm/'
     },
     {
       name: 'Jaeyong Sung',
       institution: 'Cornell University',
-      role: '',
+      role: 'Manipulation Planning',
       photo: 'images/contrib/jsung.jpg',
       url: 'http://www.cs.cornell.edu/~jysung/'
     },
     {
       name: 'Chenxia Wu',
       institution: 'Cornell University',
-      role: '',
+      role: '3D vision',
       photo: 'images/contrib/cwu.jpg',
       url: 'http://www.cs.cornell.edu/~chenxiawu/'
     }];
