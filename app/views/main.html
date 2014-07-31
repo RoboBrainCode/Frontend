@@ -1,13 +1,56 @@
 <br>
-<div class="jumbotron">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+<div class="row">
+  <div class="col-sm-3 col-xs-6">
+    <img class="img-responsive" src="images/logo.svg">
+  </div>
+  <div class="col-sm-9 col-xs-12">
+    <blockquote>
       <p class="lead">
         Hey there! I'm a robot brain. I learn concepts by searching the Internet.
         I can interpret natural language text, images, and videos. I watch humans
         with my sensors and learn things from interacting with them. Here are a few things I've
         learned recently...
       </p>
-    </div>
+    </blockquote>
   </div>
 </div>
+<br><br>
+<hr>
+<ul class="list-unstyled">
+  <li ng-repeat="f in feeds">
+    <small class="pull-right">{{ f.timeText }} &#183; {{ f.location }}</small>
+    <br><br>
+    <p class="lead">
+      <span ng-repeat="s in f.text">
+        <span ng-switch="s.charAt(0)">
+          <strong ng-switch-when="#">
+            {{ s.slice(1) }}
+          </strong>
+          <span ng-switch-default>
+            {{ s }}
+          </span>
+        </span>
+      </span>
+    </p>
+    <div class="row text-center">
+      <div class="col-sm-6 col-xs-12" ng-repeat="m in f.media">
+        <span ng-switch="m.contentType">
+          <img ng-switch-when="image" class="feed-media" src="{{ m.url }}">
+        </span>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-8 col-xs-12">
+        <span class="label label-primary">{{ f.type }}</span>
+      </div>
+      <div class="col-sm-4 col-xs-12 text-right">
+        {{ f.likes }} <span class="glyphicon glyphicon-thumbs-up"></span>
+        {{ f.comments}} Comments
+      </div>
+    </div>
+    <br>
+    <hr>
+  </li>
+</ul>
+<br>

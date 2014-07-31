@@ -29,7 +29,7 @@ angular.module('roboBrainApp')
       institution: 'Cornell University',
       role: '',
       photo: 'images/contrib/osener.jpg',
-      url: 'http://ozansener.com/'
+      url: 'http://ozansener.net/'
     },
     {
       name: 'Kevin Lee',
