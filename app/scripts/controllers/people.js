@@ -27,7 +27,7 @@ angular.module('roboBrainApp')
     {
       name: 'Ozan Sener',
       institution: 'Cornell University',
-      role: 'Unsupervised vision and language',
+      role: 'Vision and language',
       photo: 'images/contrib/osener.jpg',
       url: 'http://ozansener.net/'
     },
@@ -68,11 +68,11 @@ angular.module('roboBrainApp')
       url: 'http://www.cs.cornell.edu/People/tj/'
     },
     {
-      name: 'Prof. Bart Selman',    
-      institution: 'Cornell University',
-      role: 'Reasoning and AI',
-      photo: 'images/contrib/bselman.jpg',
-      url: 'http://www.cs.cornell.edu/selman/'
+      name: 'Prof. Silvio Savarese',    
+      institution: 'Stanford University',
+      role: '3D Vision',
+      photo: 'images/contrib/ssavarese.jpg',
+      url: 'http://cvgl.stanford.edu/silvio/'
     },
     {
       name: 'Prof. Fei-Fei Li',   
@@ -82,11 +82,11 @@ angular.module('roboBrainApp')
       url: 'http://vision.stanford.edu/feifeili/'
     },
     {
-      name: 'Prof. Silvio Savarese',    
-      institution: 'Stanford University',
-      role: '3D Vision',
-      photo: 'images/contrib/ssavarese.jpg',
-      url: 'http://cvgl.stanford.edu/silvio/'
+      name: 'Prof. Bart Selman',    
+      institution: 'Cornell University',
+      role: 'Reasoning and AI',
+      photo: 'images/contrib/bselman.jpg',
+      url: 'http://www.cs.cornell.edu/selman/'
     },
     {
       name: 'Prof. Jitendra Malik',
@@ -113,7 +113,7 @@ angular.module('roboBrainApp')
     {
       name: 'Ian Lenz',
       institution: 'Cornell University',
-      role: 'Deep learning',
+      role: 'Deep learning and Manipulation',
       photo: 'images/contrib/ilenz.jpg',
       url: 'http://www.cs.cornell.edu/~ianlenz/'
     },
