@@ -47,6 +47,13 @@ angular.module('roboBrainApp')
     }];
     $scope.faculty = [
     {
+      name: 'Prof. Ken Goldberg',  
+      institution: 'UC Berkeley',
+      role: 'Cloud Robotics',
+      photo: 'images/contrib/kgoldberg.jpg',
+      url: 'http://goldberg.berkeley.edu/'
+    },  
+    {
       name: 'Prof. Stefanie Tellex',     
       institution: 'Brown University',
       role: 'Robot Dialog',
@@ -75,13 +82,6 @@ angular.module('roboBrainApp')
       url: 'http://vision.stanford.edu/feifeili/'
     },
     {
-      name: 'Prof. Ken Goldberg',  
-      institution: 'UC Berkeley',
-      role: 'Cloud Robotics',
-      photo: 'images/contrib/kgoldberg.jpg',
-      url: 'http://goldberg.berkeley.edu/'
-    },
-    {
       name: 'Prof. Silvio Savarese',    
       institution: 'Stanford University',
       role: '3D Vision',
@@ -91,7 +91,7 @@ angular.module('roboBrainApp')
     {
       name: 'Prof. Jitendra Malik',
       institution: 'UC Berkeley',
-      role: '',
+      role: 'Computer Vision',
       photo: 'images/contrib/jmalik.jpg',
       url: 'http://www.cs.berkeley.edu/~malik/'
     }];
