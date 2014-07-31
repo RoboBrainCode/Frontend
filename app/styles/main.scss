@@ -114,3 +114,10 @@ body {
 .img-center {
   margin: 0 auto;
 }
+
+.sponsor-logo {
+  @extend .img-responsive;
+  display: inline-block;
+  padding: 20px;
+  height: 125px;
+}

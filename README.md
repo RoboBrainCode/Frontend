@@ -24,4 +24,10 @@ to install all remaining dependencies.
 
 To test the frontend on localhost, navigate
 to this project's root folder in your terminal
-and run "grunt server".
+and run "grunt serve".
+
+
+### Deployment
+
+The RoboBrain website can be served using any
+static file server (i.e. Apache, nginx).
