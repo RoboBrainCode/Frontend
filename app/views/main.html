@@ -15,38 +15,42 @@
   </div>
 </div>
 <br><br>
-<hr>
 <ul class="list-unstyled">
   <li ng-repeat="f in feeds">
-    <small class="pull-right">{{ f.location }}</small>
-    <br><br>
-    <p class="lead">
-      <span ng-repeat="s in f.text">
-        <span ng-switch="s.charAt(0)">
-          <strong ng-switch-when="#">
-            {{ s.slice(1) }}
-          </strong>
-          <span ng-switch-default>
-            {{ s }}
+    <div class="panel panel-default feed-{{ f.type }}">
+      <div class="panel-body">
+        <br>
+        <small class="pull-right">{{ f.location }}</small>
+        <br><br>
+        <p class="lead">
+          <span ng-repeat="s in f.text">
+            <span ng-switch="s.charAt(0)">
+              <strong ng-switch-when="#">
+                {{ s.slice(1) }}
+              </strong>
+              <span ng-switch-default>
+                {{ s }}
+              </span>
+            </span>
           </span>
-        </span>
-      </span>
-    </p>
-    <div class="row text-center">
-      <div class="col-sm-6 col-xs-12" ng-repeat="m in f.media">
-        <span ng-switch="m.contentType">
-          <img ng-switch-when="image" class="feed-media" src="{{ m.url }}">
-        </span>
+        </p>
+        <div class="row text-center">
+          <div class="col-sm-6 col-xs-12" ng-repeat="m in f.media">
+            <span ng-switch="m.contentType">
+              <img ng-switch-when="image" class="feed-media" src="{{ m.url }}">
+            </span>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-8 col-xs-12">
+            <span class="label label-primary">{{ f.type }}</span>
+          </div>
+        </div>
+        <br>
       </div>
     </div>
     <br>
-    <div class="row">
-      <div class="col-sm-8 col-xs-12">
-        <span class="label label-primary">{{ f.type }}</span>
-      </div>
-    </div>
-    <br>
-    <hr>
   </li>
 </ul>
 <br>

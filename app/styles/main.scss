@@ -8,6 +8,7 @@ $jumbotron-bg: $navbar-default-bg;
 $navbar-default-link-color: $brand-primary;
 $navbar-default-link-hover-color: #16a085;
 $navbar-default-brand-hover-color: $navbar-default-link-hover-color;
+$feed-border-top-width: 8px;
 
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
@@ -140,7 +141,32 @@ body {
   height: 125px;
 }
 
-/* Feed media */
+/* Feed styles */
+.feed-vision {
+  border-top-color: #E74C3C;
+  border-top-width: $feed-border-top-width;
+}
+
+.feed-affordance {
+  border-top-color: #2ECC71;
+  border-top-width: $feed-border-top-width;
+}
+
+.feed-planning {
+  border-top-color: #F1C40F;
+  border-top-width: $feed-border-top-width;
+}
+
+.feed-object-usage {
+  border-top-color: #8E44AD;
+  border-top-width: $feed-border-top-width;
+}
+
+.feed-3D-detection {
+  border-top-color: #D35400;
+  border-top-width: $feed-border-top-width;
+}
+
 .feed-media {
   @extend .img-responsive;
   display: inline-block;
