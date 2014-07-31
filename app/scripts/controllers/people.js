@@ -113,7 +113,7 @@ angular.module('roboBrainApp')
     {
       name: 'Ian Lenz',
       institution: 'Cornell University',
-      role: 'Deep learning and Manipulation',
+      role: 'Deep Learning and Manipulation',
       photo: 'images/contrib/ilenz.jpg',
       url: 'http://www.cs.cornell.edu/~ianlenz/'
     },
