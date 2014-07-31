@@ -5,7 +5,7 @@
   <div class="contrib col-sm-4 col-xs-9" ng-repeat="p in leads">
     <img class="contrib-pic img-center" ng-src="{{ p.photo }}">
     <h4 class="text-center">
-      <a ng-href="{{ p.url }}" ng-target="_blank">{{ p.name }}</a>
+      <a ng-href="{{ p.url }}" target="_blank">{{ p.name }}</a>
       <br>
       <small>
         {{ p.institution }}<br>{{ p.role }}
@@ -21,7 +21,7 @@
   <div class="contrib col-sm-3 col-xs-9" ng-repeat="p in faculty">
     <img class="contrib-pic img-center" ng-src="{{ p.photo }}">
     <h4 class="text-center">
-      <a ng-href="{{ p.url }}" ng-target="_blank">{{ p.name }}</a>
+      <a ng-href="{{ p.url }}" target="_blank">{{ p.name }}</a>
       <br>
       <small>
         {{ p.institution }}<br>{{ p.role }}
@@ -37,7 +37,7 @@
   <div class="contrib col-sm-3 col-xs-9" ng-repeat="p in phd_students">
     <img class="contrib-pic img-center" ng-src="{{ p.photo }}">
     <h4 class="text-center">
-      <a ng-href="{{ p.url }}" ng-target="_blank">{{ p.name }}</a>
+      <a ng-href="{{ p.url }}" target="_blank">{{ p.name }}</a>
       <br>
       <small>
         {{ p.institution }}<br>{{ p.role }}

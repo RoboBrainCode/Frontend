@@ -27,11 +27,7 @@ angular.module('roboBrainApp')
     {
       name: 'Ozan Sener',
       institution: 'Cornell University',
-<<<<<<< HEAD
-      role: 'Vision and language',
-=======
       role: 'Unsupervised Vision and Language',
->>>>>>> 059c33caf1a51b9d720e108f533c02cd974c104c
       photo: 'images/contrib/osener.jpg',
       url: 'http://ozansener.net/'
     },
@@ -117,11 +113,7 @@ angular.module('roboBrainApp')
     {
       name: 'Ian Lenz',
       institution: 'Cornell University',
-<<<<<<< HEAD
       role: 'Deep learning and Manipulation',
-=======
-      role: 'Deep Learning',
->>>>>>> 059c33caf1a51b9d720e108f533c02cd974c104c
       photo: 'images/contrib/ilenz.jpg',
       url: 'http://www.cs.cornell.edu/~ianlenz/'
     },

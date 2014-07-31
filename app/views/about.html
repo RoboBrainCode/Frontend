@@ -23,8 +23,26 @@
 <div class="text-center">
   <h3>Thanks To Our Sponsors</h3>
   <br>
-  <span ng-repeat="s in sponsors">
-    <a ng-href="{{ s.url }}">
+  <span ng-repeat="s in sponsors_gov">
+    <a ng-href="{{ s.url }}" target="_blank">
+      <img class="sponsor-logo" ng-src="{{ s.logo }}">
+    </a>
+  </span>
+  <br>
+  <span ng-repeat="s in sponsors_tech">
+    <a ng-href="{{ s.url }}" target="_blank">
+      <img class="sponsor-logo" ng-src="{{ s.logo }}">
+    </a>
+  </span>
+  <br>
+  <span ng-repeat="s in sponsors_misc">
+    <a ng-href="{{ s.url }}" target="_blank">
+      <img class="sponsor-logo" ng-src="{{ s.logo }}">
+    </a>
+  </span>
+  <br>
+  <span ng-repeat="s in sponsors_schools">
+    <a ng-href="{{ s.url }}" target="_blank">
       <img class="sponsor-logo" ng-src="{{ s.logo }}">
     </a>
   </span>

@@ -9,7 +9,7 @@
  */
 angular.module('roboBrainApp')
   .controller('AboutCtrl', function ($scope) {
-    $scope.sponsors = [
+    $scope.sponsors_gov = [
     {
       name: 'National Science Foundation',
       logo: 'images/sponsors/nsf.jpg',
@@ -24,7 +24,8 @@ angular.module('roboBrainApp')
       name: 'Army Research Office',
       logo: 'images/sponsors/aro.jpg',
       url: 'http://www.nsf.gov/'
-    },
+    }];
+  $scope.sponsors_tech = [
     {
       name: 'Google',
       logo: 'images/sponsors/goog.jpg',
@@ -36,15 +37,17 @@ angular.module('roboBrainApp')
       url: 'http://www.microsoft.com/'
     },
     {
-      name: 'Alfred P. Sloan Foundation',
-      logo: 'images/sponsors/apsf.jpg',
-      url: 'http://www.sloan.org/'
-    },
-    {
       name: 'Qualcomm',
       logo: 'images/sponsors/qcom.jpg',
       url: 'http://www.qualcomm.com/'
-    },
+    }];
+  $scope.sponsors_misc = [
+    {
+      name: 'Alfred P. Sloan Foundation',
+      logo: 'images/sponsors/apsf.jpg',
+      url: 'http://www.sloan.org/'
+    }];
+  $scope.sponsors_schools = [
     {
       name: 'Cornell University',
       logo: 'images/sponsors/cornell.jpg',
