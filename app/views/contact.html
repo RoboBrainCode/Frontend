@@ -1,26 +1,19 @@
 <br>
 <h3 class="text-center">Contact Us</h3>
 <br>
-<div class="row text-justify">
-  <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2 col-xs-12">
     <p>
       We welcome all technical and press inquiries. Please contact us at the emails below and
       we'll respond as soon as we can.
     </p>
+    <br>
+    <div class="row text-center">
+      <div class="col-sm-6 col-xs-12" ng-repeat="c in contacts">
+        <strong>{{ c.name }}</strong><br>
+        {{ c.email }}<br><br><br>
+      </div>
+    </div>
   </div>
 </div>
-<br>
-<div class="row text-center">
-  <div class="col-xs-12">
-    <dl>
-      <dt ng-repeat-start="c in contacts">
-        {{ c.name }}
-      </dt>
-      <dd ng-repeat-end>
-        {{ c.email }}<br><br>
-      </dd>
-    </dl>
-  </div>
-</div>
-<br>
 
