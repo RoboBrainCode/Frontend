@@ -10,13 +10,17 @@
   </div>
 </div>
 <br>
-<dl class="text-center">
-  <dt ng-repeat-start="c in contacts">
-    {{ c.name }}
-  </dt>
-  <dd ng-repeat-end>
-    {{ c.email }}<br><br>
-  </dd>
-</dl>
+<div class="row text-center">
+  <div class="col-xs-12">
+    <dl>
+      <dt ng-repeat-start="c in contacts">
+        {{ c.name }}
+      </dt>
+      <dd ng-repeat-end>
+        {{ c.email }}<br><br>
+      </dd>
+    </dl>
+  </div>
+</div>
 <br>
 
