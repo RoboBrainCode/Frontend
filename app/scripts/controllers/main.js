@@ -35,19 +35,19 @@ angular.module('roboBrainApp')
       media: [
         {
           content_type: 'image',
-          url: 'images/ian/rectIms2/pred0389.png'
+          url: 'images/rectIms2/pred0389.png'
         },
         {
           content_type: 'image',
-          url: 'images/ian/features/depthMesh003.png'
+          url: 'images/features/depthMesh003.png'
         },
         {
           content_type: 'image',
-          url: 'images/ian/features/depthMesh002.png'
+          url: 'images/features/depthMesh002.png'
         },
         {
           content_type: 'image',
-          url: 'images/ian/features/depthMesh004.png'
+          url: 'images/features/depthMesh004.png'
         }
       ]
     },
@@ -121,15 +121,15 @@ angular.module('roboBrainApp')
       media: [
         {
           content_type: 'image',
-          url: 'images/jae/images/3a.png'
+          url: 'images/jae/3a.png'
         },
         {
           content_type: 'image',
-          url: 'images/jae/images/3b.png'
+          url: 'images/jae/3b.png'
         },
         {
           content_type: 'image',
-          url: 'images/jae/images/3c.png'
+          url: 'images/jae/3c.png'
         }
       ]
     }];
