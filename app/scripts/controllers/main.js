@@ -21,11 +21,11 @@ angular.module('roboBrainApp')
       media: [
         {
           content_type: 'image',
-          url: 'images/feed/hema/wear_frame.png'
+          url: 'images/hema/wear_frame.png'
         },
         {
           content_type: 'image',
-          url: 'images/feed/hema/wear_result.png'
+          url: 'images/hema/wear_result.png'
         }
       ]
     },
@@ -35,19 +35,19 @@ angular.module('roboBrainApp')
       media: [
         {
           content_type: 'image',
-          url: 'images/feed/ian/rectIms2/pred0389.png'
+          url: 'images/ian/rectIms2/pred0389.png'
         },
         {
           content_type: 'image',
-          url: 'images/feed/ian/features/depthMesh003.png'
+          url: 'images/ian/features/depthMesh003.png'
         },
         {
           content_type: 'image',
-          url: 'images/feed/ian/features/depthMesh002.png'
+          url: 'images/ian/features/depthMesh002.png'
         },
         {
           content_type: 'image',
-          url: 'images/feed/ian/features/depthMesh004.png'
+          url: 'images/ian/features/depthMesh004.png'
         }
       ]
     },
@@ -57,11 +57,11 @@ angular.module('roboBrainApp')
       media: [
         {
           content_type: 'image',
-          url: 'images/feed/ashesh/watching.png'
+          url: 'images/ashesh/watching.png'
         },
         {
           content_type: 'image',
-          url: 'images/feed/ashesh/watching_heatmap.png'
+          url: 'images/ashesh/watching_heatmap.png'
         }
       ]
     },
@@ -71,19 +71,19 @@ angular.module('roboBrainApp')
       media: [
         {
           content_type: 'image',
-          url: 'images/feed/yun/chair/chair0000.jpg'
+          url: 'images/yun/chair/chair0000.jpg'
         },
         {
           content_type: 'image',
-          url: 'images/feed/yun/chair/pose0.jpg'
+          url: 'images/yun/chair/pose0.jpg'
         },
         {
           content_type: 'image',
-          url: 'images/feed/yun/chair/pose1.jpg'
+          url: 'images/yun/chair/pose1.jpg'
         },
         {
           content_type: 'image',
-          url: 'images/feed/yun/chair/pose2.jpg'
+          url: 'images/yun/chair/pose2.jpg'
         }
       ]
     },
@@ -93,11 +93,11 @@ angular.module('roboBrainApp')
       media: [
         {
           content_type: 'image',
-          url: 'images/feed/hema/microwave_env.png'
+          url: 'images/hema/microwave_env.png'
         },
         {
           content_type: 'image',
-          url: 'images/feed/hema/microwave_spatial_open.png'
+          url: 'images/hema/microwave_spatial_open.png'
         }
       ]
     },
@@ -107,11 +107,11 @@ angular.module('roboBrainApp')
       media: [
         {
           content_type: 'image',
-          url: 'images/feed/ashesh/interacting.png'
+          url: 'images/ashesh/interacting.png'
         },
         {
           content_type: 'image',
-          url: 'images/feed/ashesh/interacting_heatmap.png'
+          url: 'images/ashesh/interacting_heatmap.png'
         }
       ]
     },
@@ -121,15 +121,15 @@ angular.module('roboBrainApp')
       media: [
         {
           content_type: 'image',
-          url: 'images/feed/jae/images/3a.png'
+          url: 'images/jae/images/3a.png'
         },
         {
           content_type: 'image',
-          url: 'images/feed/jae/images/3b.png'
+          url: 'images/jae/images/3b.png'
         },
         {
           content_type: 'image',
-          url: 'images/feed/jae/images/3c.png'
+          url: 'images/jae/images/3c.png'
         }
       ]
     }];
