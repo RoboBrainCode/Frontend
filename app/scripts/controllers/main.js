@@ -71,19 +71,19 @@ angular.module('roboBrainApp')
       media: [
         {
           content_type: 'image',
-          url: 'images/yun/chair/chair0000.jpg'
+          url: 'images/chair/chair0000.jpg'
         },
         {
           content_type: 'image',
-          url: 'images/yun/chair/pose0.jpg'
+          url: 'images/chair/pose0.jpg'
         },
         {
           content_type: 'image',
-          url: 'images/yun/chair/pose1.jpg'
+          url: 'images/chair/pose1.jpg'
         },
         {
           content_type: 'image',
-          url: 'images/yun/chair/pose2.jpg'
+          url: 'images/chair/pose2.jpg'
         }
       ]
     },
