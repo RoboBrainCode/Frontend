@@ -30,9 +30,7 @@ and run "grunt serve".
 ### Deployment
 
 The RoboBrain website can be served using any
-static file server (i.e. Apache, nginx). Compile
-the SASS files using Compass and copy the
-bower_components folder into the app folder.
-Then copy the contents of the app folder to
+static file server (i.e. Apache, nginx). Run "grunt build",
+then copy the contents of the new "dist" folder to
 the public directory where Apache or nginx is
 listening.
