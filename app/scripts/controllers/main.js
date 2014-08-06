@@ -11,5 +11,5 @@
  */
 angular.module('roboBrainApp')
   .controller('MainCtrl', ['$scope', '$brainFeeds', function ($scope, $brainFeeds) {
-    $scope.feeds = $brainFeeds.feeds;
+    $scope.feeds = $brainFeeds();
   }]);
