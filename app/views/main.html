@@ -23,9 +23,9 @@
         <p class="lead">
           <span ng-repeat="s in f.text">
             <span ng-switch="s.charAt(0)">
-              <strong ng-switch-when="#">
-                {{ s.slice(1) }}
-              </strong>
+              <a ng-href="#/query?tags={{ s.slice(1) }}" ng-switch-when="#">
+                <strong>{{ s.slice(1) }}</strong>
+              </a>
               <span ng-switch-default>
                 {{ s }}
               </span>
