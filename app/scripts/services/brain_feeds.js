@@ -190,7 +190,16 @@ angular
         });
       
     }, 60000);
-    return function() {
-      return feeds;
+    return {
+      mostRecent: function() { return feeds; },
+      query: function(q) {
+        $resource(ENV.apiEndpoint + '/feeds/query')
+        .get(q).$promise.then(function(data) {
+          for (var i = 0; i < data.length; ++i) {
+            data[i]['text'] = data[i]['text'].split(' ');
+          }
+          return data;
+        });
+      }
     };
   }]);

@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc function
- * @name roboBrainApp.controller:MainCtrl
+ * @name roboBrainApp.controller:QueryCtrl
  * @description
- * # MainCtrl
+ * # QueryCtrl
  * Controller of the roboBrainApp
  * Note: Feed type must be one of: affordance, vision, planning, object-usage, 3D-detection
  * Media content type must be one of: image
  */
 angular.module('roboBrainApp')
-  .controller('MainCtrl', ['$scope', 'brainFeeds', function ($scope, brainFeeds) {
-    $scope.feeds = brainFeeds.mostRecent();
+  .controller('QueryCtrl', ['$scope', '$routeParams', 'brainFeeds', function ($scope, $routeParams, brainFeeds) {
+    $scope.feeds = brainFeeds.query($routeParams);
   }]);
