@@ -24,6 +24,11 @@ angular.module('roboBrainApp')
       name: 'Army Research Office',
       logo: 'images/sponsors/aro.jpg',
       url: 'http://www.nsf.gov/'
+    },
+    {
+      name: 'National Robotics Initiative',
+      logo: 'images/sponsors/nri.jpg',
+      url: 'http://www.nsf.gov/funding/pgm_summ.jsp?pims_id=503641&org=CISE'
     }];
   $scope.sponsors_tech = [
     {
