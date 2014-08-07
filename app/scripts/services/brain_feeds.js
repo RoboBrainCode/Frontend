@@ -16,11 +16,6 @@ angular
       {
         type: 'affordance',
         text: 'A #cap can be #worn like this.',
-        timeText: 'Just now',
-        location: 'Palo Alto, CA',
-        likes: '223',
-        comments: '12',
-        views: '670',
         media: [
           {
             contentType: 'image',
@@ -35,10 +30,6 @@ angular
       {
         type: 'vision',
         text: 'A #coffee #mug can be #grasped in this way.',
-        timeText: 'A minute ago',
-        location: 'Honolulu, HI',
-        likes: '80',
-        comments: '2',
         views: '230',
         media: [
           {
@@ -62,11 +53,6 @@ angular
       {
         type: 'planning',
         text: 'The #watching activity between the #TV and #human is spatially distributed as follows.',
-        timeText: '5 minutes ago',
-        location: 'Ithaca, NY',
-        likes: '130',
-        comments: '15',
-        views: '442',
         media: [
           {
             contentType: 'image',
@@ -81,11 +67,6 @@ angular
       {
         type: 'object-usage',
         text: 'The #chair can be used like this.',
-        timeText: '15 minutes ago',
-        location: 'New York, NY',
-        likes: '140',
-        comments: '55',
-        views: '342',
         media: [
           {
             contentType: 'image',
@@ -108,11 +89,6 @@ angular
       {
         type: 'affordance',
         text: 'A #microwave is interacted as follows for #opening.',
-        timeText: '22 minutes ago',
-        location: 'Mountain View, CA',
-        likes: '39',
-        comments: '5',
-        views: '90',
         media: [
           {
             contentType: 'image',
@@ -127,11 +103,6 @@ angular
       {
         type: 'planning',
         text: 'The #interacting activity between two #humans is spatially distributed as follows.',
-        timeText: '25 minutes ago',
-        location: 'Ithaca, NY',
-        likes: '160',
-        comments: '35',
-        views: '542',
         media: [
           {
             contentType: 'image',
@@ -146,11 +117,6 @@ angular
       {
         type: '3D-detection',
         text: 'The #button of the #water #fountain can be manipulated.',
-        timeText: '1 hour ago',
-        location: 'Ithaca, NY',
-        likes: '40',
-        comments: '32',
-        views: '122',
         media: [
           {
             contentType: 'image',
