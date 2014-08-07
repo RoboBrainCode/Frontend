@@ -53,7 +53,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            apiEndpoint: 'http://api.livesite.com'
+            apiEndpoint: 'http://ec2-54-191-236-84.us-west-2.compute.amazonaws.com:3000'
           }
         }
       }
