@@ -3,7 +3,8 @@ angular
   .factory('brainFeeds', ['$resource', '$interval', 'ENV', function($resource, $interval, ENV) {
     // initialize with k most recent feeds
     var feeds = [];
-    $resource(ENV.apiEndpoint + '/feeds/most_recent').get()
+    var feedSize = 20;
+    $resource(ENV.apiEndpoint + '/feeds/most_recent').get({k: feedSize})
       .$promise.then(function(data) { 
       for (var i = 0; i < data.length; ++i) {
         feeds.push(data[i]);
@@ -170,13 +171,12 @@ angular
         feeds[i]['text'] = feeds[i]['text'].split(' ');
       }
     });
-    var feedSize = 20;
     // update array once per minute
-    var lastUpdate = new Date().getTime();
+    var lastUpdate = new Date();
     var updateLoop = $interval(function() {
-      $resource(ENV.apiEndpoint + '/feeds/since/:datetime')
+      $resource(ENV.apiEndpoint + '/feeds/since')
         .get({datetime: lastUpdate}).$promise.then(function(data) {
-          lastUpdate = newDate().getTime();
+          lastUpdate = new Date();
           // prepend new feeds, then shrink down to previous size
           for (var i = data.length - 1; i >= 0; --i) {
             feeds.unshift(data[i]);
