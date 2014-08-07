@@ -34,7 +34,7 @@
         </p>
         <div class="row text-center">
           <div class="col-sm-6 col-xs-12" ng-repeat="m in f.media">
-            <span ng-switch="m.content_type">
+            <span ng-switch="m.contentType">
               <img ng-switch-when="image" class="feed-media" src="{{ m.url }}">
             </span>
           </div>
