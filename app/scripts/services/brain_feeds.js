@@ -4,8 +4,9 @@ angular
     // initialize with k most recent feeds
     var feeds = [];
     var feedSize = 20;
-    $resource(ENV.apiEndpoint + '/feeds/most_recent').get({k: feedSize})
-      .$promise.then(function(data) { 
+    $resource(ENV.apiEndpoint + '/feed/most_recent', { k: feedSize, callback: 'JSON_CALLBACK' },
+      { get: { method: 'JSONP', isArray: true } }).get().$promise
+      .then(function(data) {
       for (var i = 0; i < data.length; ++i) {
         feeds.push(data[i]);
         feeds[i]['text'] = feeds[i]['text'].split(' ');
@@ -140,8 +141,9 @@ angular
     // update array once per minute
     var lastUpdate = new Date();
     var updateLoop = $interval(function() {
-      $resource(ENV.apiEndpoint + '/feeds/since')
-        .get({datetime: lastUpdate}).$promise.then(function(data) {
+      $resource(ENV.apiEndpoint + '/feed/since', { datetime: lastUpdate, callback: 'JSON_CALLBACK' },
+        { get: { method: 'JSONP', isArray: true } }).get().$promise
+        .then(function(data) {
           lastUpdate = new Date();
           // prepend new feeds, then shrink down to previous size
           for (var i = data.length - 1; i >= 0; --i) {
@@ -159,8 +161,9 @@ angular
     return {
       mostRecent: function() { return feeds; },
       query: function(q) {
-        $resource(ENV.apiEndpoint + '/feeds/query')
-        .get(q).$promise.then(function(data) {
+        q['callback'] = 'JSON_CALLBACK';
+        $resource(ENV.apiEndpoint + '/feed/query', q, { get: { method: 'JSONP', isArray: true } }).get().$promise
+        .then(function(data) {
           for (var i = 0; i < data.length; ++i) {
             data[i]['text'] = data[i]['text'].split(' ');
           }
