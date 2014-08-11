@@ -172,10 +172,36 @@ body {
   border-top-width: $feed-border-top-width;
 }
 
+.feed-language {
+  border-top-color: #E74C3C;
+  border-top-width: $feed-border-top-width;
+}
+
 .feed-media {
   @extend .img-responsive;
   display: inline-block;
   padding: 25px;
   border-radius: 5px;
   height: 250px;
+}
+
+/* Template View Override */
+.background-override {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+}
+
+.ccb-simulator {
+  height: 400px;
+  width: 100%;
+}
+
+.ccb-simulator-canvas {
+  height: 90%;
+  width: 90%;
 }

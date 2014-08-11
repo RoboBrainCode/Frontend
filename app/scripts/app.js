@@ -44,6 +44,10 @@ angular
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
       })
+      .when('/simulator', {
+        templateUrl: 'views/simulator.html',
+        controller: 'SimulatorCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

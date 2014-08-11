@@ -33,9 +33,16 @@
           </span>
         </p>
         <div class="row text-center">
-          <div class="col-sm-6 col-xs-12" ng-repeat="m in f.media">
-            <img class="feed-media" src="{{ m }}">
-          </div>
+          <span ng-repeat="m in f.media">
+            <span ng-switch="m.type">
+              <div ng-switch-when="image" class="col-sm-6 col-xs-12">
+                <img class="feed-media" src="{{ m.url }}">
+              </div>
+              <div ng-switch-when="ccb_simulator" class="col-xs-12">
+                <iframe class="ccb-simulator" ng-src="{{ trustUrl('#/simulator/?url='+m.url+'&seq='+m.sequence) }}" frameborder="0"></iframe>
+              </div>
+            </span>
+          </span>
         </div>
         <br>
         <div class="row">
