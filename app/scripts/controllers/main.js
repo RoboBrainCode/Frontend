@@ -10,9 +10,6 @@
  * Media content type must be one of: image
  */
 angular.module('roboBrainApp')
-  .controller('MainCtrl', ['$scope', 'brainFeeds', '$sce', function ($scope, brainFeeds, $sce) {
+  .controller('MainCtrl', ['$scope', 'brainFeeds', function ($scope, brainFeeds) {
     $scope.feeds = brainFeeds.mostRecent();
-    $scope.trustUrl = function(url) {
-      return $sce.trustAsResourceUrl(url);
-    }
   }]);

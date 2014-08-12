@@ -17,13 +17,13 @@
 <br><br>
 <ul class="list-unstyled">
   <li ng-repeat="f in feeds track by $index">
-    <div class="panel panel-default feed-{{ f.type }}">
+    <div class="panel panel-default feed-{{ $index % 5}}">
       <div class="panel-body">
         <br>
         <p class="lead">
           <span ng-repeat="s in f.text track by $index">
             <span ng-switch="s.charAt(0)">
-              <a ng-href="#/query?tags={{ s.slice(1) }}" ng-switch-when="#">
+              <a ng-href="#/query?hashword={{ s.slice(1) }}" ng-switch-when="#">
                 <strong>{{ s.slice(1) }}</strong>
               </a>
               <span ng-switch-default>
@@ -38,8 +38,8 @@
               <div ng-switch-when="image" class="col-sm-6 col-xs-12">
                 <img class="feed-media" src="{{ m.url }}">
               </div>
-              <div ng-switch-when="ccb_simulator" class="col-xs-12">
-                <iframe class="ccb-simulator" ng-src="{{ trustUrl('#/simulator/?url='+m.url+'&seq='+m.sequence) }}" frameborder="0"></iframe>
+              <div ng-switch-when="html" class="col-xs-12">
+                <iframe class="feed-iframe" ng-src="{{ m.url }}" frameborder="0"></iframe>
               </div>
             </span>
           </span>
