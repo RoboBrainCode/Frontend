@@ -99,13 +99,13 @@ angular
           if (feeds[i]['media'][j].match(/\.(gif|jpg|jpeg|tiff|png)$/i)) {
             feeds[i]['media'][j] = {
               type: 'image',
-              url: ENV.staticEndpoint + feeds[i]['media'][j]
+              url: feeds[i]['media'][j]
             };
           }
           else if (feeds[i]['media'][j].match(/\.(htm|html)$/i)) {
             feeds[i]['media'][j] = {
               type: 'html',
-              url: ENV.staticEndpoint + feeds[i]['media'][j]
+              url: feeds[i]['media'][j]
             };
           }
         }
