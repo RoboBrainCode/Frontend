@@ -11,7 +11,10 @@
     <div class="row text-center">
       <div class="col-sm-6 col-xs-12" ng-repeat="c in contacts">
         <strong>{{ c.name }}</strong><br>
-        {{ c.email }}<br><br><br>
+        {{ c.email }}<br>
+        {{ c.address }}<br>
+        {{ c.street }}<br>
+        {{ c.state }}, {{ c.zip }}<br><br><br>
       </div>
     </div>
   </div>
