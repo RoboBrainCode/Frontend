@@ -12,11 +12,11 @@ angular.module('roboBrainApp')
     $scope.contacts = [
     {
       name: 'Ashutosh Saxena',
-      email: 'asaxena@cs.cornell.edu’,
-      address: ‘Gates 138’,
-      street: ‘Stanford University’,
-      state: ‘CA’,
-      zip: ‘94305’
+      email: 'asaxena@cs.cornell.edu',
+      address: 'Gates 138',
+      street: 'Stanford University',
+      state: 'CA',
+      zip: '94305'
     },
     {
       name: 'Aditya Jami',
