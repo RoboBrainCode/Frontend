@@ -137,5 +137,12 @@ angular.module('roboBrainApp')
       role: '3D Vision',
       photo: 'images/contrib/cwu.jpg',
       url: 'http://www.cs.cornell.edu/~chenxiawu/'
+    },
+    {
+      name: 'Debhargya Das',
+      institution: 'Cornell University',
+      role: 'Planning and Visualization',
+      photo: 'images/contrib/ddas.jpg',
+      url: 'http://debarghyadas.com/'
     }];
   });
