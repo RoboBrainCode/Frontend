@@ -8,7 +8,13 @@
       <a ng-href="{{ p.url }}" target="_blank">{{ p.name }}</a>
       <br>
       <small>
-        {{ p.institution }}<br>{{ p.role }}
+        {{ p.institution }}<br>
+        <a ng-if="p.roleUrl" ng-href="{{ p.roleUrl }}" target="_blank">
+          {{ p.role }}
+        </a>
+        <span ng-if="p.roleUrl == null">
+          {{ p.role }}
+        </span>
       </small>
     </h4>
     <br>
@@ -24,7 +30,13 @@
       <a ng-href="{{ p.url }}" target="_blank">{{ p.name }}</a>
       <br>
       <small>
-        {{ p.institution }}<br>{{ p.role }}
+        {{ p.institution }}<br>
+        <a ng-if="p.roleUrl" ng-href="{{ p.roleUrl }}" target="_blank">
+          {{ p.role }}
+        </a>
+        <span ng-if="p.roleUrl == null">
+          {{ p.role }}
+        </span>
       </small>
     </h4>
     <br>
@@ -40,7 +52,13 @@
       <a ng-href="{{ p.url }}" target="_blank">{{ p.name }}</a>
       <br>
       <small>
-        {{ p.institution }}<br>{{ p.role }}
+        {{ p.institution }}<br>
+        <a ng-if="p.roleUrl" ng-href="{{ p.roleUrl }}" target="_blank">
+          {{ p.role }}
+        </a>
+        <span ng-if="p.roleUrl == null">
+          {{ p.role }}
+        </span>
       </small>
     </h4>
     <br>

@@ -51,7 +51,8 @@ angular.module('roboBrainApp')
       institution: 'UC Berkeley',
       role: 'Cloud Robotics',
       photo: 'images/contrib/kgoldberg.jpg',
-      url: 'http://goldberg.berkeley.edu/'
+      url: 'http://goldberg.berkeley.edu/',
+      roleUrl: 'http://goldberg.berkeley.edu/cloud-robotics/'
     },  
     {
       name: 'Prof. Stefanie Tellex',     
@@ -122,7 +123,8 @@ angular.module('roboBrainApp')
       institution: 'Cornell University',
       role: 'Robot Language (Tell Me Dave)',
       photo: 'images/contrib/dmisra.jpg',
-      url: 'http://www.cs.cornell.edu/~dkm/'
+      url: 'http://www.cs.cornell.edu/~dkm/',
+      roleUrl: 'http://tellmedave.cs.cornell.edu/'
     },
     {
       name: 'Jaeyong Sung',

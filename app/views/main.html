@@ -53,9 +53,23 @@
           </div>
         </div>
         <br>
+        <a class="feed-comments" id="comment-{{ $index }}" ng-href="static/comments.html?id={{ f.text.join(' ') }}">View Comments</a>
+        <br>
+        <iframe class="feed-iframe-comments" id="iframe-comment-{{ $index }}" ng-src="#"></iframe>
+        <br>
       </div>
     </div>
     <br>
   </li>
 </ul>
 <br>
+<script type="text/javascript">
+  document.getElementsByTagName("body")[0].addEventListener("click", function(e) {
+    if (e.target && e.target.className === "feed-comments") {
+      e.preventDefault();
+      var iframe = document.getElementById('iframe-' + e.target.id);
+      iframe.setAttribute('src', e.target.getAttribute('href'));
+      iframe.style.display = "block";
+    }
+  });
+</script>
