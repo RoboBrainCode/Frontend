@@ -47,10 +47,10 @@ angular
             ]
           },
           {
-            type: 'affordance',
-            text: 'A #cap can be #worn like this.',
+            type: 'language',
+            text: '#Pick up the #pot.',
             media: [
-              'test.mp4'
+              'static/videos/dm1.mp4'
             ]
           },
           {

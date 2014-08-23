@@ -16,7 +16,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngInfiniteScroll',
+    'infinite-scroll',
     'config'
   ])
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
