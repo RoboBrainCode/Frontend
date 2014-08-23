@@ -4,6 +4,7 @@ angular
     // initialize with k most recent feeds
     var feeds = [];
     var feedSize = 20;
+    var page = 0;
     return {
       init: function() {
         $resource(ENV.apiEndpoint + 'feed/most_recent', { k: feedSize, callback: 'JSON_CALLBACK' },
@@ -175,6 +176,38 @@ angular
         }, 60000);
       },
       mostRecent: function() { return feeds; },
+      moreRecent: function() {
+        $resource(ENV.apiEndpoint + 'feed/more', { page: page, k: feedSize, callback: 'JSON_CALLBACK' },
+          { get: { method: 'JSONP', isArray: true } }).get().$promise
+          .then(function(data) {
+          var len = feeds.length;
+          for (var k = 0; k < data.length; ++k) {
+            var i = len + k;
+            feeds.push(data[i]);
+            feeds[i]['text'] = feeds[i]['text'].split(' ');
+            for (var j = 0; j < feeds[i]['media'].length; ++j) {
+              // Bundle tellmedave robot sequence with simulator url
+              if (feeds[i]['media'][j].match(/\.(gif|jpg|jpeg|tiff|png)$/i)) {
+                feeds[i]['media'][j] = {
+                  type: 'image',
+                  url: ENV.staticEndpoint + feeds[i]['media'][j]
+                };
+              }
+              else if (feeds[i]['media'][j].match(/\.(htm|html)$/i)) {
+                feeds[i]['media'][j] = {
+                  type: 'html',
+                  url: ENV.staticEndpoint + feeds[i]['media'][j],
+                };
+              }
+              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
+                feeds[i]['media'][j] = {
+                  type: 'mp4',
+                  url: ENV.staticEndpoint + feeds[i]['media'][j],
+                };
+              }
+            }
+          }});
+      },
       query: function(q) {
         var res = [];
         q['k'] = feedSize;
