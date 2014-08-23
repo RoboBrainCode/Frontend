@@ -26,6 +26,12 @@ angular
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
+              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
+                feeds[i]['media'][j] = {
+                  type: 'mp4',
+                  url: ENV.staticEndpoint + feeds[i]['media'][j],
+                };
+              }
             }
           }
         }, function() {
@@ -37,6 +43,13 @@ angular
             media: [
               'images/hema/wear_frame.png',
               'images/hema/wear_result.png'
+            ]
+          },
+          {
+            type: 'affordance',
+            text: 'A #cap can be #worn like this.',
+            media: [
+              'test.mp4'
             ]
           },
           {
@@ -110,6 +123,12 @@ angular
                   url: feeds[i]['media'][j]
                 };
               }
+              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
+                feeds[i]['media'][j] = {
+                  type: 'mp4',
+                  url: feeds[i]['media'][j]
+                };
+              }
             }
           }
         });
@@ -136,6 +155,12 @@ angular
                     feeds[i]['media'][j] = {
                       type: 'html',
                       url: ENV.staticEndpoint + feeds[i]['media'][j]
+                    };
+                  }
+                  else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
+                    feeds[i]['media'][j] = {
+                      type: 'mp4',
+                      url: ENV.staticEndpoint + feeds[i]['media'][j],
                     };
                   }
                 }
@@ -181,6 +206,12 @@ angular
                 res[i]['media'][j] = {
                   type: 'html',
                   url: ENV.staticEndpoint + res[i]['media'][j]
+                };
+              }
+              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
+                feeds[i]['media'][j] = {
+                  type: 'mp4',
+                  url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
             }

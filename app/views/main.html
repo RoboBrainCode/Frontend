@@ -41,6 +41,12 @@
               <div ng-switch-when="html" class="col-xs-12">
                 <iframe class="feed-iframe" ng-src="{{ m.url }}" frameborder="0"></iframe>
               </div>
+              <div ng-switch-when="mp4" class="col-xs-12">
+                <video width="480" width="360" controls>
+                  <source ng-src="{{ m.url }}" type="video/mp4">
+                  Your browser does not support the video tag. Please upgrade to an HTML5-compatible browser.
+                </video>
+              </div>
             </span>
           </span>
         </div>
