@@ -59,7 +59,7 @@
           </div>
         </div>
         <br>
-        <a class="feed-comments" id="comment-{{ $index }}" ng-href="static/comments.html?id={{ f.text.join(' ') }}">View Comments</a>
+        <a class="feed-comments" id="comment-{{ $index }}" ng-href="static/comments.html?id={{ f._id.$oid }}">View Comments</a>
         <br>
         <iframe class="feed-iframe-comments" id="iframe-comment-{{ $index }}" ng-src="#"></iframe>
         <br>

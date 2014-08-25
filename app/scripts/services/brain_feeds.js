@@ -3,14 +3,15 @@ angular
   .factory('brainFeeds', ['$resource', '$interval', 'ENV', function($resource, $interval, ENV) {
     // initialize with k most recent feeds
     var feeds = [];
+    var feedIds = [];
     var feedSize = 20;
-    var page = 0;
     return {
       init: function() {
         $resource(ENV.apiEndpoint + 'feed/most_recent', { k: feedSize, callback: 'JSON_CALLBACK' },
           { get: { method: 'JSONP', isArray: true } }).get().$promise
           .then(function(data) {
           for (var i = 0; i < data.length; ++i) {
+            feedIds.push(data[i]['_id']['$oid']);
             feeds.push(data[i]);
             feeds[i]['text'] = feeds[i]['text'].split(' ');
             for (var j = 0; j < feeds[i]['media'].length; ++j) {
@@ -39,6 +40,7 @@ angular
           // if error occurs, use placeholders
           var placeholders = [
           {
+            _id: { $oid: '0' },
             type: 'affordance',
             text: 'A #cap can be #worn like this.',
             media: [
@@ -47,6 +49,7 @@ angular
             ]
           },
           {
+            _id: { $oid: '1' },
             type: 'language',
             text: '#Pick up the #pot.',
             media: [
@@ -54,6 +57,7 @@ angular
             ]
           },
           {
+            _id: { $oid: '2' },
             type: 'vision',
             text: 'A #coffee #mug can be #grasped in this way.',
             views: '230',
@@ -65,6 +69,7 @@ angular
             ]
           },
           {
+            _id: { $oid: '3' },
             type: 'planning',
             text: 'The #watching activity between the #TV and #human is spatially distributed as follows.',
             media: [
@@ -73,6 +78,7 @@ angular
             ]
           },
           {
+            _id: { $oid: '4' },
             type: 'object-usage',
             text: 'The #chair can be used like this.',
             media: [
@@ -83,6 +89,7 @@ angular
             ]
           },
           {
+            _id: { $oid: '5' },
             type: 'affordance',
             text: 'A #microwave is interacted as follows for #opening.',
             media: [
@@ -91,6 +98,7 @@ angular
             ]
           },
           {
+            _id: { $oid: '6' },
             type: 'planning',
             text: 'The #interacting activity between two #humans is spatially distributed as follows.',
             media: [
@@ -99,6 +107,7 @@ angular
             ]
           },
           {
+            _id: { $oid: '7' },
             type: '3D-detection',
             text: 'The #button of the #water #fountain can be manipulated.',
             media: [
@@ -108,6 +117,7 @@ angular
             ]
           }];
           for (var i = 0; i < placeholders.length; ++i) {
+            feedIds.push(placeholders[i]['_id']['$oid']);
             feeds.push(placeholders[i]);
             feeds[i]['text'] = feeds[i]['text'].split(' ');
             for (var j = 0; j < feeds[i]['media'].length; ++j) {
@@ -142,6 +152,7 @@ angular
               lastUpdate = new Date();
               // prepend new feeds, then shrink down to previous size
               for (var i = data.length - 1; i >= 0; --i) {
+                feedIds.push(data[i]['_id']['$oid']);
                 feeds.unshift(data[i]);
                 feeds[0]['text'] = feeds[0]['text'].split(' ');
                 for (var j = 0; j < data[i]['media'].length; ++j) {
@@ -166,9 +177,6 @@ angular
                   }
                 }
               }
-              for (var i = feeds.length; i > feedSize; --i) {
-                feeds.pop();
-              }
             }, function() {
               $interval.cancel(updateLoop);
             });
@@ -177,12 +185,13 @@ angular
       },
       mostRecent: function() { return feeds; },
       moreRecent: function() {
-        $resource(ENV.apiEndpoint + 'feed/more', { page: page, k: feedSize, callback: 'JSON_CALLBACK' },
+        $resource(ENV.apiEndpoint + 'feed/infinite_scroll', { feedid: feedIds, k: feedSize, callback: 'JSON_CALLBACK' },
           { get: { method: 'JSONP', isArray: true } }).get().$promise
           .then(function(data) {
           var len = feeds.length;
           for (var k = 0; k < data.length; ++k) {
             var i = len + k;
+            feedIds.push(data[i]['_id']['$oid']);
             feeds.push(data[i]);
             feeds[i]['text'] = feeds[i]['text'].split(' ');
             for (var j = 0; j < feeds[i]['media'].length; ++j) {
