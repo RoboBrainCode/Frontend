@@ -191,3 +191,15 @@ body {
   height: 100%;
   width: 100%;
 }
+
+.upvote {
+  display: block;
+  background: url('images/vote.png');
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+} 
+
+.vote.on {
+  background-position: 0px -25px;
+}

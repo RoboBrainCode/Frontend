@@ -65,6 +65,9 @@
           </div>
         </div>
         <br>
+        <a href="#">
+          <span class="vote"></span>
+        </a>
         <a class="feed-comments" id="comment-{{ $index }}" ng-href="static/comments.html?id={{ f.text.join(' ') }}">View Comments</a>
         <br>
         <iframe class="feed-iframe-comments" id="iframe-comment-{{ $index }}" ng-src="#"></iframe>
@@ -82,6 +85,9 @@
       var iframe = document.getElementById('iframe-' + e.target.id);
       iframe.setAttribute('src', e.target.getAttribute('href'));
       iframe.style.display = "block";
+    }
+    if (e.target && e.target.className === "vote") {
+      
     }
   });
 </script>

@@ -15,9 +15,10 @@ angular
             for (var j = 0; j < feeds[i]['media'].length; ++j) {
               // Bundle tellmedave robot sequence with simulator url
               if (feeds[i]['media'][j].match(/\.(gif|jpg|jpeg|tiff|png)$/i)) {
+                var p = feeds[i]['media'][j].lastIndexOf('.');
                 feeds[i]['media'][j] = {
                   type: 'image',
-                  url: ENV.staticEndpoint + feeds[i]['media'][j]
+                  url: ENV.staticEndpoint + feeds[i]['media'][j].slice(0, p) + '_thumb' + feeds[i]['media'][j].slice(p)
                 };
               }
               else if (feeds[i]['media'][j].match(/\.(htm|html)$/i)) {
@@ -176,9 +177,10 @@ angular
             for (var j = 0; j < res[i]['media'].length; ++j) {
               // Bundle tellmedave robot sequence with simulator url
               if (res[i]['media'][j].match(/\.(gif|jpg|jpeg|tiff|png)$/i)) {
+                var p = feeds[i]['media'][j].lastIndexOf('.');
                 res[i]['media'][j] = {
                   type: 'image',
-                  url: ENV.staticEndpoint + res[i]['media'][j]
+                  url: ENV.staticEndpoint + res[i]['media'][j].slice(0, p) + '_thumb' + res[i]['media'][j].slice(p)
                 };
               }
               else if (res[i]['media'][j].match(/\.(htm|html)$/i)) {
