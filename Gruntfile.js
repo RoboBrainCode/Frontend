@@ -54,7 +54,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            apiEndpoint: 'http://ec2-54-191-75-211.us-west-2.compute.amazonaws.com:3000/',
+            apiEndpoint: 'http://ec2-54-218-14-187.us-west-2.compute.amazonaws.com:3000/',
             staticEndpoint: 'https://s3-us-west-2.amazonaws.com/feedmedia/'
           }
         }
