@@ -45,7 +45,6 @@ angular
           // if error occurs, use placeholders
           var placeholders = [
           {
-            _id: { $oid: '0' },
             type: 'affordance',
             text: 'A #cap can be #worn like this.',
             media: [
@@ -54,7 +53,6 @@ angular
             ]
           },
           {
-            _id: { $oid: '1' },
             type: 'language',
             text: '#Pick up the #pot.',
             media: [
@@ -62,7 +60,6 @@ angular
             ]
           },
           {
-            _id: { $oid: '2' },
             type: 'vision',
             text: 'A #coffee #mug can be #grasped in this way.',
             views: '230',
@@ -74,7 +71,6 @@ angular
             ]
           },
           {
-            _id: { $oid: '3' },
             type: 'planning',
             text: 'The #watching activity between the #TV and #human is spatially distributed as follows.',
             media: [
@@ -83,7 +79,6 @@ angular
             ]
           },
           {
-            _id: { $oid: '4' },
             type: 'object-usage',
             text: 'The #chair can be used like this.',
             media: [
@@ -94,7 +89,6 @@ angular
             ]
           },
           {
-            _id: { $oid: '5' },
             type: 'affordance',
             text: 'A #microwave is interacted as follows for #opening.',
             media: [
@@ -103,7 +97,6 @@ angular
             ]
           },
           {
-            _id: { $oid: '6' },
             type: 'planning',
             text: 'The #interacting activity between two #humans is spatially distributed as follows.',
             media: [
@@ -112,7 +105,6 @@ angular
             ]
           },
           {
-            _id: { $oid: '7' },
             type: '3D-detection',
             text: 'The #button of the #water #fountain can be manipulated.',
             media: [
