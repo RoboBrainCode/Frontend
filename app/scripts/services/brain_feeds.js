@@ -28,9 +28,9 @@ angular
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
-              else if (feeds[i]['media'][j].match(/\.(mp4|webm)$/i)) {
+              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
                 feeds[i]['media'][j] = {
-                  type: 'mp4|webm',
+                  type: 'mp4',
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
@@ -53,7 +53,7 @@ angular
             type: 'language',
             text: '#Pick up the #pot.',
             media: [
-              'static/videos/dm1.mp4|webm'
+              'static/videos/dm1.mp4'
             ]
           },
           {
@@ -134,9 +134,15 @@ angular
                   url: feeds[i]['media'][j]
                 };
               }
-              else if (feeds[i]['media'][j].match(/\.(mp4|webm)$/i)) {
+              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
                 feeds[i]['media'][j] = {
-                  type: 'mp4|webm',
+                  type: 'mp4',
+                  url: feeds[i]['media'][j]
+                };
+              }
+              else if (feeds[i]['media'][j].match(/\.(webm)$/i)) {
+                feeds[i]['media'][j] = {
+                  type: 'webm',
                   url: feeds[i]['media'][j]
                 };
               }
@@ -169,10 +175,16 @@ angular
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
-              else if (feeds[i]['media'][j].match(/\.(mp4|webm)$/i)) {
+              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
                 feeds[i]['media'][j] = {
-                  type: 'mp4|webm',
+                  type: 'mp4',
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
+                };
+              }
+              else if (feeds[i]['media'][j].match(/\.(webm)$/i)) {
+                feeds[i]['media'][j] = {
+                  type: 'webm',
+                  url: ENV.staticEndpoint + feeds[i]['media'][j]
                 };
               }
             }
@@ -211,9 +223,15 @@ angular
                   url: ENV.staticEndpoint + res[i]['media'][j]
                 };
               }
-              else if (feeds[i]['media'][j].match(/\.(mp4|webm)$/i)) {
+              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
                 feeds[i]['media'][j] = {
-                  type: 'mp4|webm',
+                  type: 'mp4',
+                  url: ENV.staticEndpoint + feeds[i]['media'][j],
+                };
+              }
+              else if (feeds[i]['media'][j].match(/\.(webm)$/i)) {
+                feeds[i]['media'][j] = {
+                  type: 'webm',
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }

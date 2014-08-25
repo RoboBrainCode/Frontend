@@ -47,6 +47,12 @@
                   Your browser does not support the video tag. Please upgrade to an HTML5-compatible browser.
                 </video>
               </div>
+              <div ng-switch-when="webm" class="col-xs-12">
+                <video width="480" width="360" controls>
+                  <source ng-src="{{ m.url }}" type="video/webm">
+                  Your browser does not support the video tag. Please upgrade to an HTML5-compatible browser.
+                </video>
+              </div>
             </span>
           </span>
         </div>
