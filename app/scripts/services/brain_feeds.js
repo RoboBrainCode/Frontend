@@ -3,7 +3,6 @@ angular
   .factory('brainFeeds', ['$resource', '$interval', 'ENV', function($resource, $interval, ENV) {
     // initialize with k most recent feeds
     var feeds = [];
-    var feedIds = [];
     var feedSize = 20;
     return {
       init: function() {
@@ -11,7 +10,6 @@ angular
           { get: { method: 'JSONP', isArray: true } }).get().$promise
           .then(function(data) {
           for (var i = 0; i < data.length; ++i) {
-            feedIds.push(data[i]['_id']['$oid']);
             feeds.push(data[i]);
             feeds[i]['text'] = feeds[i]['text'].split(' ');
             for (var j = 0; j < feeds[i]['media'].length; ++j) {
@@ -31,6 +29,12 @@ angular
               else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
                 feeds[i]['media'][j] = {
                   type: 'mp4',
+                  url: ENV.staticEndpoint + feeds[i]['media'][j],
+                };
+              }
+              else if (feeds[i]['media'][j].match(/\.(webm)$/i)) {
+                feeds[i]['media'][j] = {
+                  type: 'webm',
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
@@ -117,7 +121,6 @@ angular
             ]
           }];
           for (var i = 0; i < placeholders.length; ++i) {
-            feedIds.push(placeholders[i]['_id']['$oid']);
             feeds.push(placeholders[i]);
             feeds[i]['text'] = feeds[i]['text'].split(' ');
             for (var j = 0; j < feeds[i]['media'].length; ++j) {
@@ -151,45 +154,6 @@ angular
         });
       },
       mostRecent: function() { return feeds; },
-      moreRecent: function() {
-        $resource(ENV.apiEndpoint + 'feed/infinite_scroll', { feedid: feedIds, k: feedSize, callback: 'JSON_CALLBACK' },
-          { get: { method: 'JSONP', isArray: true } }).get().$promise
-          .then(function(data) {
-          var len = feeds.length;
-          for (var k = 0; k < data.length; ++k) {
-            var i = len + k;
-            feedIds.push(data[i]['_id']['$oid']);
-            feeds.push(data[i]);
-            feeds[i]['text'] = feeds[i]['text'].split(' ');
-            for (var j = 0; j < feeds[i]['media'].length; ++j) {
-              // Bundle tellmedave robot sequence with simulator url
-              if (feeds[i]['media'][j].match(/\.(gif|jpg|jpeg|tiff|png)$/i)) {
-                feeds[i]['media'][j] = {
-                  type: 'image',
-                  url: ENV.staticEndpoint + feeds[i]['media'][j]
-                };
-              }
-              else if (feeds[i]['media'][j].match(/\.(htm|html)$/i)) {
-                feeds[i]['media'][j] = {
-                  type: 'html',
-                  url: ENV.staticEndpoint + feeds[i]['media'][j],
-                };
-              }
-              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
-                feeds[i]['media'][j] = {
-                  type: 'mp4',
-                  url: ENV.staticEndpoint + feeds[i]['media'][j],
-                };
-              }
-              else if (feeds[i]['media'][j].match(/\.(webm)$/i)) {
-                feeds[i]['media'][j] = {
-                  type: 'webm',
-                  url: ENV.staticEndpoint + feeds[i]['media'][j]
-                };
-              }
-            }
-          }});
-      },
       query: function(q) {
         var res = [];
         q['k'] = feedSize;
