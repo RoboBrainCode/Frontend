@@ -143,45 +143,6 @@ angular
             }
           }
         });
-        // update array once per minute
-        var lastUpdate = new Date();
-        var updateLoop = $interval(function() {
-          $resource(ENV.apiEndpoint + 'feed/since', { datetime: lastUpdate, callback: 'JSON_CALLBACK' },
-            { get: { method: 'JSONP', isArray: true } }).get().$promise
-            .then(function(data) {
-              lastUpdate = new Date();
-              // prepend new feeds, then shrink down to previous size
-              for (var i = data.length - 1; i >= 0; --i) {
-                feedIds.push(data[i]['_id']['$oid']);
-                feeds.unshift(data[i]);
-                feeds[0]['text'] = feeds[0]['text'].split(' ');
-                for (var j = 0; j < data[i]['media'].length; ++j) {
-                  // Bundle tellmedave robot sequence with simulator url
-                  if (feeds[i]['media'][j].match(/\.(gif|jpg|jpeg|tiff|png)$/i)) {
-                    feeds[i]['media'][j] = {
-                      type: 'image',
-                      url: ENV.staticEndpoint + feeds[i]['media'][j]
-                    };
-                  }
-                  else if (feeds[i]['media'][j].match(/\.(htm|html)$/i)) {
-                    feeds[i]['media'][j] = {
-                      type: 'html',
-                      url: ENV.staticEndpoint + feeds[i]['media'][j]
-                    };
-                  }
-                  else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
-                    feeds[i]['media'][j] = {
-                      type: 'mp4',
-                      url: ENV.staticEndpoint + feeds[i]['media'][j],
-                    };
-                  }
-                }
-              }
-            }, function() {
-              $interval.cancel(updateLoop);
-            });
-          
-        }, 60000);
       },
       mostRecent: function() { return feeds; },
       moreRecent: function() {

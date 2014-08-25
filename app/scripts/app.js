@@ -19,7 +19,7 @@ angular
     'infinite-scroll',
     'config'
   ])
-  .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+  .config(['$routeProvider', '$locationProvider', '$sceProvider', function ($routeProvider, $locationProvider, $sceProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -48,4 +48,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+    $sceProvider.enabled(false);
   }]);
