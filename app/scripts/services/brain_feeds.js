@@ -169,7 +169,7 @@ angular
             for (var j = 0; j < res[i]['media'].length; ++j) {
               // Bundle tellmedave robot sequence with simulator url
               if (res[i]['media'][j].match(/\.(gif|jpg|jpeg|tiff|png)$/i)) {
-                var p = feeds[i]['media'][j].lastIndexOf('.');
+                var p = res[i]['media'][j].lastIndexOf('.');
                 res[i]['media'][j] = {
                   type: 'image',
                   url: ENV.staticEndpoint + res[i]['media'][j].slice(0, p) + '_thumb' + res[i]['media'][j].slice(p)
