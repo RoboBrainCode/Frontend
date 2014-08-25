@@ -28,9 +28,9 @@ angular
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
-              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
+              else if (feeds[i]['media'][j].match(/\.(mp4|webm)$/i)) {
                 feeds[i]['media'][j] = {
-                  type: 'mp4',
+                  type: 'mp4|webm',
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
@@ -53,7 +53,7 @@ angular
             type: 'language',
             text: '#Pick up the #pot.',
             media: [
-              'static/videos/dm1.mp4'
+              'static/videos/dm1.mp4|webm'
             ]
           },
           {
@@ -134,9 +134,9 @@ angular
                   url: feeds[i]['media'][j]
                 };
               }
-              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
+              else if (feeds[i]['media'][j].match(/\.(mp4|webm)$/i)) {
                 feeds[i]['media'][j] = {
-                  type: 'mp4',
+                  type: 'mp4|webm',
                   url: feeds[i]['media'][j]
                 };
               }
@@ -169,9 +169,9 @@ angular
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
-              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
+              else if (feeds[i]['media'][j].match(/\.(mp4|webm)$/i)) {
                 feeds[i]['media'][j] = {
-                  type: 'mp4',
+                  type: 'mp4|webm',
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
@@ -211,9 +211,9 @@ angular
                   url: ENV.staticEndpoint + res[i]['media'][j]
                 };
               }
-              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
+              else if (feeds[i]['media'][j].match(/\.(mp4|webm)$/i)) {
                 feeds[i]['media'][j] = {
-                  type: 'mp4',
+                  type: 'mp4|webm',
                   url: ENV.staticEndpoint + feeds[i]['media'][j],
                 };
               }
