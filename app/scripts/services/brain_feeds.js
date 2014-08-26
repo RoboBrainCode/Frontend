@@ -181,16 +181,16 @@ angular
                   url: ENV.staticEndpoint + res[i]['media'][j]
                 };
               }
-              else if (feeds[i]['media'][j].match(/\.(mp4)$/i)) {
-                feeds[i]['media'][j] = {
+              else if (res[i]['media'][j].match(/\.(mp4)$/i)) {
+                res[i]['media'][j] = {
                   type: 'mp4',
-                  url: ENV.staticEndpoint + feeds[i]['media'][j],
+                  url: ENV.staticEndpoint + res[i]['media'][j],
                 };
               }
-              else if (feeds[i]['media'][j].match(/\.(webm)$/i)) {
-                feeds[i]['media'][j] = {
+              else if (res[i]['media'][j].match(/\.(webm)$/i)) {
+                res[i]['media'][j] = {
                   type: 'webm',
-                  url: ENV.staticEndpoint + feeds[i]['media'][j],
+                  url: ENV.staticEndpoint + res[i]['media'][j],
                 };
               }
             }
