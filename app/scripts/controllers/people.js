@@ -146,5 +146,12 @@ angular.module('roboBrainApp')
       role: 'Planning and Visualization',
       photo: 'images/contrib/ddas.jpg',
       url: 'http://debarghyadas.com/'
+    },
+    {
+      name: 'Ayush Dubey',
+      institution: 'Cornell University',
+      role: 'Graph Databases (Weaver)',
+      photo: 'images/contrib/adubey.jpg',
+      url: 'http://www.cs.cornell.edu/~dubey'
     }];
   });

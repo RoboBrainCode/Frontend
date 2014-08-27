@@ -192,6 +192,11 @@ body {
   width: 100%;
 }
 
+.video {
+  width: 100% !important;
+  height: auto !important;
+}
+
 .vote {
   display: inline-block;
   background: url('images/vote.png');

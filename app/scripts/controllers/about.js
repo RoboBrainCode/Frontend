@@ -9,6 +9,53 @@
  */
 angular.module('roboBrainApp')
   .controller('AboutCtrl', function ($scope) {
+    $scope.news = [
+    {
+      name: 'Wired',
+      logo: 'images/news/wired.jpg',
+      url: 'http://www.wired.com/2014/08/robobrain/'
+    },
+    {
+      name: 'CNet',
+      logo: 'images/news/cnet.jpg',
+      url: 'http://www.cnet.com/news/robo-brain-is-learning-from-the-internet/'
+    },
+    {
+      name: 'CBS',
+      logo: 'images/news/cbs.jpg',
+      url: 'http://www.cbsnews.com/news/robo-brain-to-teach-robots-about-the-human-world/'
+    },
+    {
+      name: 'Washington Post',
+      logo: 'images/news/wpost.jpg',
+      url: 'http://www.washingtonpost.com/news/speaking-of-science/wp/2014/08/25/this-robot-is-using-youtube-videos-to-learn-all-about-us/'
+    },
+    {
+      name: 'BBC',
+      logo: 'images/news/bbc.jpg',
+      url: 'http://www.bbc.com/news/technology-28936436'
+    },
+    {
+      name: 'Sky',
+      logo: 'images/news/sky.jpg',
+      url: 'http://news.sky.com/story/1325005/robo-brain-lets-robots-learn-from-the-internet'
+    },
+    {
+      name: 'Daily Mail',
+      logo: 'images/news/dmail.jpg',
+      url: 'http://www.dailymail.co.uk/sciencetech/article-2734123/The-robot-brain-rule-Plans-giant-central-brain-power-millions-machines-world-revealed.html'
+    },
+    {
+      name: 'Popular Science',
+      logo: 'images/news/psci.jpg',
+      url: 'http://www.popsci.com/blog-network/zero-moment/robo-brain-project-wants-turn-internet-robotic-hivemind'
+    },
+    {
+      name: 'VOA',
+      logo: 'images/news/voa.jpg',
+      url: 'http://blogs.voanews.com/science-world/2014/08/25/12571/'
+    }
+    ]
     $scope.sponsors_gov = [
     {
       name: 'National Science Foundation',

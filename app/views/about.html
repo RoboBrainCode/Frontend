@@ -17,15 +17,22 @@
       project as we are. For more information,
       please view the <a ng-href="#/research/">Research</a> page.
     </p>
-    <br>
-  </div>
-  <div class="col-xs-12 text-center">
-    <h3>Robo Brain Talk at RSS '14</h3>
-    <iframe width="560" height="315" src="//www.youtube.com/embed/D_EvBEtVodY" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
 <br><br>
 <div class="text-center">
+  <h3>Talk at RSS '14</h3>
+  <br>
+  <iframe src="//www.youtube.com/embed/D_EvBEtVodY" frameborder="0" allowfullscreen></iframe>
+  <br><br>
+  <h3>In The Press</h3>
+  <br>
+  <span ng-repeat="n in news">
+    <a ng-href="{{ n.url }}" target="_blank">
+      <img class="sponsor-logo" ng-src="{{ n.logo }}">
+    </a>
+  </span>
+  <br><br>
   <h3>Thanks To Our Sponsors</h3>
   <br>
   <span ng-repeat="s in sponsors_gov">
