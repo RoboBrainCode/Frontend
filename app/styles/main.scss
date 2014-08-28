@@ -142,8 +142,15 @@ body {
 .sponsor-logo {
   @extend .img-responsive;
   display: inline-block;
-  padding: 20px;
-  height: 125px;
+  padding: 12px;
+  height: 75px;
+}
+
+.news-logo {
+  @extend .img-responsive;
+  display: inline-block;
+  padding: 12px;
+  height: 75px;
 }
 
 /* Feed styles */
@@ -199,7 +206,7 @@ body {
 
 .vote {
   display: inline-block;
-  background: url('images/vote.png');
+  background: url('../images/vote.png');
   overflow: hidden;
   width: 40px;
   height: 25px;

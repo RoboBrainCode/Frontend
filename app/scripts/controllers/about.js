@@ -11,6 +11,21 @@ angular.module('roboBrainApp')
   .controller('AboutCtrl', function ($scope) {
     $scope.news = [
     {
+      name: 'TechCrunch',
+      logo: 'images/news/tc.jpg',
+      url: 'http://techcrunch.com/2014/08/25/the-robo-brain-will-use-the-internet-to-teach-robots/'
+    },
+    {
+      name: 'Yahoo',
+      logo: 'images/news/yahoo.jpg',
+      url: 'https://www.yahoo.com/tech/cornell-scientists-create-robo-brain-to-teach-robots-95740298304.html'
+    },
+    {
+      name: 'Kurzweil',
+      logo: 'images/news/kurzweil.jpg',
+      url: 'http://www.kurzweilai.net/robo-brain-will-teach-robots-everything-from-the-internet'
+    },
+    {
       name: 'Wired',
       logo: 'images/news/wired.jpg',
       url: 'http://www.wired.com/2014/08/robobrain/'
