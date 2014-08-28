@@ -142,15 +142,15 @@ body {
 .sponsor-logo {
   @extend .img-responsive;
   display: inline-block;
-  padding: 12px;
-  height: 75px;
+  padding: 20px;
+  height: 125px;
 }
 
 .news-logo {
   @extend .img-responsive;
   display: inline-block;
-  padding: 12px;
-  height: 75px;
+  padding: 10px;
+  height: 50px;
 }
 
 /* Feed styles */
@@ -197,6 +197,22 @@ body {
   border: none;
   height: 100%;
   width: 100%;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .video {
