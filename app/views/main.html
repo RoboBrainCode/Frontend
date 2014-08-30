@@ -15,7 +15,7 @@
   </div>
 </div>
 <br><br>
-<ul class="list-unstyled">
+<ul class="list-unstyled" infinite-scroll="moreRecent()">
   <li ng-repeat="f in feeds track by $index">
     <div class="panel panel-default feed-{{ $index % 5}}">
       <div class="panel-body">

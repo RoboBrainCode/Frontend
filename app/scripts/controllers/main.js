@@ -11,6 +11,6 @@
  */
 angular.module('roboBrainApp')
   .controller('MainCtrl', ['$scope', 'brainFeeds', function ($scope, brainFeeds) {
-    brainFeeds.init();
-    $scope.feeds = brainFeeds.mostRecent();
+    $scope.feeds = brainFeeds.init();
+    $scope.moreRecent = brainFeeds.moreRecent;
   }]);
