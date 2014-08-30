@@ -21,7 +21,7 @@ angular
             for (var k = 0; k < data.length; ++k) {
               var i = feedLength + k;
               offset = i + 1;
-              feeds.push(data[k][0]);
+              feeds.push(data[k]);
               feeds[i]['text'] = feeds[i]['text'].split(' ');
               for (var j = 0; j < feeds[i]['media'].length; ++j) {
                 // Bundle tellmedave robot sequence with simulator url
