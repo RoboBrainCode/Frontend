@@ -21,6 +21,11 @@ angular.module('roboBrainApp')
       url: 'https://www.yahoo.com/tech/cornell-scientists-create-robo-brain-to-teach-robots-95740298304.html'
     },
     {
+      name: 'ABC',
+      logo: 'images/news/abc.jpg',
+      url: 'http://abcnews.go.com/Technology/robots-learn-teach/story?id=25196591'
+    },
+    {
       name: 'Kurzweil',
       logo: 'images/news/kurzweil.jpg',
       url: 'http://www.kurzweilai.net/robo-brain-will-teach-robots-everything-from-the-internet'
