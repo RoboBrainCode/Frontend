@@ -11,6 +11,11 @@ angular.module('roboBrainApp')
   .controller('AboutCtrl', function ($scope) {
     $scope.news = [
     {
+      name: 'New York Times',
+      logo: 'images/news/nyt.jpg',
+      url: 'http://www.nytimes.com/2014/09/02/science/robot-touch.html'
+    },
+    {
       name: 'TechCrunch',
       logo: 'images/news/tc.jpg',
       url: 'http://techcrunch.com/2014/08/25/the-robo-brain-will-use-the-internet-to-teach-robots/'
