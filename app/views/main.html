@@ -36,20 +36,20 @@
           <span ng-repeat="m in f.media">
             <span ng-switch="m.type">
               <div ng-switch-when="image" class="col-sm-6 col-xs-12">
-                <img class="feed-media" ng-src="{{ m.url }}">
+                <img class="feed-media feed-image" ng-src="{{ m.url }}">
               </div>
               <div ng-switch-when="html" class="col-xs-12">
-                <iframe class="feed-iframe" ng-src="{{ m.url }}" frameborder="0"></iframe>
+                <iframe class="feed-media feed-iframe" ng-src="{{ m.url }}" frameborder="0"></iframe>
               </div>
               <div ng-switch-when="mp4" class="col-xs-12">
-                <video class="video" controls>
-                  <source ng-src="{{ m.url }}" type="video/mp4">
+                <video class="video" controls preload="metadata">
+                  <source class="feed-media" ng-src="{{ m.url }}" type="video/mp4">
                   Your browser does not support the video tag. Please upgrade to an HTML5-compatible browser.
                 </video>
               </div>
               <div ng-switch-when="webm" class="col-xs-12">
-                <video class="video" controls>
-                  <source ng-src="{{ m.url }}" type="video/webm">
+                <video class="video" controls preload="metadata">
+                  <source class="feed-media" ng-src="{{ m.url }}" type="video/webm">
                   Your browser does not support the video tag. Please upgrade to an HTML5-compatible browser.
                 </video>
               </div>
@@ -65,7 +65,11 @@
           </div>
         </div>
         <br>
-        <span class="vote on"><a href="#"></a></span> (Click to Upvote) &#183;
+        <span ng-switch="f.upvoted">
+          <button ng-switch-when="true" class="vote"></button>
+          <button ng-switch-default class="vote on" ng-click="upvote(f._id.$oid)"></button>
+        </span>
+        (Click to Upvote) &#183;
         <a class="feed-comments" id="comment-{{ $index }}" ng-href="static/comments.html?id={{ f.text.join(' ') }}">View Comments</a>
         <br>
         <iframe class="feed-iframe-comments" id="iframe-comment-{{ $index }}" ng-src="#"></iframe>
@@ -84,7 +88,9 @@
       iframe.setAttribute('src', e.target.getAttribute('href'));
       iframe.style.display = "block";
     }
-    if (e.target && e.target.className === "vote on") {
+    if (e.target && e.target.className.indexOf("vote on") != -1) {
+      e.preventDefault();
+      e.target.removeAttribute("ng-click");
       e.target.className = "vote";
     }
   });

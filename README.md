@@ -9,6 +9,7 @@ project.
 
 ### Dependencies
 
+* compass (ruby gem)
 * npm Package Manager (for testing only)
 * Bower Package Manager
 

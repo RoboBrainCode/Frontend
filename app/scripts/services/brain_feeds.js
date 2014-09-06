@@ -1,6 +1,6 @@
 angular
   .module('roboBrainApp')
-  .factory('brainFeeds', ['$resource', '$interval', 'ENV', function($resource, $interval, ENV) {
+  .factory('brainFeeds', ['$resource', '$interval', '$cookieStore', 'ENV', function($resource, $interval, $cookieStore, ENV) {
     // initialize with k most recent feeds
     var feeds = [];
     var feedSize = 20;
@@ -11,6 +11,9 @@ angular
           .then(function(data) {
           for (var i = 0; i < data.length; ++i) {
             feeds.push(data[i]);
+            if ($cookieStore.get(data[i]['_id']['$oid'])) {
+              feeds[i]['upvoted'] = true;
+            }
             feeds[i]['text'] = feeds[i]['text'].split(' ');
             for (var j = 0; j < feeds[i]['media'].length; ++j) {
               // Bundle tellmedave robot sequence with simulator url
@@ -147,6 +150,11 @@ angular
         });
       },
       mostRecent: function() { return feeds; },
+      upvote: function(feedid) {
+        $resource(ENV.apiEndpoint + 'feed/upvotes', { feedid: feedid, callback: 'JSON_CALLBACK' },
+        { get: { method: 'JSONP' } }).get().$promise
+        .then(function() { $cookieStore.put(feedid, 1); });
+      },
       query: function(q) {
         var res = [];
         q['k'] = feedSize;
@@ -165,6 +173,9 @@ angular
         .then(function(data) {
           for (var i = 0; i < data.length; ++i) {
             res.push(data[i]);
+            if ($cookieStore.get(data[i]['_id']['$oid'])) {
+              res[i]['upvoted'] = true;
+            }
             res[i]['text'] = res[i]['text'].split(' ');
             for (var j = 0; j < res[i]['media'].length; ++j) {
               // Bundle tellmedave robot sequence with simulator url

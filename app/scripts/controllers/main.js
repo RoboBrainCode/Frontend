@@ -10,7 +10,8 @@
  * Media content type must be one of: image
  */
 angular.module('roboBrainApp')
-  .controller('MainCtrl', ['$scope', 'brainFeeds', function ($scope, brainFeeds) {
+  .controller('MainCtrl', ['$scope', 'brainFeeds', function ($scope, brainFeeds, ENV) {
     brainFeeds.init();
     $scope.feeds = brainFeeds.mostRecent();
+    $scope.upvote = brainFeeds.upvote;
   }]);
