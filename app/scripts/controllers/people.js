@@ -153,5 +153,12 @@ angular.module('roboBrainApp')
       role: 'Graph Databases (Weaver)',
       photo: 'images/contrib/adubey.jpg',
       url: 'http://www.cs.cornell.edu/~dubey'
+    },
+    {
+      name: 'David Whitney',
+      institution: 'Brown University',
+      role: 'Semantics and Cooking',
+      photo: 'images/contrib/dwhitney.jpg',
+      url: 'https://cs.brown.edu/people/dwhitney/'
     }];
   });
