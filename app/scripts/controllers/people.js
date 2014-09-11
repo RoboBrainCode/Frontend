@@ -95,6 +95,13 @@ angular.module('roboBrainApp')
       role: 'Computer Vision',
       photo: 'images/contrib/jmalik.jpg',
       url: 'http://www.cs.berkeley.edu/~malik/'
+    },
+    {
+      name: 'Prof. Ross Knepper',
+      institution: 'Cornell University',
+      role: 'Structured Planning',
+      photo: 'images/contrib/rknepper.jpg',
+      url: 'http://people.csail.mit.edu/rak/www/'
     }];
     $scope.phd_students = [
     {
