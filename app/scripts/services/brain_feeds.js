@@ -23,8 +23,11 @@ angular
               var i = feedLength + k;
               offset = i + 1;
               feeds.push(data[k]);
-              if ($cookieStore.get(data[k]['_id']['$oid'])) {
+              if ($cookieStore.get(data[k]['_id']['$oid'] + 'upvote')) {
                 feeds[i]['upvoted'] = true;
+              }
+              if ($cookieStore.get(data[k]['_id']['$oid'] + 'downvote')) {
+                feeds[i]['downvoted'] = true;
               }
               feeds[i]['text'] = feeds[i]['text'].split(' ');
               for (var j = 0; j < feeds[i]['media'].length; ++j) {
@@ -164,10 +167,17 @@ angular
           });
         }
       },
-      upvote: function(feedid) {
-        $resource(ENV.apiEndpoint + 'feed/upvotes', { feedid: feedid, callback: 'JSON_CALLBACK' },
+      vote: function(feedid, direction) {
+        $resource(ENV.apiEndpoint + 'feed/upvotes', { feedid: feedid, callback: 'JSON_CALLBACK', vote: direction },
         { get: { method: 'JSONP' } }).get().$promise
-        .then(function() { $cookieStore.put(feedid, 1); });
+        .then(function() {
+          if (direction > 0) {
+            $cookieStore.put(feedid + 'upvote', 1);
+          }
+          else {
+            $cookieStore.put(feedid + 'downvote', 1);
+          }
+        });
       },
       query: function(q) {
         var res = [];
@@ -187,8 +197,11 @@ angular
         .then(function(data) {
           for (var i = 0; i < data.length; ++i) {
             res.push(data[i]);
-            if ($cookieStore.get(data[i]['_id']['$oid'])) {
+            if ($cookieStore.get(data[i]['_id']['$oid'] + 'upvote')) {
               res[i]['upvoted'] = true;
+            }
+            if ($cookieStore.get(data[i]['_id']['$oid'] + 'downvote')) {
+              res[i]['downvoted'] = true;
             }
             res[i]['text'] = res[i]['text'].split(' ');
             for (var j = 0; j < res[i]['media'].length; ++j) {

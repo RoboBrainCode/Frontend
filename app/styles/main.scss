@@ -223,11 +223,20 @@ body {
 .vote {
   border: none;
   display: inline-block;
-  background: url('../images/vote.png');
   overflow: hidden;
   width: 40px;
   height: 25px;
-} 
+}
+
+.upvote {
+  @extend .vote;
+  background: url('../images/upvote.png');
+}
+
+.downvote {
+  @extend .vote;
+  background: url('../images/downvote.png');
+}
 
 .vote.on {
   background-position: 0px -25px;

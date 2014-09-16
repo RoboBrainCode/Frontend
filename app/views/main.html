@@ -66,10 +66,13 @@
         </div>
         <br>
         <span ng-switch="f.upvoted">
-          <button ng-switch-when="true" class="vote"></button>
-          <button ng-switch-default class="vote on" ng-click="upvote(f._id.$oid)"></button>
+          <button ng-switch-when="true" class="upvote"></button>
+          <button ng-switch-default class="upvote on" ng-click="vote(f._id.$oid, 1)"></button>
         </span>
-        (Click to Upvote) &#183;
+        <span ng-switch="f.downvoted">
+          <button ng-switch-when="true" class="downvote"></button>
+          <button ng-switch-default class="downvote on" ng-click="vote(f._id.$oid, -1)"></button>
+        </span>
         <a class="feed-comments" id="comment-{{ $index }}" ng-href="static/comments.html?id={{ f.text.join(' ') }}">View Comments</a>
         <br>
         <iframe class="feed-iframe-comments" id="iframe-comment-{{ $index }}"></iframe>
@@ -88,10 +91,15 @@
       iframe.setAttribute('src', e.target.getAttribute('href'));
       iframe.style.display = "block";
     }
-    if (e.target && e.target.className.indexOf("vote on") != -1) {
+    if (e.target && e.target.className.indexOf("vote") != -1 && e.target.className.indexOf("on") != -1) {
       e.preventDefault();
       e.target.removeAttribute("ng-click");
-      e.target.className = "vote";
+      if (e.target.className.indexOf("upvote") != -1) {
+        e.target.className = "upvote";
+      }
+      else {
+        e.target.className = "downvote";
+      }
     }
   });
 </script>
