@@ -42,7 +42,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'development',
-            apiEndpoint: 'http://ec2-54-218-20-10.us-west-2.compute.amazonaws.com:3000/',
+            apiEndpoint: 'http://test.robobrain.me:3000/',
             staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
           }
         }
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            apiEndpoint: 'http://ec2-54-218-14-187.us-west-2.compute.amazonaws.com:3000/',
+            apiEndpoint: 'http://test.robobrain.me:3000/',
             staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
           }
         }
@@ -409,7 +409,7 @@ module.exports = function (grunt) {
       ],
       dist: [
         'compass:dist',
-        'imagemin',
+       // 'imagemin',
         'svgmin'
       ]
     },
