@@ -15,7 +15,7 @@ angular
       moreRecent: function() {
         if (isScrolling) {
           isScrolling = false;
-          $resource(ENV.apiEndpoint + 'feed/infinite_scroll', { k: feedSize, cur: offset, callback: 'JSON_CALLBACK' },
+          $resource(ENV.apiEndpoint + 'feed/infinite_scroll.json', { k: feedSize, cur: offset, callback: 'JSON_CALLBACK' },
             { get: { method: 'JSONP', isArray: true } }).get().$promise
             .then(function(data) {
             var feedLength = offset;
@@ -168,7 +168,7 @@ angular
         }
       },
       vote: function(feedid, direction) {
-        $resource(ENV.apiEndpoint + 'feed/upvotes', { feedid: feedid, callback: 'JSON_CALLBACK', vote: direction },
+        $resource(ENV.apiEndpoint + 'feed/upvotes.json', { feedid: feedid, callback: 'JSON_CALLBACK', vote: direction },
         { get: { method: 'JSONP' } }).get().$promise
         .then(function() {
           if (direction > 0) {
@@ -185,10 +185,10 @@ angular
         q['callback'] = 'JSON_CALLBACK';
         var url = ENV.apiEndpoint;
         if (q['hashword']) {
-          url += 'feed/filter';
+          url += 'feed/filter.json';
         }
         else if (q['type']) {
-          url += 'feed/filter_type';
+          url += 'feed/filter_type.json';
         }
         else {
           return [];
