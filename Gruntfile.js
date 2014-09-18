@@ -54,7 +54,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            apiEndpoint: 'http://test.robobrain.me:3000/',
+            apiEndpoint: 'http://robobrain.me:3000/',
             staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
           }
         }
