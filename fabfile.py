@@ -19,7 +19,9 @@ def prod_deploy(user='ubuntu',speed='fast'):
     print(green('Checking out production...'))
     run('git checkout production')
     print(green('Rebasing onto test...'))
-    run('git rebase test')
+    run('git rebase test --force-rebase')
+    print(green('Pulling production...'))
+    run('git pull origin production')
     print(green('Pushing production upstream...'))
     run('git push origin production')
     if speed == 'fast':
@@ -44,7 +46,7 @@ def test_deploy(user='ubuntu', speed='fast'):
     print(green('Checking out test...'))
     run('git checkout test')
     print(green('Rebasing onto master...'))
-    run('git rebase master')
+    run('git rebase master --force-rebase')
     print(green('Pulling latest version of test...'))
     run('git pull origin test')
     print(green('Push the latest version of test...'))
@@ -55,4 +57,6 @@ def test_deploy(user='ubuntu', speed='fast'):
     else:
       print(green('Building grunt... (this usually takes 8 minutes)'))
       sudo('grunt build')
+    print(green('Copying changes into ./serve/...'))
+    run('cp -R dist/* serve/')
   print(red('Done!'))

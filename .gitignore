@@ -1,3 +1,4 @@
+serve/
 .DS_Store
 *.pyc
 dist/
