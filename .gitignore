@@ -1,5 +1,5 @@
 .DS_Store
-.pyc
+*.pyc
 dist/
 node_modules/
 bower_components/
