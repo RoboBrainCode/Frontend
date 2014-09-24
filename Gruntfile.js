@@ -9,6 +9,12 @@
 
 module.exports = function (grunt) {
 
+  // Recompress images
+  var recompress = !grunt.option('fast');
+  if (!recompress) {
+    console.log('Not compressing images to save time. Remove the --fast flag to turn this on if you\'ve added new assets.');
+  }
+
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -407,9 +413,12 @@ module.exports = function (grunt) {
       test: [
         'compass'
       ],
-      dist: [
+      dist: recompress  ? [
         'compass:dist',
         'imagemin',
+        'svgmin'
+      ] : [
+        'compass:dist',
         'svgmin'
       ]
     },
