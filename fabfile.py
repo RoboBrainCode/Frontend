@@ -26,10 +26,10 @@ def prod_deploy(user='ubuntu',speed='fast'):
     run('git push origin production')
     if speed == 'fast':
       print(green('Building grunt without optimizing images...'))
-      sudo('grunt build --fast')
+      run('grunt build --fast')
     else:
       print(green('Building grunt... (this usually takes 8 minutes)'))
-      sudo('grunt build')
+      run('grunt build')
   print(red('Done!'))
 
 def test_deploy(user='ubuntu', speed='fast'):
@@ -45,18 +45,18 @@ def test_deploy(user='ubuntu', speed='fast'):
     run('git pull origin master')
     print(green('Checking out test...'))
     run('git checkout test')
-    print(green('Rebasing onto master...'))
-    run('git rebase master --force-rebase')
     print(green('Pulling latest version of test...'))
     run('git pull origin test')
+    print(green('Rebasing onto master...'))
+    run('git rebase master test')
     print(green('Push the latest version of test...'))
     run('git push origin test')
     if speed == 'fast':
       print(green('Building grunt without optimizing images...'))
-      sudo('grunt build --fast')
+      run('grunt build --fast')
     else:
       print(green('Building grunt... (this usually takes 8 minutes)'))
-      sudo('grunt build')
+      run('grunt build')
     print(green('Copying changes into ./serve/...'))
     run('cp -R dist/* serve/')
   print(red('Done!'))
