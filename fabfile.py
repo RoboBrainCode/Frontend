@@ -26,10 +26,10 @@ def prod_deploy(user='ubuntu',speed='fast'):
     run('git push origin production')
     if speed == 'fast':
       print(green('Building grunt without optimizing images...'))
-      run('grunt build --fast')
+      sudo('grunt build --fast')
     else:
       print(green('Building grunt... (this usually takes 8 minutes)'))
-      run('grunt build')
+      sudo('grunt build')
   print(red('Done!'))
 
 def test_deploy(user='ubuntu', speed='fast'):
@@ -53,10 +53,10 @@ def test_deploy(user='ubuntu', speed='fast'):
     run('git push origin test')
     if speed == 'fast':
       print(green('Building grunt without optimizing images...'))
-      run('grunt build --fast')
+      sudo('grunt build --fast')
     else:
       print(green('Building grunt... (this usually takes 8 minutes)'))
-      run('grunt build')
+      sudo('grunt build')
     print(green('Copying changes into ./serve/...'))
     run('cp -R dist/* serve/')
   print(red('Done!'))
