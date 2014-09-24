@@ -30,6 +30,8 @@ def prod_deploy(user='ubuntu',speed='fast'):
     else:
       print(green('Building grunt... (this usually takes 8 minutes)'))
       sudo('grunt build')
+    print(green('Copying changes into ./serve/...'))
+    run('cp -R dist/* serve/')
   print(red('Done!'))
 
 def test_deploy(user='ubuntu', speed='fast'):
