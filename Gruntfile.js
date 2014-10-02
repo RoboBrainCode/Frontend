@@ -384,7 +384,7 @@ module.exports = function (grunt) {
             'images/{,*/}*.{webp}',
             'static/{,*/}*.{html, htm}',
             'fonts/*',
-            'styles/*'
+            'styles/{,*/}*.css'
           ]
         }, {
           expand: true,
