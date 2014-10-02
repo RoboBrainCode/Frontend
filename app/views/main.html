@@ -65,18 +65,23 @@
           </div>
         </div>
         <br>
-        <span ng-switch="f.upvoted">
-          <button ng-switch-when="true" class="upvote"></button>
-          <button ng-switch-default class="upvote on" ng-click="vote(f._id.$oid, 1)"></button>
-        </span>
-        <span ng-switch="f.downvoted">
-          <button ng-switch-when="true" class="downvote"></button>
-          <button ng-switch-default class="downvote on" ng-click="vote(f._id.$oid, -1)"></button>
-        </span>
-        <a class="feed-comments" id="comment-{{ $index }}" ng-href="static/comments.html?id={{ f.text.join(' ') }}">View Comments</a>
-        <br>
-        <iframe class="feed-iframe-comments" id="iframe-comment-{{ $index }}"></iframe>
-        <br>
+        <div class="row social-buttons">
+          <div class="col-md-1 text-center" ng-switch="f.upvoted">
+            <a ng-switch-when="true" class="upvote"><i class="fa fa-thumbs-up fa-2x"></i></a>
+            <a ng-switch-default class="upvote on" ng-click="vote(f._id.$oid, 1)"><i class="fa fa-thumbs-up fa-2x"></i></a>
+          </div>
+          <div class="col-md-1 text-center" ng-switch="f.downvoted">
+            <a ng-switch-when="true" class="downvote"><i class="fa fa-thumbs-down fa-2x"></i></a>
+            <a ng-switch-default class="downvote on" ng-click="vote(f._id.$oid, -1)"><i class="fa fa-thumbs-down fa-2x"></i></a>
+          </div>
+          <div class="col-md-1 text-center">
+            <a>
+              <i id="comment-{{ $index }}" ng-href="static/comments.html?id={{ f.text.join(' ') }}" class="feed-comments fa fa-comments fa-2x"></i>
+            </a>
+          </div>
+          <iframe class="feed-iframe-comments" id="iframe-comment-{{ $index }}"></iframe>
+        </div>
+
       </div>
     </div>
     <br>
@@ -85,7 +90,7 @@
 <br>
 <script type="text/javascript">
   document.getElementsByTagName("body")[0].addEventListener("click", function(e) {
-    if (e.target && e.target.className === "feed-comments") {
+    if (e.target && e.target.className.indexOf("feed-comments") != -1) {
       e.preventDefault();
       var iframe = document.getElementById('iframe-' + e.target.id);
       iframe.setAttribute('src', e.target.getAttribute('href'));
