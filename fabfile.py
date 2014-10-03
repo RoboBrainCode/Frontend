@@ -47,10 +47,10 @@ def test_deploy(user='ubuntu', speed='fast'):
     run('git pull --no-edit origin master')
     print(green('Checking out test...'))
     run('git checkout test')
-    # print(green('Pulling latest version of test...'))
-    # run('git pull --no-edit origin test')
     print(green('Rebasing onto master...'))
     run('git rebase master test')
+    print(green('Pulling latest version of test...'))
+    run('git pull --no-edit origin test')
     print(green('Push the latest version of test...'))
     run('git push origin test')
     if speed == 'fast':
