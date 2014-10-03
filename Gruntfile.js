@@ -43,7 +43,7 @@ module.exports = function (grunt) {
       // Environment targets
       development: {
         options: {
-          dest: '<%= yeoman.app %>/scripts/config.js'
+          dest: '<%= yeoman.dist %>/scripts/config.js'
         },
         constants: {
           ENV: {
@@ -383,7 +383,8 @@ module.exports = function (grunt) {
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'static/{,*/}*.{html, htm}',
-            'fonts/*'
+            'fonts/*',
+            'styles/font-awesome/**/*'
           ]
         }, {
           expand: true,
@@ -472,6 +473,7 @@ module.exports = function (grunt) {
     'concat',
     'ngmin',
     'copy:dist',
+    'copy:styles',
     'cdnify',
     'cssmin',
     'uglify',
