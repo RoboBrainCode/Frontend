@@ -383,8 +383,7 @@ module.exports = function (grunt) {
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'static/{,*/}*.{html, htm}',
-            'fonts/*',
-            'styles/**/*.css'
+            'fonts/*'
           ]
         }, {
           expand: true,
@@ -397,12 +396,12 @@ module.exports = function (grunt) {
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
           dest: '<%= yeoman.dist %>'
         }]
-      },
+      }
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
-        src: '{,*/}*.css'
+        src: '**/*.css'
       }
     },
 
@@ -463,7 +462,24 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
-  grunt.registerTask('build', [
+  grunt.registerTask('test_build', [
+    'clean:dist',
+    'ngconstant:development',
+    'wiredep',
+    'useminPrepare',
+    'concurrent:dist',
+    'autoprefixer',
+    'concat',
+    'ngmin',
+    'copy:dist',
+    'cdnify',
+    'cssmin',
+    'uglify',
+    'usemin',
+    'htmlmin'
+  ]);
+
+  grunt.registerTask('prod_build', [
     'clean:dist',
     'ngconstant:production',
     'wiredep',
