@@ -30,8 +30,9 @@ def prod_deploy(user='ubuntu',speed='fast'):
     else:
       print(green('Building grunt... (this usually takes 8 minutes)'))
       sudo('grunt prod_build')
+      print(green('Cleaning serve directory... '))
+      run('rm -R serve/*')
     print(green('Copying changes into ./serve/...'))
-    run('rm -R serve/*')
     run('cp -R dist/* serve/')
   print(red('Done!'))
 
@@ -60,7 +61,8 @@ def test_deploy(user='ubuntu', speed='fast'):
     else:
       print(green('Building grunt... (this usually takes 8 minutes)'))
       sudo('grunt test_build')
+      print(green('Cleaning serve directory... '))
+      run('rm -R serve/*')
     print(green('Copying changes into ./serve/...'))
-    run('rm -R serve/*')
     run('cp -R dist/* serve/')
   print(red('Done!'))

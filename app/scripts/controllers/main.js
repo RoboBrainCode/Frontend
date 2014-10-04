@@ -15,4 +15,5 @@ angular.module('roboBrainApp')
     $scope.feeds = brainFeeds.init();
     $scope.moreRecent = brainFeeds.moreRecent;
     $scope.vote = brainFeeds.vote;
+    $scope.loadComments = brainFeeds.loadComments;
   }]);

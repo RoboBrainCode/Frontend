@@ -17,7 +17,7 @@
 <br><br>
 <ul class="list-unstyled" infinite-scroll="moreRecent()">
   <li ng-repeat="f in feeds track by $index">
-    <div class="panel panel-default feed-{{ $index % 5}}">
+    <div id="{{ f._id }}" class="panel panel-default feed-{{ $index % 5}}">
       <div class="panel-body">
         <br>
         <p class="lead">
@@ -57,54 +57,39 @@
           </span>
         </div>
         <br>
-        <div class="row">
-          <div class="col-sm-8 col-xs-12">
-            <a ng-href="#/query?type={{ f.type }}">
-              <span class="label label-primary">{{ f.type }}</span>
-            </a>
-          </div>
+        <div class="label-full">
+          <a class="label-link" ng-href="#/query?type={{ f.source_text }}">
+            <span class="label label-primary">{{ f.source_text }}</span>
+          </a>
         </div>
-        <br>
-        <div class="row social-buttons">
-          <div class="col-md-1 text-center" ng-switch="f.upvoted">
-            <a ng-switch-when="true" class="upvote"><i class="fa fa-thumbs-up fa-2x"></i></a>
-            <a ng-switch-default class="upvote on" ng-click="vote(f._id.$oid, 1)"><i class="fa fa-thumbs-up fa-2x"></i></a>
-          </div>
-          <div class="col-md-1 text-center" ng-switch="f.downvoted">
-            <a ng-switch-when="true" class="downvote"><i class="fa fa-thumbs-down fa-2x"></i></a>
-            <a ng-switch-default class="downvote on" ng-click="vote(f._id.$oid, -1)"><i class="fa fa-thumbs-down fa-2x"></i></a>
-          </div>
-          <div class="col-md-1 text-center">
-            <a>
-              <i id="comment-{{ $index }}" ng-href="static/comments.html?id={{ f.text.join(' ') }}" class="feed-comments fa fa-comments fa-2x"></i>
+        <div class="social-buttons">
+          <span class="social-button upvote-region">
+            <a class="upvote" ng-class="{on: f.upvoted==true}" ng-click="vote(f._id, 1)">
+              <b class="social-button-text">
+                {{ f.upvotes }}
+              </b>
+              <i class="fa fa-thumbs-up fa-2x"></i>
             </a>
-          </div>
-          <iframe class="feed-iframe-comments" id="iframe-comment-{{ $index }}"></iframe>
+          </span>
+          <span class="social-button downvote-region">
+            <a class="downvote" ng-class="{on: f.downvoted==true}" ng-click="vote(f._id, -1)">
+              <b class="social-button-text">
+                {{ f.downvotes }}
+              </b>
+              <i class="fa fa-thumbs-down fa-2x"></i>
+            </a>
+          </span>
+          <span class="social-button">
+            <a class="comments">
+              <b class="social-button-text">
+              </b>
+              <i id="comment-{{ $index }}" ng-href="static/comments.html?id={{ f.text.join(' ') }}" class="feed-comments fa fa-comments fa-2x" ng-click="loadComments(f._id, '{{ f.text.join(' ') }}')"></i>
+            </a>
+          </span>
         </div>
-
       </div>
     </div>
     <br>
   </li>
 </ul>
 <br>
-<script type="text/javascript">
-  document.getElementsByTagName("body")[0].addEventListener("click", function(e) {
-    if (e.target && e.target.className.indexOf("feed-comments") != -1) {
-      e.preventDefault();
-      var iframe = document.getElementById('iframe-' + e.target.id);
-      iframe.setAttribute('src', e.target.getAttribute('href'));
-      iframe.style.display = "block";
-    }
-    if (e.target && e.target.className.indexOf("vote") != -1 && e.target.className.indexOf("on") != -1) {
-      e.preventDefault();
-      e.target.removeAttribute("ng-click");
-      if (e.target.className.indexOf("upvote") != -1) {
-        e.target.className = "upvote";
-      }
-      else {
-        e.target.className = "downvote";
-      }
-    }
-  });
-</script>

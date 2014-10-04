@@ -32,6 +32,13 @@ angular.module('roboBrainApp')
       url: 'http://ozansener.net/'
     },
     {
+      name: 'Debhargya Das',
+      institution: 'Cornell University',
+      role: 'Planning and Visualization',
+      photo: 'images/contrib/ddas.jpg',
+      url: 'http://debarghyadas.com/'
+    },
+    {
       name: 'Kevin Lee',
       institution: 'Cornell University',
       role: 'Online Robot Games',
@@ -39,7 +46,7 @@ angular.module('roboBrainApp')
       url: 'mailto:kkl53@cornell.edu'
     },
     {
-      name: 'Aditya Jami',  
+      name: 'Aditya Jami',
       institution: 'CTO, Zoodig',
       role: 'Large-Scale Systems',
       photo: 'images/contrib/ajami.jpg',
@@ -47,43 +54,43 @@ angular.module('roboBrainApp')
     }];
     $scope.faculty = [
     {
-      name: 'Prof. Ken Goldberg',  
+      name: 'Prof. Ken Goldberg',
       institution: 'UC Berkeley',
       role: 'Cloud Robotics',
       photo: 'images/contrib/kgoldberg.jpg',
       url: 'http://goldberg.berkeley.edu/',
       roleUrl: 'http://goldberg.berkeley.edu/cloud-robotics/'
-    },  
+    },
     {
-      name: 'Prof. Stefanie Tellex',     
+      name: 'Prof. Stefanie Tellex',
       institution: 'Brown University',
       role: 'Robot Dialog',
       photo: 'images/contrib/stellex.jpg',
       url: 'https://cs.brown.edu/people/stefie10/'
     },
     {
-      name: 'Prof. Thorsten Joachims',     
+      name: 'Prof. Thorsten Joachims',
       institution: 'Cornell University',
       role: 'Machine Learning',
       photo: 'images/contrib/tjoachims.jpg',
       url: 'http://www.cs.cornell.edu/People/tj/'
     },
     {
-      name: 'Prof. Silvio Savarese',    
+      name: 'Prof. Silvio Savarese',
       institution: 'Stanford University',
       role: '3D Vision',
       photo: 'images/contrib/ssavarese.jpg',
       url: 'http://cvgl.stanford.edu/silvio/'
     },
     {
-      name: 'Prof. Fei-Fei Li',   
+      name: 'Prof. Fei-Fei Li',
       institution: 'Stanford University',
       role: 'Computer Vision',
       photo: 'images/contrib/fli.jpg',
       url: 'http://vision.stanford.edu/feifeili/'
     },
     {
-      name: 'Prof. Bart Selman',    
+      name: 'Prof. Bart Selman',
       institution: 'Cornell University',
       role: 'Reasoning and AI',
       photo: 'images/contrib/bselman.jpg',
@@ -146,13 +153,6 @@ angular.module('roboBrainApp')
       role: '3D Vision',
       photo: 'images/contrib/cwu.jpg',
       url: 'http://www.cs.cornell.edu/~chenxiawu/'
-    },
-    {
-      name: 'Debhargya Das',
-      institution: 'Cornell University',
-      role: 'Planning and Visualization',
-      photo: 'images/contrib/ddas.jpg',
-      url: 'http://debarghyadas.com/'
     },
     {
       name: 'Ayush Dubey',

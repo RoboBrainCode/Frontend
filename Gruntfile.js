@@ -43,7 +43,7 @@ module.exports = function (grunt) {
       // Environment targets
       development: {
         options: {
-          dest: '<%= yeoman.dist %>/scripts/config.js'
+          dest: '<%= yeoman.dist %>/scripts/config.js',
         },
         constants: {
           ENV: {
@@ -61,6 +61,30 @@ module.exports = function (grunt) {
           ENV: {
             name: 'production',
             apiEndpoint: 'http://robobrain.me:3000/',
+            staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
+          }
+        }
+      },
+      local: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/config.js',
+        },
+        constants: {
+          ENV: {
+            name: 'local',
+            apiEndpoint: 'http://test.robobrain.me:3000/',
+            staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
+          }
+        }
+      },
+      localbackend: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/config.js',
+        },
+        constants: {
+          ENV: {
+            name: 'localbackend',
+            apiEndpoint: 'http://localhost:8000/',
             staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
           }
         }
@@ -435,13 +459,21 @@ module.exports = function (grunt) {
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
+    if (target === 'uselocal') {
+      return grunt.task.run([
+        'clean:server',
+        'ngconstant:localbackend',
+        'wiredep',
+        'concurrent:server',
+        'autoprefixer',
+        'connect:livereload',
+        'watch'
+      ]);
     }
 
     grunt.task.run([
       'clean:server',
-      'ngconstant:development',
+      'ngconstant:local',
       'wiredep',
       'concurrent:server',
       'autoprefixer',

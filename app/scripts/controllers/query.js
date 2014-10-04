@@ -11,5 +11,7 @@
  */
 angular.module('roboBrainApp')
   .controller('QueryCtrl', ['$scope', '$routeParams', 'brainFeeds', function ($scope, $routeParams, brainFeeds) {
-    $scope.feeds = brainFeeds.query($routeParams);
+    $scope.feeds = brainFeeds.init();
+    brainFeeds.query($routeParams);
+    $scope.vote = brainFeeds.vote;
   }]);
