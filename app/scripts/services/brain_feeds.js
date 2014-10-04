@@ -11,6 +11,7 @@ angular
     var feedSize = 10;
     var offset = 0;
     var isScrolling = true;
+    var votelock = false;
     return {
       init: function() {
         feeds = {};
