@@ -9,30 +9,46 @@
  */
 angular.module('roboBrainApp')
   .controller('PeopleCtrl', function ($scope) {
+
     $scope.leads = [
     {
       name: 'Prof. Ashutosh Saxena',
-      institution: 'Cornell University',
+      institution: 'Cornell / Stanford',
       role: 'Robot Learning and Project Lead',
       photo: 'images/contrib/asaxena.jpg',
       url: 'http://www.cs.cornell.edu/~asaxena/'
     },
     {
       name: 'Ashesh Jain',
-      institution: 'Cornell University',
+      institution: 'Cornell / Stanford',
       role: 'Interactive Online Learning',
       photo: 'images/contrib/ajain.jpg',
       url: 'http://www.cs.cornell.edu/~ashesh/'
     },
     {
       name: 'Ozan Sener',
-      institution: 'Cornell University',
+      institution: 'Cornell / Stanford',
       role: 'Vision and Language',
       photo: 'images/contrib/osener.jpg',
       url: 'http://ozansener.net/'
     },
     {
-      name: 'Debhargya Das',
+      name: 'Dipendra K. Misra',
+      institution: 'Cornell / Stanford',
+      role: 'Robot Language (Tell Me Dave)',
+      photo: 'images/contrib/dmisra.jpg',
+      url: 'http://www.cs.cornell.edu/~dkm/',
+      roleUrl: 'http://tellmedave.cs.cornell.edu/'
+    },
+    {
+      name: 'Aditya Jami',
+      institution: 'Cornell / Zoodig',
+      role: 'Large-Scale Systems',
+      photo: 'images/contrib/ajami.jpg',
+      url: 'http://www.linkedin.com/in/adityajami'
+    }];
+    $scope.ugrad_masters_students = [{
+      name: 'Debarghya Das',
       institution: 'Cornell University',
       role: 'Planning and Visualization',
       photo: 'images/contrib/ddas.jpg',
@@ -46,12 +62,28 @@ angular.module('roboBrainApp')
       url: 'mailto:kkl53@cornell.edu'
     },
     {
-      name: 'Aditya Jami',
-      institution: 'CTO, Zoodig',
-      role: 'Large-Scale Systems',
-      photo: 'images/contrib/ajami.jpg',
-      url: 'http://www.linkedin.com/in/adityajami'
-    }];
+      name: 'Michela Meister',
+      institution: 'Stanford University',
+      role: 'Language Queries',
+      photo: 'images/contrib/mmeister.jpg',
+      url: 'https://www.linkedin.com/in/michelameister'
+    }
+    // ,
+    // {
+    //   name: 'Hope Casey-Allen',
+    //   institution: 'Stanford University',
+    //   role: 'Planning and Visualization',
+    //   url: 'http://debarghyadas.com/'
+    // },
+    // {
+    //   name: 'Gabriel Yu',
+    //   institution: 'Stanford University',
+    //   role: 'HCI',
+    //   url: 'https://www.linkedin.com/in/gabrielyu'
+    // }
+    ];
+
+
     $scope.faculty = [
     {
       name: 'Prof. Ken Goldberg',
@@ -110,6 +142,8 @@ angular.module('roboBrainApp')
       photo: 'images/contrib/rknepper.jpg',
       url: 'http://people.csail.mit.edu/rak/www/'
     }];
+
+
     $scope.phd_students = [
     {
       name: 'Hema Koppula',
@@ -131,14 +165,6 @@ angular.module('roboBrainApp')
       role: 'Deep Learning and Manipulation',
       photo: 'images/contrib/ilenz.jpg',
       url: 'http://www.cs.cornell.edu/~ianlenz/'
-    },
-    {
-      name: 'Dipendra K. Misra',
-      institution: 'Cornell University',
-      role: 'Robot Language (Tell Me Dave)',
-      photo: 'images/contrib/dmisra.jpg',
-      url: 'http://www.cs.cornell.edu/~dkm/',
-      roleUrl: 'http://tellmedave.cs.cornell.edu/'
     },
     {
       name: 'Jaeyong Sung',
