@@ -97,8 +97,8 @@ angular.module('roboBrainApp')
       institution: 'UC Berkeley',
       role: 'Cloud Robotics',
       photo: 'images/contrib/kgoldberg.jpg',
-      url: 'http://goldberg.berkeley.edu/',
-      roleUrl: 'http://goldberg.berkeley.edu/cloud-robotics/'
+      url: 'http://goldberg.berkeley.edu/'
+      // roleUrl: 'http://goldberg.berkeley.edu/cloud-robotics/'
     },
     {
       name: 'Prof. Stefanie Tellex',
