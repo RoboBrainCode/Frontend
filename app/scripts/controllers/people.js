@@ -66,27 +66,28 @@ angular.module('roboBrainApp')
       name: 'Michela Meister',
       institution: 'Stanford University',
       role: 'Language Queries',
-      photo: 'images/contrib/mmeister.jpg'
-      // url: 'https://www.linkedin.com/in/michelameister'
+      photo: 'images/contrib/mmeister.jpg',
+      url: 'mailto:mmeister@stanford.edu'
     },
     {
       name: 'Hope Casey-Allen',
       institution: 'Stanford University',
       role: 'Knowledge Integration',
-      photo: 'images/contrib/hcallen.jpg'
+      photo: 'images/contrib/hcallen.jpg',
+      url: 'mailto:hcaseyal@stanford.edu'
     },
     {
       name: 'Arzav Jain',
       institution: 'Stanford University',
       role: 'Graph Operations',
-      photo: 'images/contrib/arjain.jpg'
-      // url: 'https://www.linkedin.com/pub/arzav-jain/28/226/92a'
+      photo: 'images/contrib/arjain.jpg',
+      url: 'mailto:arzavj@stanford.edu'
     }
     // ,{
-    //   name: 'Gabriel Yu',
+    //   name: 'Gabriel Kho',
     //   institution: 'Stanford University',
     //   role: 'HCI',
-    //   url: 'https://www.linkedin.com/in/gabrielyu'
+    //   url: 'mailto:gabriel.d.kho@gmail.com'
     // }
     ];
 
