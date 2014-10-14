@@ -23,7 +23,8 @@ angular.module('roboBrainApp')
       institution: 'Cornell / Stanford',
       role: 'Interactive Online Learning',
       photo: 'images/contrib/ajain.jpg',
-      url: 'http://www.cs.cornell.edu/~ashesh/'
+      url: 'http://www.cs.cornell.edu/~ashesh/',
+      roleUrl: 'http://planit.cs.cornell.edu/'
     },
     {
       name: 'Ozan Sener',
@@ -65,17 +66,23 @@ angular.module('roboBrainApp')
       name: 'Michela Meister',
       institution: 'Stanford University',
       role: 'Language Queries',
-      photo: 'images/contrib/mmeister.jpg',
-      url: 'https://www.linkedin.com/in/michelameister'
+      photo: 'images/contrib/mmeister.jpg'
+      // url: 'https://www.linkedin.com/in/michelameister'
+    },
+    {
+      name: 'Hope Casey-Allen',
+      institution: 'Stanford University',
+      role: 'Knowledge Integration',
+      photo: 'images/contrib/hcallen.jpg'
+    },
+    {
+      name: 'Arzav Jain',
+      institution: 'Stanford University',
+      role: 'Graph Operations',
+      photo: 'images/contrib/arjain.jpg'
+      // url: 'https://www.linkedin.com/pub/arzav-jain/28/226/92a'
     }
-    // ,
-    // {
-    //   name: 'Hope Casey-Allen',
-    //   institution: 'Stanford University',
-    //   role: 'Planning and Visualization',
-    //   url: 'http://debarghyadas.com/'
-    // },
-    // {
+    // ,{
     //   name: 'Gabriel Yu',
     //   institution: 'Stanford University',
     //   role: 'HCI',
