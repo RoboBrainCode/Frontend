@@ -17,7 +17,8 @@ angular
         feeds = {};
         offset = 0;
         votelock = false;
-        return feeds;
+        ordered_feeds = [];
+        return ordered_feeds;
       },
       moreRecent: function() {
         var feed_endpoint = ENV.apiEndpoint + 'feed/infinite_scroll/';
@@ -36,12 +37,12 @@ angular
           })
           .then(function(response) {
             var data = response.data;
-            var feedLength = offset;
             for (var k = 0; k < data.length; ++k) {
-              var i = feedLength + k;
-              offset = i + 1;
               var feed_id = data[k]['_id'];
               feeds[feed_id] = data[k];
+              feeds[feed_id]['order'] = offset;
+              ordered_feeds[offset] = feeds[feed_id];
+              offset += 1;
               if ($cookieStore.get(feed_id) == 1) {
                 feeds[feed_id]['upvoted'] = true;
               } else if ($cookieStore.get(feed_id) == -1) {
@@ -168,6 +169,7 @@ angular
           for (var i = 0; i < data.length; ++i) {
             var feed_id = data[i]['_id'];
             feeds[feed_id] = data[i];
+            feeds[feed_id]['order'] = i;
             if ($cookieStore.get(feed_id) == 1) {
               feeds[feed_id]['upvoted'] = true;
             } else if ($cookieStore.get(feed_id) == -1) {
