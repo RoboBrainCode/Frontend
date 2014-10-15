@@ -12,6 +12,7 @@ angular
     var offset = 0;
     var isScrolling = true;
     var votelock = false;
+    var ordered_feeds = [];
     return {
       init: function() {
         feeds = {};
