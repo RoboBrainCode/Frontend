@@ -24,7 +24,7 @@
 <h3>Masters and Undergraduate Students</h3>
 <br>
 <div class="row">
-  <div class="contrib col-sm-4 col-xs-9" ng-class="($index==3) ? 'col-sm-offset-2' : ''" ng-repeat="p in ugrad_masters_students">
+  <div class="contrib col-sm-4 col-xs-9" ng-repeat="p in ugrad_masters_students">
     <img class="contrib-pic img-center" ng-src="{{ p.photo }}">
     <h4 class="text-center">
       <a ng-href="{{ p.url }}" target="_blank">{{ p.name }}</a>

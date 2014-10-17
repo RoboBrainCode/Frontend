@@ -83,12 +83,13 @@ angular.module('roboBrainApp')
       photo: 'images/contrib/arjain.jpg',
       url: 'mailto:arzavj@stanford.edu'
     }
-    // ,{
-    //   name: 'Gabriel Kho',
-    //   institution: 'Stanford University',
-    //   role: 'HCI',
-    //   url: 'mailto:gabriel.d.kho@gmail.com'
-    // }
+    ,{
+      name: 'Gabriel Kho',
+      institution: 'Stanford University',
+      role: 'Human-Computer Interaction',
+      photo: 'images/contrib/gkho.jpg',
+      url: 'mailto:gabriel.d.kho@gmail.com'
+    }
     ];
 
 
