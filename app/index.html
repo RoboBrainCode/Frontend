@@ -16,6 +16,9 @@
     <!-- build:css(.tmp) styles/font-awesome/css/font-awesome.min.css -->
     <link rel="stylesheet" href="styles/font-awesome/css/font-awesome.min.css">
     <!-- endbuild -->
+    <!-- build:css(.tmp) styles/swal.css -->
+    <link rel="stylesheet" href="bower_components/sweetalert/lib/sweet-alert.css">
+    <!-- endbuild -->
   </head>
   <body ng-app="roboBrainApp">
     <!--[if lt IE 7]>
@@ -23,7 +26,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="container" ng-controller="LoginCtrl">
       <div class="navbar navbar-default no-border" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -43,6 +46,8 @@
             <li><a ng-href="#/research">Research</a></li>
             <li><a ng-href="#/people">People</a></li>
             <li><a ng-href="#/contact">Contact</a></li>
+            <li ng-cloak ng-if='user'><a ng-href="#" ng-click="logout()" class="login-text">Logout</a></li>
+            <li ng-cloak ng-if='!user'><a ng-href="#/login" class="login-text">Login</a></li>
           </ul>
         </div>
       </div>
@@ -95,6 +100,7 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
         <script src="scripts/config.js"></script>
@@ -106,7 +112,7 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/research.js"></script>
         <script src="scripts/controllers/people.js"></script>
-        <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/controllers/login.js"></script>
         <!-- endbuild -->
 </body>
 </html>
