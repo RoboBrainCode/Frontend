@@ -16,4 +16,16 @@ angular.module('roboBrainApp')
     $scope.moreRecent = brainFeeds.moreRecent;
     $scope.vote = brainFeeds.vote;
     $scope.loadComments = brainFeeds.loadComments;
+
+    $scope.hasSearched = false;
+    $scope.searchGraph = function(){
+    	$scope.hasSearched = true;
+    	var input = $scope.searchText;
+    	console.log(input);
+
+    	//var output = answerQuestion(input);
+    	//console.log(output);
+
+    }
+
   }]);
