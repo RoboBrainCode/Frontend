@@ -15,16 +15,6 @@
   </div>
 </div>
 <br><br>
-<form ng-submit="searchGraph()">
-      <input type="text" ng-model="searchText"  size="90%"
-             placeholder="Search the node graph!">
-      <input class="btn-primary" type="submit" value="Search">
-</form>
-<br>
-<span ng-show="hasSearched">
-  returned query results!!!
-</span> 
-<br><br> 
 <ul class="list-unstyled" infinite-scroll="moreRecent()">
   <li ng-repeat="f in feeds track by $index">
     <div id="{{ f._id }}" class="panel panel-default feed-{{ $index % 5}}">
