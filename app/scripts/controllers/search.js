@@ -8,17 +8,31 @@
  * Controller to query the knowledge graph
  */
 angular.module('roboBrainApp')
-  .controller('SearchCtrl', ['$scope', function ($scope, ENV) {
+  .controller('SearchCtrl', ['$scope', '$http', function ($scope, $http, ENV) {
 
+    var search_endpoint = "http://test.robobrain.me:3000/graph_query/nlquery/"
     $scope.hasSearched = false;
+    $scope.hasAnswered = false;
+
     $scope.searchGraph = function(){
-    	var input = $scope.inputText;
+        $scope.hasAnswered = false;
+        $scope.hasSearched = true;
+
+        var input = $scope.inputText;
         $scope.inputText = "";
-        
         $scope.originalText = input;
 
-        $scope.hasSearched = true;
-        
+        $http.get(search_endpoint, {
+            params: {
+                user_in: input,
+            }
+        })
+        .then(function(response) {
+            console.log(response.data);
+            $scope.outputText = response.data[0].user_out;
+            $scope.hasSearched = false;
+            $scope.hasAnswered = true;
+        });
     }
 
   }]);
