@@ -13,9 +13,11 @@ angular.module('roboBrainApp')
     var search_endpoint = "http://test.robobrain.me:3000/graph_query/nlquery/"
     $scope.hasSearched = false;
     $scope.hasAnswered = false;
+    $scope.hasError = false;
 
     $scope.searchGraph = function(){
         $scope.hasAnswered = false;
+        $scope.hasError = false;
         $scope.hasSearched = true;
 
         var input = $scope.inputText;
@@ -26,12 +28,17 @@ angular.module('roboBrainApp')
             params: {
                 user_in: input,
             }
-        })
-        .then(function(response) {
-            console.log(response.data);
-            $scope.outputText = response.data[0].user_out;
+        }).success(function(data, status) {
+            //console.log("SUCCESS");
+            //console.log(data);
+            $scope.outputText = data[0].user_out;
             $scope.hasSearched = false;
             $scope.hasAnswered = true;
+        })
+        .error(function(data, status) {
+            //console.log("ERROR");
+            $scope.hasSearched = false;
+            $scope.hasError = true;
         });
     }
 
