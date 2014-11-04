@@ -50,7 +50,6 @@ g.tooltip rect {
     fill: lightblue;
     stroke: gray;
 }
-
 </style>
 <br>
 <div class="row">
@@ -67,33 +66,37 @@ g.tooltip rect {
 </div>
 <br>
 <div id="tfheader">
-    <input type="text" id="search" class="tftextinput" name="q" size="21" maxlength="120"><input type="button" value="search" class="tfbutton" onclick="search();">
+    <input type="text" id="search" class="tftextinput" name="q" size="21" maxlength="120"><input type="button" value="search" class="tfbutton" onclick="searchText();">
 </div>
 <p id="node-p">Seach for some nodes like shoe or track</p>
 <p id="link-p">Currently under development, might need to wait a couple of seconds for graph to stabilize</p>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<div id="visualization">
+</div>
+<script src="scripts/lib/d3.min.js"></script>
+<script src="scripts/lib/jquery-1.11.1.min.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-<script src="priority-queue.js"></script>
+<script src="scripts/lib/priority-queue.js"></script>
 <script>
+
 var data = {};
 data["nodes"] = [];
 data["links"] = [];
 
-var leftDiv = d3.select("body").append("div")   
+var leftDiv = d3.select("#visualization").append("div") 
+    .attr("class", "tooltip")               
+    .style("opacity", 0)
+    .style("top", "150px");
+
+var leftTopDiv = d3.select("#visualization").append("div")   
     .attr("class", "tooltip")               
     .style("opacity", 0);
 
-var leftTopDiv = d3.select("body").append("div")   
-    .attr("class", "tooltip")               
-    .style("opacity", 0);
-
-var leftBottomDiv = d3.select("body").append("div")   
+var leftBottomDiv = d3.select("#visualization").append("div")   
     .attr("class", "tooltip")               
     .style("opacity", 0);
 
 
-var rightDiv = d3.select("body").append("div")   
+var rightDiv = d3.select("#visualization").append("div")   
     .attr("class", "tooltip")               
     .style("opacity", 0);
 
@@ -105,7 +108,7 @@ var id = 0
 var width = 960,
     height = 500;
 var targetNode = null;
-
+var initialized = false;
 var toQueryNodes = [];
 
 var color = d3.scale.category20();
@@ -115,7 +118,9 @@ var force = d3.layout.force()
     .linkDistance(30)
     .size([width, height]);
 
-var svg = d3.select("body").append("svg")
+var feedbackUrl = "http://test.robobrain.me:3000/feed/graph_feedback/"
+
+var svg = d3.select("#visualization").append("svg")
     .classed("viz",true)
     .attr("width", width)
     .attr("height", height)
@@ -148,12 +153,6 @@ function stopped() {
 var graph = {};
 graph.links = [];
 graph.nodes = [];
-force
-  .nodes(graph.nodes)
-  .links(graph.links)
-  .linkDistance(40)
-  .charge(-400)
-  .start();
 
 var tip = d3.tip()
   .attr('class', 'd3-tip')
@@ -164,12 +163,14 @@ var tip = d3.tip()
 
 g.call(tip);
 
-var cloudfront = "http://d1rygkc2z32bg1.cloudfront.net/";
-var neo4JSserver = "http://ec2-54-69-173-124.us-west-2.compute.amazonaws.com:7474/";
+
 var nodes = force.nodes(),
     links = force.links();
+
 var patterns = [];
-convertToCorrectFormat = function (jsonData) {
+function convertToCorrectFormat (jsonData) {
+  var cloudfront = "http://d1rygkc2z32bg1.cloudfront.net/";
+  var neo4JSserver = "http://ec2-54-69-173-124.us-west-2.compute.amazonaws.com:7474/";
   for (var url in jsonData.nodes) {
     if (!(url in seenNodes)) {
       var nodeURL = url;
@@ -208,18 +209,36 @@ convertToCorrectFormat = function (jsonData) {
     }
   }
 }
-  search = function (handle) {
+  function searchText (handle) {
       if (handle == undefined) {
         handle = document.getElementById("search").value;
       }
+      if (initialized == false) {
+        force
+          .nodes(graph.nodes)
+          .links(graph.links)
+          .linkDistance(40)
+          .charge(-400)
+          .start();
+        nodes = force.nodes(),
+        links = force.links();
+        initialized = true;
+        callMe();
+      }
       if (queriedHandles[handle] != undefined) {
         return;
+      }
+
+
+      if (nodes == undefined) {
+        nodes = force.nodes;
       }
       $.ajax({
            type: "GET",
            url:"http://localhost:8080/get_node/"+handle,
           // url:"http://ec2-54-69-173-124.us-west-2.compute.amazonaws.com:8080/get_node/"+handle, 
            crossDomain: true,
+           jsonp: false,
            success:function(jsonData){
               queriedHandles[handle] = true; 
               // do stuff with json (in this case an array)
@@ -354,7 +373,7 @@ convertToCorrectFormat = function (jsonData) {
                     /*  if (active.node() === this) return reset();
                       active.classed("active", false);
                       active = d3.select(this).classed("active", true);*/
-
+                      console.log(d);
                       var id = "link"+d.source.id + "to" + d.target.id;
 
                       var rod = d3.select("#"+id);
@@ -372,13 +391,72 @@ convertToCorrectFormat = function (jsonData) {
                       g.transition()
                           .duration(750)
                           .call(zoom.translate(translate).scale(scale).event);
+                      leftDiv.html("<p id='bad'>BAD LINK</p>")
+                        .style("left", 400 + "px")     
+                        .style("top", 650 + "px")
+                        .style("pointer-events", "all")
+                        .on("click", function() {
+
+                          $.ajax({
+                              url: feedbackUrl+"?id_node='"+id+"'&node_handle='"+d.type+"'&action_type='BAD_LINK'&feedback_type='disagee'",                             
+                              type: 'GET',
+                              success: function (resp) {
+                              },
+                              error: function(e) {
+                                  alert('Error: '+e);
+                              }  
+                          });
+
+                          leftDiv.transition()        
+                            .duration(200)      
+                            .style("opacity", 0)
+                            .style("pointer-events", "none");
+
+                          rightDiv.transition()        
+                            .duration(200)      
+                            .style("opacity", 0)
+                            .style("pointer-events", "none");
+
+                        });
+
+                      rightDiv.transition()        
+                        .duration(200)      
+                        .style("opacity", .9);
+
+                      rightDiv.html("<p id='good'>GOOD LINK</p>")
+                        .style("left", 1250 + "px")     
+                        .style("top", 650 + "px")
+                        .style("pointer-events", "all")
+                        .on("click", function() {
+                          console.log(d)
+
+                          $.ajax({
+                              url: feedbackUrl+"?id_node='"+id+"'&node_handle='"+d.type+"'&action_type='GOOD_LINK'&feedback_type='agree'",                             
+                              type: 'GET',
+                              success: function (resp) {
+                              },
+                              error: function(e) {
+                                  alert('Error: '+e);
+                              }  
+                          });
+
+                          rightDiv.transition()        
+                            .duration(200)      
+                            .style("opacity", 0)
+                            .style("pointer-events", "none");
+
+                          leftDiv.transition()        
+                            .duration(200)      
+                            .style("opacity", 0)
+                            .style("pointer-events", "none");
+                        });
                 }
 
                 function clicked(d) {
                     /*  if (active.node() === this) return reset();
                       active.classed("active", false);
                       active = d3.select(this).classed("active", true);*/
-
+                      console.log(d);
                       var id = d.id;
 
                       var circle = d3.select("#node"+id);
@@ -405,26 +483,72 @@ convertToCorrectFormat = function (jsonData) {
                         .style("opacity", .9);
 
                       leftDiv.html("<p id='bad'>BAD NODE</p>")
-                        .style("left", 40 + "px")     
-                        .style("top", 350 + "px")
+                        .style("left", 400 + "px")     
+                        .style("top", 650 + "px")
                         .style("pointer-events", "all")
                         .on("click", function(d) {
-                          leftDiv.transition()        
+
+                          rightDiv.transition()        
                             .duration(200)      
                             .style("opacity", 0)
                             .style("pointer-events", "none");
+                          leftTopDiv.transition()        
+                            .duration(200)      
+                            .style("opacity", .9);
 
                             leftDiv.html("<p id='bad'>REMOVE NODE</p>")
-                                .style("left", 40 + "px")     
-                                .style("top", 350 + "px")
+                                .style("left", 400 + "px")     
+                                .style("top", 850 + "px")
                                 .style("pointer-events", "all")
                                 .on("click", function(d) {
+
+                                    $.ajax({
+                                        url: feedbackUrl+"?id_node='"+id+"'&node_handle='"+d.handle+"'&action_type='REMOVE_NODE'&feedback_type='disagree'",                             
+                                        type: 'GET',
+                                        success: function (resp) {
+                                        },
+                                        error: function(e) {
+                                        }  
+                                    });
+
+                                    leftTopDiv.transition()        
+                                      .duration(200)      
+                                      .style("opacity", 0)
+                                      .style("pointer-events", "none");
+
+
                                     leftDiv.transition()        
                                       .duration(200)      
                                       .style("opacity", 0)
                                       .style("pointer-events", "none");
 
                                 });
+                            leftTopDiv.html("<p id='bad'>RENAME NODE</p>")
+                                .style("left", 400 + "px")     
+                                .style("top", 450 + "px")
+                                .style("pointer-events", "all")
+                                .on("click", function(d) {
+
+                                    $.ajax({
+                                        url: feedbackUrl+"?id_node='"+id+"'&node_handle='"+d.handle+"'&action_type='RENAME_NODE'&feedback_type='disagree'",                             
+                                        type: 'GET',
+                                        success: function (resp) {
+                                        },
+                                        error: function(e) {
+                                        }  
+                                    });
+                                    leftDiv.transition()        
+                                      .duration(200)      
+                                      .style("opacity", 0)
+                                      .style("pointer-events", "none");
+
+                                    leftTopDiv.transition()        
+                                      .duration(200)      
+                                      .style("opacity", 0)
+                                      .style("pointer-events", "none");
+
+                                });
+
                         });
 
                       rightDiv.transition()        
@@ -432,10 +556,19 @@ convertToCorrectFormat = function (jsonData) {
                         .style("opacity", .9);
 
                       rightDiv.html("<p id='good'>GOOD NODE</p>")
-                        .style("left", 900 + "px")     
-                        .style("top", 350 + "px")
+                        .style("left", 1250 + "px")     
+                        .style("top", 650 + "px")
                         .style("pointer-events", "all")
-                        .on("click", function(d) {
+                        .on("click", function() {
+                          $.ajax({
+                              url: feedbackUrl+"?id_node='"+id+"'&node_handle='"+d.handle+"'&action_type='GOOD_NODE'&feedback_type='agree'",                             
+                              type: 'GET',
+                              success: function (resp) {
+                              },
+                              error: function(e) {
+                              }  
+                          });
+
                           rightDiv.transition()        
                             .duration(200)      
                             .style("opacity", 0)
@@ -483,17 +616,18 @@ convertToCorrectFormat = function (jsonData) {
            }      
       });
   }
-setInterval(function(){
-    try {
-      pQueue.peek();
-    }
-    catch (err){
-      return;
-    }
-    var handle = pQueue.dequeue();
-    handle = handle.handle;
-    search(handle)
-}, 500);
-
+function callMe() {
+    setInterval(function(){
+        try {
+          pQueue.peek();
+        }
+        catch (err){
+          return;
+        }
+        var handle = pQueue.dequeue();
+        handle = handle.handle;
+        searchText(handle)
+    }, 1000);
+}
 
 </script>
