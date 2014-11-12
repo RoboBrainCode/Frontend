@@ -1,5 +1,9 @@
+<!-- build:css(.tmp) styles/createuser.css -->
 <link rel="stylesheet" href="styles/createuser.css">
+<!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/lib/pwstrength.js -->
 <script src="scripts/lib/pwstrength.js"></script>
+<!-- endbuild -->
 <form ng-cloak ng-if="!user" ng-init="loadPasswordChecker()" class="form-signin" role="form">
 
   <h2 class="form-signin-heading">Create New User</h2>

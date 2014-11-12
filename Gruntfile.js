@@ -281,7 +281,7 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
+      html: '<%= yeoman.app %>/{,*/}*.html',
       options: {
         dest: '<%= yeoman.dist %>',
         flow: {
@@ -343,6 +343,13 @@ module.exports = function (grunt) {
     },
 
     svgmin: {
+      options: {
+          plugins: [
+              { removeViewBox: false },
+              { removeUselessStrokeAndFill: false },
+              { removeEmptyAttrs: false }
+          ]
+      },
       dist: {
         files: [{
           expand: true,
@@ -405,7 +412,7 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
+            'images/{,*/}*.{webp, svg}',
             'static/{,*/}*.{html, htm}',
             'fonts/*',
             'styles/font-awesome/**/*'
@@ -427,8 +434,15 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '**/*.css'
+      },
+      images: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/images',
+        src: '{,*/}*.svg',
+        dest: '<%= yeoman.dist %>/images'
       }
     },
+
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
@@ -440,11 +454,9 @@ module.exports = function (grunt) {
       ],
       dist: recompress  ? [
         'compass:dist',
-        'imagemin',
-        'svgmin'
+        'imagemin'
       ] : [
-        'compass:dist',
-        'svgmin'
+        'compass:dist'
       ]
     },
 
@@ -506,6 +518,7 @@ module.exports = function (grunt) {
     'ngmin',
     'copy:dist',
     'copy:styles',
+    'copy:images',
     'cdnify',
     'cssmin',
     'uglify',
@@ -523,6 +536,7 @@ module.exports = function (grunt) {
     'concat',
     'ngmin',
     'copy:dist',
+    'copy:images',
     'cdnify',
     'cssmin',
     'uglify',
