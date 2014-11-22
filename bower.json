@@ -12,7 +12,9 @@
     "angular-animate": "1.2.16",
     "angular-touch": "1.2.16",
     "angular-route": "1.2.16",
-    "ngInfiniteScroll": "1.1.2"
+    "ngInfiniteScroll": "1.1.2",
+    "d3": "3.4.13",
+    "js-priority-queue": "0.1.1"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",
