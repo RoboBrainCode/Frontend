@@ -235,8 +235,8 @@ function convertToCorrectFormat (jsonData) {
       }
       $.ajax({
            type: "GET",
-           //url:"http://localhost:8080/get_node/"+handle,
-           url:"http://ec2-54-148-208-139.us-west-2.compute.amazonaws.com:8080/get_node/"+handle, 
+           url:"http://graph.robobrain.me:3000/graph_viz/get_node?handle="+handle,
+           //url:"http://ec2-54-148-208-139.us-west-2.compute.amazonaws.com:8080/get_node/"+handle, 
            crossDomain: true,
            jsonp: false,
            success:function(jsonData){
