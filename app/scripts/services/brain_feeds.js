@@ -13,6 +13,7 @@ angular
     var isScrolling = true;
     var votelock = false;
     var ordered_feeds = [];
+    var upvotesEndpoint = ENV.apiEndpoint + 'feed/upvotes/';
     return {
       init: function() {
         feeds = {};
@@ -23,7 +24,6 @@ angular
       },
       moreRecent: function() {
         var feed_endpoint = ENV.apiEndpoint + 'feed/infinite_scroll/';
-        var upvotesEndpoint = ENV.apiEndpoint + 'feed/upvotes/';
         if (isScrolling) {
           isScrolling = false;
           var val = $cookies.csrftoken;
@@ -205,6 +205,8 @@ angular
                 };
               }
             }
+	    ordered_feeds[offset] = feeds[feed_id];
+	    offset += 1
           }
         });
       }
