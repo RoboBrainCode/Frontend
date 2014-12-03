@@ -11,6 +11,13 @@ angular.module('roboBrainApp')
   .controller('ResearchCtrl', function ($scope) {
     $scope.publications = [
     {
+      title: 'Robo Brain: Large-Scale Knowledge Engine for Robots',
+      authors: 'Ashutosh Saxena, Ashesh Jain, Ozan Sener, Aditya Jami, Dipendra K Misra and Hema S Koppula',
+      collection: 'Tech Report arxiv',
+      year: '2014',
+      url: 'http://www.cs.cornell.edu/~asaxena/papers/robobrain2014.pdf',
+    },
+    {
       title: 'Deep Learning for Detecting Robotic Grasps',
       authors: 'Ian Lenz, Honglak Lee, Ashutosh Saxena',
       collection: 'International Journal on Robotics Research (IJRR)',
