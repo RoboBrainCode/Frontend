@@ -10,7 +10,7 @@
 angular.module('roboBrainApp')
   .controller('SearchCtrl', ['$scope', '$http', function ($scope, $http, ENV) {
 
-    var search_endpoint = "http://test.robobrain.me:3000/graph_query/nlquery/"
+    var search_endpoint = "http://graph.robobrain.me:3000/graph_query/nlquery/"
     $scope.hasSearched = false;
     $scope.hasAnswered = false;
     $scope.hasError = false;
