@@ -7,7 +7,7 @@ def prod_deploy(user='ubuntu',speed='fast'):
   print(red('Deploying Frontend to production at robobrain.me...'))
   if not confirm('Are you sure you want to deploy to production?'):
      print(red('Aborting deploy.'))
-  env.host_string = 'ec2-54-68-27-137.us-west-2.compute.amazonaws.com'
+  env.host_string = 'ec2-54-149-21-165.us-west-2.compute.amazonaws.com'
   env.key_filename = 'conf/www.pem'
   env.user = user
   env.shell = '/bin/zsh -l -c'
@@ -37,7 +37,7 @@ def prod_deploy(user='ubuntu',speed='fast'):
   print(red('Done!'))
 
 def test_deploy(user='ubuntu', speed='fast'):
-  env.host_string = 'ec2-54-218-20-10.us-west-2.compute.amazonaws.com'
+  env.host_string = 'ec2-54-148-225-192.us-west-2.compute.amazonaws.com'
   env.key_filename = 'conf/www.pem'
   env.user = user
   env.shell = '/bin/zsh -l -c'
