@@ -1,3 +1,32 @@
+<script>
+function search()
+{
+    $("#reply").html("I am thinking");
+    q = $("#query").val();
+    $.ajax({
+            type: "GET",
+            url: 'http://graphtest.robobrain.me:3000/graph_query/nlquery/',
+            crossDomain: true,
+            jsonp: false,
+            xhrFields: 
+            {
+                     withCredentials: false
+            },
+            async: true,
+            data: { user_in: q},
+            success: function (response)
+            {
+                $("#reply").html("Your question: "+q+"<br/> Reply= "+response[0].user_out);
+            },
+            error: function () 
+            {
+                $("#reply").html("Server  Error");
+            }
+          });
+}
+</script>
+
+
 <br>
 <div class="row">
   <div class="col-sm-3 col-xs-6">
@@ -12,13 +41,16 @@
   </div>
 </div>
 <br><br>
-<form ng-submit="searchGraph()">
+<!--<form ng-submit="searchGraph()">
       <input type="text" ng-model="inputText"  size="90%"
-             placeholder="Ask me something here!">
+      placeholder="Ask me something here! Test."><br/>
       <input class="btn-primary" type="submit" value="Search">
-</form>
+  </form>-->
+<input id="query" type="text" ng-model="inputText" size="90%" >
+<input class="btn-primary" type="submt" value="Search" onclick="search()" style="cursor:pointer;">
+
 <br>
-<span ng-show="hasSearched">
+<!--<span ng-show="hasSearched">
   I'm thinking...
 </span> 
 <span ng-show="hasAnswered">
@@ -28,6 +60,8 @@
 </span> 
 <span ng-show="hasError">
   ERROR, Please try again.
-</span> 
+</span>-->
+<br>
+<p id="reply"></p>
 <br><br>
 <br>
