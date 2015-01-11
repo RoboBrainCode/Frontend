@@ -34,19 +34,19 @@ angular.module('roboBrainApp')
       url: 'http://ozansener.net/'
     },
     {
+      name: 'Aditya Jami',
+      institution: 'Cornell / Zoodig',
+      role: 'Large-Scale Systems',
+      photo: 'images/contrib/ajami.jpg',
+      url: 'http://www.cs.stanford.edu/people/adityaj/'
+    },
+    {
       name: 'Dipendra K. Misra',
       institution: 'Cornell / Stanford',
       role: 'Robot Language (Tell Me Dave)',
       photo: 'images/contrib/dmisra.jpg',
       url: 'http://www.cs.cornell.edu/~dkm/',
       roleUrl: 'http://tellmedave.cs.cornell.edu/'
-    },
-    {
-      name: 'Aditya Jami',
-      institution: 'Cornell / Zoodig',
-      role: 'Large-Scale Systems',
-      photo: 'images/contrib/ajami.jpg',
-      url: 'http://www.linkedin.com/in/adityajami'
     }];
     $scope.ugrad_masters_students = [{
       name: 'Debarghya Das',
