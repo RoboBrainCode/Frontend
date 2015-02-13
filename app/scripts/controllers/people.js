@@ -43,11 +43,19 @@ angular.module('roboBrainApp')
     {
       name: 'Dipendra K. Misra',
       institution: 'Cornell / Stanford',
-      role: 'Robot Language (Tell Me Dave)',
+      role: 'Language Grounding',
       photo: 'images/contrib/dmisra.jpg',
       url: 'http://www.cs.cornell.edu/~dkm/',
       roleUrl: 'http://tellmedave.cs.cornell.edu/'
-    }];
+    },
+    {
+        name: 'Hema Koppula',
+        instituion: 'Cornell Univeristy',
+        role: 'Machine Learning and 3D Perception',
+        photo: 'images/contrib/hkoppula.jpg',
+        url: 'http://www.cs.cornell.edu/~hema/'
+    }
+  ];
     $scope.ugrad_masters_students = [{
       name: 'Debarghya Das',
       institution: 'Cornell University',
@@ -154,13 +162,6 @@ angular.module('roboBrainApp')
 
 
     $scope.phd_students = [
-    {
-      name: 'Hema Koppula',
-      institution: 'Cornell University',
-      role: 'Machine Learning and 3D Perception',
-      photo: 'images/contrib/hkoppula.jpg',
-      url: 'http://www.cs.cornell.edu/~hema/'
-    },
     {
       name: 'Yun Jiang',
       institution: 'Cornell University',
