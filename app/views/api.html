@@ -1,0 +1,126 @@
+<h2>API for using RoboBrain Knowledge Base</h2>
+This page explains the API needed to use and contribute to 
+the knowlege on RoboBrain.
+
+<h4>Contributing to RoboBrain Knowledge Base</h2>
+
+<b>Installation</b>
+Currently we only support python programming language.<br>
+In order to use the RoboBrain API, you need to install a few Python packages.<br>
+
+<blockquote>
+<li>sudo pip install boto</li>
+<li>sudo pip install requests</li>
+<li>sudo pip install filechunkio</li>
+</blockquote>
+
+<h6>Representing New Concepts</h6>
+New concepts can be pushed to RoboBrain very easily. But first we will
+learn how to represent these concepts. We will use json format for representing these
+concepts. Currently, RoboBrain supports concepts of the form <i>{a-r-b}</i> where
+consiting of entities <i>a,b</i> and relationship <i>r</i> between them.<br>
+A generic JSON format for representing this concept would be:
+
+<blockquote>
+{<br>
+"feedtype": "Type Of The Feed",<br>
+"text": "Text Caption of the Feed with HashTags",<br>
+"source_text": "Your Project Name",<br>
+"source_url": "Your Project URL",<br>
+"mediashow": [<br>
+"Is 0th image for visualization or for the brain graph ?",<br>
+"Is 1st image for visualization or for the brain graph ?",<br>
+"True or False",<br>
+"True means, it is for visualization"<br>
+],<br>
+"media": [<br>
+"/your/local/path/to/media0",<br>
+"/your/local/path/to/media1",<br>
+"/your/local/path/to/media2"<br>
+],<br>
+"mediatype": [<br>
+"Image",<br>
+"Video",<br>
+"Text"<br>
+],<br>
+"keywords": [<br>
+"Some",<br>
+"Keywords",<br>
+"About",<br>
+"Feed"<br>
+],<br>
+"mediamap": [<br>
+"mediamap": [<br>
+"#1", (this means 0th media is related to 1st hashtag)<br>
+"#0#1", (this means 1st media is related to 0th and 1st hashtags)<br>
+"#0" (this means 3rd media is related to 0th hashtag)<br>
+],<br>
+"graphStructure": [<br>
+"has_appearance: #1 ->#0"<br>
+"Edge type and related nodes"<br>
+"It means there exist has_apparance edge from hashtag1 to hashtag0"<br>
+],<br>
+}<br>
+</blockquote>
+
+In this sample json file. The hastags are the entities of our concept and edges in the graph structure
+represent the relations. The keywords and media tags are used for providing meta information and visualization
+of the concept that you are pushing in.<br>
+
+<h4>Notes:</h4>
+If hashtag is multiple number of words use underscore. For example; in order to hash tag feature id 2, use #feature_id_2. We will display them as white spaces
+In all fields; please only use alphanumeric characters, dash ‘-’, and an underscore ’_’ .
+All semantically meaningful entries are nodes(hashtags) and edges should not be hashtagged
+You can only make mediashow True for mediatypes Image and Video
+If you want to hashtag a media but not the concept use #$ instead of #. For example, "#cup has an apperance in #image" is refering to the media not the concept "image"; hence, it should be replaced as "#cup has an apperance in #$image"
+If you are not sure about the edge types, or feed_structure you can use<br>
+
+You can see this help using <blockquote>python batchUpload.py --help</blockquote>
+
+<h4>A Sample Feed:</h4>
+<blockquote>
+    {<br>
+    "feedtype": "Object Affordance",<br>
+    "text": "The position of a #Standing_human while using a #shoe is distributed as #$heatmap_12.",<br>
+    "source_text": "Hallucinating Humans",<br>
+    "source_url": "http://pr.cs.cornell.edu/hallucinatinghumans/",<br>
+    "mediashow": [<br>
+    "True",<br>
+    "True"<br>
+    ],<br>
+    "media": [<br>
+    "/home/robobrain_user/images/shoe_.jpg",<br>
+    "/home/robobrain_user/shoe_12_1.jpg_cr.jpg"<br>
+    ],<br>
+    "mediatype": [<br>
+    "Image",<br>
+    "image",<br>
+    ],<br>
+    "keywords": [<br>
+    "Human",<br>
+    "Affordance",<br>
+    "Object",<br>
+    "shoe",<br>
+    "Standing"<br>
+    ],<br>
+    "mediamap": [<br>
+    "#1",<br>
+    "#0#1#2"<br>
+    ],<br>
+    "graphStructure": [<br>
+    "spatially_distributed_as: #1 -&gt;#2",<br>
+    "spatially_distributed_as: #0 -&gt;#2",<br>
+    "can_use: #0 -&gt;#1"<br>
+    ],<br>
+ }<br>
+
+
+<h4>How to Upload Your Feeds to the RoboBrain ?</h4>
+There are two ways to upload your feeds, you can either use the provided API directly or you can use the batch upload functionality. API provides a function to upload a Python dictionary as a JSON. Batch upload simply traverse the current directory and upload all *.json files in the directory.
+You Need (choose one of the ways)
+<li>For Batch Upload: A directory containing all *.json files with correct media paths. Media paths can either be relative to the directory or a global path. We recommend global paths.</li>
+<li>For Direct API Usage: A python script which generates all feeds in the Python dictionary format with correct media paths. Media paths can either be relative to the directory or a global path. We recommend global paths.</li>
+
+
+
+
