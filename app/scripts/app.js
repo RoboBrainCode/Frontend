@@ -49,6 +49,10 @@ angular
         templateUrl: 'views/research.html',
         controller: 'ResearchCtrl'
       })
+      .when('/api', {
+        templateUrl: 'views/api.html',
+        controller: 'APICtrl'
+      })
       .when('/people', {
         templateUrl: 'views/people.html',
         controller: 'PeopleCtrl'
