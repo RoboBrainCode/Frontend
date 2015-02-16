@@ -1,3 +1,5 @@
+<div class="row">
+
 <h2>RoboBrain API Documentation</h2>
 <div class="row">
     <p>This document is the full specification of the RoboBrain API. It includes
@@ -24,7 +26,6 @@
             <li>It relies on authentication module of the robobrain.me through HTTP Auth.</li>
         </ul>
 
-		<div class="row">
         	<h4>Installation</h4>
         	<p>In order to use the RoboBrain Client API, you need to install a few Python packages.
         	Our client requires <code>boto</code> for s3 access, <code>request</code> for sending
@@ -41,18 +42,14 @@
         	<p>After the required packages are installed, cloning the github repo from <a href="https://github.com/RoboBrainCode/Client">Client API - Github</a> would suffice. For installation problems and requesting an access to the private
         	repo, please send an e-mail to the <a href="mailto:robobrain@cs.stanford.edu">robobrain@cs.stanford.edu</a>.
 			</p>
-		</div>
 		
-		<div class="row">
         	<h4>Client API Credentials</h4>
         	<p>In order to access to the RoboBrain Client API, you need a RoboBrain account.
 		    For the user account, please use the <a href="http://robobrain.me/#/login">Login link</a>.
 		    After creating the account, you need to send an e-mail to the <a href="mailto:robobrain@cs.stanford.edu">
 		    robobrain@cs.stanford.edu</a> explaining your contributor account request. After you request is approved,
 		    you will receive an e-mail from us. After that, you can start to use the Client API with your credentials.</p>
-       </div>
-       
-       <div class="row">
+
         <h4>Information Structure for RoboBrain Interface</h4>
 
         <p>RoboBrain accepts information in terms of a json structure from its collaborators. Specifically, we use the following structure:</p>
@@ -99,7 +96,6 @@
 			}
 			</code>
 		</blockquote>
-		</div>
 
 <p>Here, we go over the each field in the format:</p>
 
@@ -186,7 +182,7 @@ However, if you need a different edge/predicate type, you can simply include it 
 add it to the list. However, to make the machine learning algorithm slightly simpler, try to be consistent with the 
 previously used edges.</p>
 
-Here, we also include an example feed:
+<p>Here, we also include an example feed:</p>
 
 <blockquote>
 "feedtype": "Object Affordance",<br/>
@@ -224,108 +220,110 @@ Here, we also include an example feed:
 }
 </blockquote>
 <p>In all fields, only use alphanumeric characters, dash ‘-’, and an underscore ’_’ .</p>
+
 </div>
 
 <div class="row">
-<h4>Using the RoboBrain Client API (In Your Own Code)</h4>
+	<h4>Using the RoboBrain Client API (In Your Own Code)</h4>
 
-<p>For using the RoboBrain Client, we suggest new users to start with <code>generateFeeds.py</code> file.
- It includes the minimal code to use the Client API. Here, we explain the <code>generateFeeds.py</code> file line by line:</p>
+	<p>For using the RoboBrain Client, we suggest new users to start with <code>generateFeeds.py</code> file.
+	 It includes the minimal code to use the Client API. Here, we explain the <code>generateFeeds.py</code> file line by line:</p>
 
-    <blockquote><code>from RoboBrainClient.RoboBrainAPI import RoboBrainAPI</code></blockquote>
-    
-<p>With this line, we include the Client API</p>
+	    <blockquote><code>from RoboBrainClient.RoboBrainAPI import RoboBrainAPI</code></blockquote>
+	    
+	<p>With this line, we include the Client API</p>
 
-    <blockquote>RoboAPIUserName = 'YOUR_USER_NAME'<br>
-    RoboAPIPass = 'YOUR_PASSWORD'<br>
-    S3KEY = 'S3_KEY'<br>
-    S3SECRET = 'S3_SECRET'</blockquote>
-    
-<p>Please use the credentials you created for robobrain.me as your <code>RoboAPIUserName</code> and <code>RoboAPIPass</code>.
-You will receive the <code>S3KEY</code> and <code>S3SECRET</code> information in the e-mail confirming your contributor account.<br/></p>
+	    <blockquote>RoboAPIUserName = 'YOUR_USER_NAME'<br>
+	    RoboAPIPass = 'YOUR_PASSWORD'<br>
+	    S3KEY = 'S3_KEY'<br>
+	    S3SECRET = 'S3_SECRET'</blockquote>
+	    
+	<p>Please use the credentials you created for robobrain.me as your <code>RoboAPIUserName</code> and <code>RoboAPIPass</code>.
+	You will receive the <code>S3KEY</code> and <code>S3SECRET</code> information in the e-mail confirming your contributor account.<br/></p>
 
-    <blockquote><code>rC = RoboBrainAPI(RoboAPIUserName ,RoboAPIPass,S3KEY,S3SECRET,userHandle)</code></blockquote>
-    
-<p>Here, we initialize the RobobrainAPI. Please note that at this point no connection with RoboBrain is made.</p>
+	    <blockquote><code>rC = RoboBrainAPI(RoboAPIUserName ,RoboAPIPass,S3KEY,S3SECRET,userHandle)</code></blockquote>
+	    
+	<p>Here, we initialize the RobobrainAPI. Please note that at this point no connection with RoboBrain is made.</p>
 
-  <blockquote><code>for result in YourResults:</code><br/>
-        <code>rC.addFeed(data)</code><br/>
-   </blockquote>
-        
-<p>Here, you add feeds to the RoboBrain class by crawling through your own experimental results. Please read the
-formatting instructions in <a href="wiki/Information%20Structure%20for%20RoboBrain%20Interface">Information Structure</a> before implementing your code. Please also note that, there is
-still no request is made to the RoboBrain and all information are stored in the memory. If you are pushing large 
-amount of information, this approach can cause a problem. Hence, if you are pushing a large amount of information, 
-please call the <code>rC.push2Brain()</code> function before you reach the memory limit of your system.</p>
+	  <blockquote><code>for result in YourResults:</code><br/>
+	        <code>rC.addFeed(data)</code><br/>
+	   </blockquote>
+	        
+	<p>Here, you add feeds to the RoboBrain class by crawling through your own experimental results. Please read the
+	formatting instructions in <a href="wiki/Information%20Structure%20for%20RoboBrain%20Interface">Information Structure</a> before implementing your code. Please also note that, there is
+	still no request is made to the RoboBrain and all information are stored in the memory. If you are pushing large 
+	amount of information, this approach can cause a problem. Hence, if you are pushing a large amount of information, 
+	please call the <code>rC.push2Brain()</code> function before you reach the memory limit of your system.</p>
 
-    <blockquote>URL = "http://robobrain.me:3000/api/feeds/"<br>
-    rC.push2Brain(URL)<br>
-    </blockquote>
-    
-<p>At this stage, we push all the aggregated information to the RoboBrain. This function will return an HTTP response.
- If the data push is successful, you will recieve <code>HTTP 201:OK</code> response. If you receive any other response, please make sure
+	    <blockquote>URL = "http://robobrain.me:3000/api/feeds/"<br>
+	    rC.push2Brain(URL)<br>
+	    </blockquote>
+	    
+	<p>At this stage, we push all the aggregated information to the RoboBrain. This function will return an HTTP response.
+	 If the data push is successful, you will recieve <code>HTTP 201:OK</code> response. If you receive any other response, please make sure
 
-<ul>
-<li>You have no formatting error according to the specifications in <a href="wiki/information-structure-for-robobrain-interface">Information Structure</a></li>
-<li>You have working internet connection and you can reach <a href="http://robobrain.me:3000/api/feeds/">http://robobrain.me:3000/api/feeds/</a> from your browser.</li>
-<li>You can login to robobrain.me successfully with your credentials.</li>
-</ul>
+	<ul>
+	<li>You have no formatting error according to the specifications in <a href="wiki/information-structure-for-robobrain-interface">Information Structure</a></li>
+	<li>You have working internet connection and you can reach <a href="http://robobrain.me:3000/api/feeds/">http://robobrain.me:3000/api/feeds/</a> from your browser.</li>
+	<li>You can login to robobrain.me successfully with your credentials.</li>
+	</ul>
 
-If your answer is Yes to all aforementioned questions and still not receiving <code>HTTP 201:OK</code> response, please send an e-mail to
-<a href="mailto:robobrain@cs.stanford.edu">robobrain@cs.stanford.edu</a>
+	If your answer is Yes to all aforementioned questions and still not receiving <code>HTTP 201:OK</code> response, please send an e-mail to
+	<a href="mailto:robobrain@cs.stanford.edu">robobrain@cs.stanford.edu</a>
 </div>
 
 
 
 <div class="row">
-<h4>Using the RoboBrain Client API (As a Script)</h4>
+	<h4>Using the RoboBrain Client API (As a Script)</h4>
 
-<p>You can also use RoboBrain Client API as a script to upload all feeds in the current folder. 
-You can use either <code>batchUpload.py</code> or <code>batchUploadforBigDataset.py</code>. Depending on the size of the information you are pushing.
-If the amount of information you are pushing (excluding media files) is small enough to fit in the memory, use the <code>batchUpload.py</code>
-since it is faster. However, if your data is too big (e.g. at the scale of WordNet, ImageNet, Freebase, RoboBrain etc.), use the
-<code>batchUploadforBigDataset.py</code>. It is slower but more reliable.</p>
+	<p>You can also use RoboBrain Client API as a script to upload all feeds in the current folder. 
+	You can use either <code>batchUpload.py</code> or <code>batchUploadforBigDataset.py</code>. Depending on the size of the information you are pushing.
+	If the amount of information you are pushing (excluding media files) is small enough to fit in the memory, use the <code>batchUpload.py</code>
+	since it is faster. However, if your data is too big (e.g. at the scale of WordNet, ImageNet, Freebase, RoboBrain etc.), use the
+	<code>batchUploadforBigDataset.py</code>. It is slower but more reliable.</p>
 
-<p>Before using the script, please change the following lines:</p>
+	<p>Before using the script, please change the following lines:</p>
 
-    <blockquote>
-    RoboAPIUserName = 'YOUR_USER_NAME'<br/>
-    RoboAPIPass = 'YOUR_PASSWORD'<br/>
-    S3KEY = 'S3_KEY'<br/>
-    S3SECRET = 'S3_SECRET'<br/>
-    </blockquote>
-    
-<p>Use the credentials you created for robobrain.me as your <code>RoboAPIUserName</code> and <code>RoboAPIPass</code>. You will
-receive the <code>S3KEY</code> and <code>S3SECRET</code> information in the e-mail confirming your contributor account.</p>
+	    <blockquote>
+	    RoboAPIUserName = 'YOUR_USER_NAME'<br/>
+	    RoboAPIPass = 'YOUR_PASSWORD'<br/>
+	    S3KEY = 'S3_KEY'<br/>
+	    S3SECRET = 'S3_SECRET'<br/>
+	    </blockquote>
+	    
+	<p>Use the credentials you created for robobrain.me as your <code>RoboAPIUserName</code> and <code>RoboAPIPass</code>. You will
+	receive the <code>S3KEY</code> and <code>S3SECRET</code> information in the e-mail confirming your contributor account.</p>
 
-<p>After editing the credentials, you can aggregate all feeds in the folder of the API. Each file should have an extension .json
-and it should correspond to a single feed. After collecting all the feeds in the same folder, you can use</p>
+	<p>After editing the credentials, you can aggregate all feeds in the folder of the API. Each file should have an extension .json
+	and it should correspond to a single feed. After collecting all the feeds in the same folder, you can use</p>
 
-<blockquote><code>python batchUpload.py</code></blockquote>
+	<blockquote><code>python batchUpload.py</code></blockquote>
 
-or
+	or
 
-<blockquote><code>python batchUploadforBigDataset.py</code></blockquote>
+	<blockquote><code>python batchUploadforBigDataset.py</code></blockquote>
 
-<p>At this stage, we push all the aggregated information to the RoboBrain. This script will return an HTTP response. 
-If the data push is successful, you will recieve <code>HTTP 201:OK</code> response. If you receive any other response,
-please make sure</p>
+	<p>At this stage, we push all the aggregated information to the RoboBrain. This script will return an HTTP response. 
+	If the data push is successful, you will recieve <code>HTTP 201:OK</code> response. If you receive any other response,
+	please make sure</p>
 
-<ul>
-<li>You have no formatting error according to the specifications in <a href="wiki/Information%20Structure%20for%20RoboBrain%20Interface">Information Structure</a></li>
-<li>You have working internet connection and you can reach <a href="http://robobrain.me:3000/api/feeds/">http://robobrain.me:3000/api/feeds/</a> from your browser.</li>
-<li>You can login to robobrain.me successfully with your credentials.</li>
-</ul>
+	<ul>
+	<li>You have no formatting error according to the specifications in <a href="wiki/Information%20Structure%20for%20RoboBrain%20Interface">Information Structure</a></li>
+	<li>You have working internet connection and you can reach <a href="http://robobrain.me:3000/api/feeds/">http://robobrain.me:3000/api/feeds/</a> from your browser.</li>
+	<li>You can login to robobrain.me successfully with your credentials.</li>
+	</ul>
 
-<p>If your answer is Yes to all aforementioned questions and still not receiving <code>HTTP 201:OK</code> response, please send 
-an e-mail to <a href="mailto:robobrain@cs.stanford.edu">robobrain@cs.stanford.edu</a></p>
+	<p>If your answer is Yes to all aforementioned questions and still not receiving <code>HTTP 201:OK</code> response, please send 
+	an e-mail to <a href="mailto:robobrain@cs.stanford.edu">robobrain@cs.stanford.edu</a></p>
 </div>
 
 <div class="row">
-<h2>RoboBrain Query API</h2>
-<p>RoboBrain introduces <b>RaQueL</b> (RoboBrain Query library) for querying the RoboBrain Engine. RaQueL is a combination
-of powerful functional programming concept with <a href="http://neo4j.com/docs/stable/cypher-query-lang.html">CyPher graph query language </a>
-allowing us to build applications using RoboBrain.</p>
+	<h2>RoboBrain Query API</h2>
+	<p>RoboBrain introduces <b>RaQueL</b> (RoboBrain Query library) for querying the RoboBrain Engine. RaQueL is a combination
+	of powerful functional programming concept with <a href="http://neo4j.com/docs/stable/cypher-query-lang.html">CyPher graph query language </a>
+	allowing us to build applications using RoboBrain.</p>
 
-<p>We are still constructing documentation page for RaQueL. Please visit this page in few weeks.</p>
+	<p>We are still constructing documentation page for RaQueL. Please visit this page in few weeks.</p>
+	</div>
 </div>
