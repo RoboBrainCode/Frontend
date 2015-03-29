@@ -12,7 +12,22 @@
 </div>
 
 <div class="row">
-<h3>RoboBrain Client API</h3> 
+    <h3 style="text-decoration:none;">Summary:</h3>
+    <ul style="text-decoration:underline;">
+        <li><b><a href="#api##client_api">RoboBrain Client API</a></b></li>
+    <ol>
+        <li><a href="#api##install">Installation</a></li>
+        <li><a href="#api##client">Client API Credentials</a></li>
+        <li><a href="#api##information">Information Structure for RoboBrain Interface</a></li>
+        <li><a href="#api##using">Using the RoboBrain Client API (In Your Own Code)</a></li>
+        <li><a href="#api##script">Using the RoboBrain Client API (As a Script)</a></li>
+    </ol>
+    <li><b><a href="#api##query">RoboBrain Query API (under construction)</a></b></li>
+    </ul> 
+</div>
+
+<div class="row">
+<h3 id="client_api">RoboBrain Client API</h3> 
         <p>RoboBrain supplies a REST API to its collaborators. 
         Through RoboBrain REST API, collaborators can send their multi-modal information to the brain.</p>
 
@@ -25,7 +40,7 @@
             <li>It relies on authentication module of the robobrain.me through HTTP Auth.</li>
         </ul>
 
-        	<h4>Installation</h4>
+            <h4 class="anchorjs-icon" id="#inst">Installation</h4>
         	<p>In order to use the RoboBrain Client API, you need to install a few Python packages.
         	Our client requires <code>boto</code> for s3 access, <code>request</code> for sending
         	HTTP requests to the REST API and <code>filechunkio</code> for efficient file upload.
@@ -42,14 +57,14 @@
         	repo, please send an e-mail to the <a href="mailto:robobrain@cs.stanford.edu">robobrain@cs.stanford.edu</a>.
 			</p>
 		
-        	<h4>Client API Credentials</h4>
+            <h4 class="anchorjs-icon" id="#client">Client API Credentials</h4>
         	<p>In order to access to the RoboBrain Client API, you need a RoboBrain account.
 		    For the user account, please use the <a href="http://robobrain.me/#/login">Login link</a>.
 		    After creating the account, you need to send an e-mail to the <a href="mailto:robobrain@cs.stanford.edu">
 		    robobrain@cs.stanford.edu</a> explaining your contributor account request. After you request is approved,
 		    you will receive an e-mail from us. After that, you can start to use the Client API with your credentials.</p>
 
-        <h4>Information Structure for RoboBrain Interface</h4>
+            <h4 class="anchorjs-icon" id="#information">Information Structure for RoboBrain Interface</h4>
 
         <p>RoboBrain accepts information in terms of a json structure from its collaborators. Specifically, we use the following structure:</p>
         
@@ -223,7 +238,7 @@ previously used edges.</p>
 </div>
 
 <div class="row">
-	<h4>Using the RoboBrain Client API (In Your Own Code)</h4>
+    <h4 class="anchorjs-icon" id="#using">Using the RoboBrain Client API (In Your Own Code)</h4>
 
 	<p>For using the RoboBrain Client, we suggest new users to start with <code>generateFeeds.py</code> file.
 	 It includes the minimal code to use the Client API. Here, we explain the <code>generateFeeds.py</code> file line by line:</p>
@@ -274,7 +289,7 @@ previously used edges.</p>
 
 
 <div class="row">
-	<h4>Using the RoboBrain Client API (As a Script)</h4>
+    <h4 class="anchorjs-icon" id="#script">Using the RoboBrain Client API (As a Script)</h4>
 
 	<p>You can also use RoboBrain Client API as a script to upload all feeds in the current folder. 
 	You can use either <code>batchUpload.py</code> or <code>batchUploadforBigDataset.py</code>. Depending on the size of the information you are pushing.
@@ -318,7 +333,7 @@ previously used edges.</p>
 </div>
 
 <div class="row">
-	<h2>RoboBrain Query API</h2>
+    <h2 class="anchorjs-icon" id="#query">RoboBrain Query API</h2>
 	<p>RoboBrain introduces <b>RaQueL</b> (RoboBrain Query library) for querying the RoboBrain Engine. RaQueL is a combination
 	of powerful functional programming concept with <a href="http://neo4j.com/docs/stable/cypher-query-lang.html">CyPher graph query language </a>
 	allowing us to build applications using RoboBrain.</p>
