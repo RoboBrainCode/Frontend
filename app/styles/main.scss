@@ -88,7 +88,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px; /*730px;*/
+    max-width: 730px;
   }
 
   /* Remove the padding we set earlier */
@@ -136,10 +136,6 @@ body {
 
 .img-center {
   margin: 0 auto;
-}
-
-.menu li {
-    margin-right:-5px;
 }
 
 /* Sponsor logos */
@@ -301,4 +297,7 @@ body {
   font-weight: bold;
 }
 
-
+#menu li a
+{
+    padding:15px 10px;
+}

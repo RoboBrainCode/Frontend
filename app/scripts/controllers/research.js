@@ -15,7 +15,7 @@ angular.module('roboBrainApp')
       authors: 'Ashutosh Saxena, Ashesh Jain, Ozan Sener, Aditya Jami, Dipendra K Misra and Hema S Koppula',
       collection: 'Tech Report arxiv',
       year: '2014',
-      url: 'arxiv.org/abs/1412.0691',
+      url: 'http://arxiv.org/abs/1412.0691',
     },
     {
       title: 'Deep Learning for Detecting Robotic Grasps',
