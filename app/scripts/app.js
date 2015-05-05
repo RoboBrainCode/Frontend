@@ -54,8 +54,8 @@ angular
         controller: 'APICtrl'
       })
       .when('/application', {
-	templateUrl: 'views/application.html',
-	controller: 'ApplicationCtrl'
+          templateUrl: 'views/application.html',
+	    controller: 'ApplicationCtrl'
       })
       .when('/people', {
         templateUrl: 'views/people.html',
