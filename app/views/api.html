@@ -47,7 +47,8 @@
         	They can be installed by using pip as</p>
 
         	<blockquote>
-	            <code>sudo pip install boto<br/>
+	            <code>
+                    sudo pip install boto<br/>
     	            sudo pip install requests<br/>
         			sudo pip install filechunkio
         		</code>
@@ -69,20 +70,20 @@
         <p>RoboBrain accepts information in terms of a json structure from its collaborators. Specifically, we use the following structure:</p>
         
 		<blockquote>
-		   <code>
+            <code style="font-size:small; line-height:100%">
 		        {<br>
 		    "feedtype": "Type Of The Feed",<br>
 		    "text": "Text Caption of the Feed with HashTags",<br>
 		    "source_text": "Your Project Name",<br>
 		    "source_url": "Your Project URL",<br>
 		    "mediashow": [<br>
-		      "Is 0th image for visualization or for the brain graph ?",<br>
-		      "Is 1st image for visualization or for the brain graph ?",<br>
-		      "True or False",<br>
-		      "True means, it is for visualization"<br>
+		      &nbsp;&nbsp;"Is 0th image for visualization or for the brain graph ?",<br>
+		      &nbsp;&nbsp;"Is 1st image for visualization or for the brain graph ?",<br>
+		      &nbsp;&nbsp;"True or False",<br>
+		      &nbsp;&nbsp;"True means, it is for visualization"<br>
 		    ],<br>
 		    "media": [<br>
-		      "/your/local/path/to/media0",<br>
+		      &nbsp;&nbsp;"/your/local/path/to/media0",<br>
 		      "/your/local/path/to/media1",<br>
 		      "/your/local/path/to/media2"<br>
 		    ],<br>
