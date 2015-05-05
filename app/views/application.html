@@ -1,0 +1,41 @@
+<div class="row">
+<h2>Applications Currenlty Using RoboBrain</h2>
+
+<div class="row">
+<h4>PlanIt: A Crowdsourcing Approach for Learning to Plan Paths from Large Scale Preference Feedback. <a href="http://planit.cs.cornell.edu/" target="_blank">[project page]</a></h4>
+<p>One key problem robots face in performing tasks in human environments is identifying trajectories desirable to the users. An appropriate trajectory not only needs
+to be geometrically valid (i.e., feasible and obstacle-free), but it also needs to satisfy the user preferences. For example, a robot should move sharp objects
+such as knife strictly away from nearby humans. PlanIt uses attributes such as <i>heavy, fragile, hot etc.</i> to rank trajectory by learning user preferences given these objects.
+It uses RoboBrain to fetch trajectory parameters from different attributes computed from web sources such as wikipedia etc.</p>
+</div>
+
+<div class="row">
+<h4>Anticipating Human Activities for Reactive Robotic Responses <a href="http://pr.cs.cornell.edu/anticipation/" target="_blank">[project page]</a></h4>
+<p>The assistive robots working with humans should be able to understand human activities and also anticipate the future actions that the human can perform.
+In order to anticipate, the robot should reason over the action possibilities in the environment, i.e., object affordances, and how the actions can be performed, i.e., trajectories.</p> 
+
+<p>In order to anticipate the future human actions, RoboBrain stores the learned parameters of the anticipatory algorithm of <a href="http://pr.cs.cornell.edu/anticipation/" target="_blank">Koppula et al. 13</a>. RaQueL query
+can then be used to anticipate the most likely future object affordances and human trajectories. </p>
+</div>
+
+<div class="row">
+<h4>Tell Me Dave: Learning to map text to actions <a href="http://tellmedave.com" target="_blank">[project page]</a></h4>
+<p>Natural language is a popular choice for non-expert users to communicate to robots, computers etc. An important sub-task in this area is the problem of 
+mapping imperative sentences (<i>get me water and clean the table?</i>) to actions in the physical world. One way to do this, which has gained popularity in the past decade is the use of compositional grammar with few rules and putting the main
+burden of semantic parsing on lexicon. A lexicon of a language is a set of lexical item which maps parts of text to representation space. Tell Me Dave project
+uses VEIL representation as its choice of lexicon which are stored in the RoboBrain. Plans are underway to store other type of lexicon e.g., CCG lexicon in the RoboBrain
+and use them in a joint setting.</p>
+</div>
+
+<div class="row">
+<h4>RoboBarista: Object Part-based Transfer of Manipulation Trajectories from Crowd-sourcing in 3D Pointclouds <a href="http://robobarista.cs.cornell.edu/" target="_blank">[project page]</a></h4>
+<p>In order for robots to interact within household environments, robots should be able to manipulate a large variety of objects and appliances in human environments, such as stoves, 
+coffee dispensers, juice extractors, and so on. A particular goal in this area, is to enable robots to generalize to different objects and tasks.</p>
+
+<p>RoboBarista algorithm aims to generalize based on object parts, for example- robot should be allowed to manipulate a tap based on a stove knob(since both
+have turnable object parts). The parameters of the deep network used by the RoboBarista algorithm are stored in RoboBrain and can be used to manipulate new objects
+with parts similar to the objects on which it was trained.</p>
+</div>
+
+More applications and RaQueL query code for each of the application is coming soon.
+</div>
