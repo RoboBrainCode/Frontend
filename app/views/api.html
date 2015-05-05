@@ -84,29 +84,29 @@
 		    ],<br>
 		    "media": [<br>
 		      &nbsp;&nbsp;"/your/local/path/to/media0",<br>
-		      "/your/local/path/to/media1",<br>
-		      "/your/local/path/to/media2"<br>
+		      &nbsp;&nbsp;"/your/local/path/to/media1",<br>
+		      &nbsp;&nbsp;"/your/local/path/to/media2"<br>
 		    ],<br>
 		    "mediatype": [<br>
-		      "Image",<br>
-		      "Video",<br>
-		      "Text"<br>
+		      &nbsp;&nbsp;"Image",<br>
+		      &nbsp;&nbsp;"Video",<br>
+		      &nbsp;&nbsp;"Text"<br>
 		    ],<br>
 		    "keywords": [<br>
-		      "Some",<br>
-		      "Keywords",<br>
-		      "About",<br>
-		      "Feed"<br>
+		      &nbsp;&nbsp;"Some",<br>
+		      &nbsp;&nbsp;"Keywords",<br>
+		      &nbsp;&nbsp;"About",<br>
+		      &nbsp;&nbsp;"Feed"<br>
 		    ],<br>
 		    "mediamap": [<br>
-		      "#1", (this means 0th media is related to 1st hashtag)<br>
-		      "#0#1", (this means 1st media is related to 0th and 1st hashtags)<br>
-		      "#0" (this means 3rd media is related to 0th hashtag)<br>
+		      &nbsp;&nbsp;"#1", (this means 0th media is related to 1st hashtag)<br>
+		      &nbsp;&nbsp;"#0#1", (this means 1st media is related to 0th and 1st hashtags)<br>
+		      &nbsp;&nbsp;"#0" (this means 3rd media is related to 0th hashtag)<br>
 		    ],<br>
 		    "graphStructure": [<br>
-		      "has_appearance: #1 ->#0"<br>
-		      "Edge type and related nodes"<br>
-		      "It means there exist has_apparance edge from hashtag1 to hashtag0"<br>
+		      &nbsp;&nbsp;"has_appearance: #1 ->#0"<br>
+		      &nbsp;&nbsp;"Edge type and related nodes"<br>
+		      &nbsp;&nbsp;"It means there exist has_apparance edge from hashtag1 to hashtag0"<br>
 		    ],<br>
 			}
 			</code>
@@ -138,10 +138,10 @@ visualization and verification if necessary.</p>
 
     <blockquote>
     "mediashow": [
-      "Is 0th image for visualization or for the brain graph ?",
-      "Is 1st image for visualization or for the brain graph ?",
-      "True or False",
-      "True means, it is for visualization"
+      &nbsp;&nbsp;"Is 0th image for visualization or for the brain graph ?",
+      &nbsp;&nbsp;"Is 1st image for visualization or for the brain graph ?",
+      &nbsp;&nbsp;"True or False",
+      &nbsp;&nbsp;"True means, it is for visualization"
     ],</blockquote>
     
 <p>Each feed includes some media files as well. These files can be images, videos, parameters, point clouds etc.
@@ -151,19 +151,19 @@ visualization and verification if necessary.</p>
  should be equal to the number of media file you push. Indeed, order represent the matching between files and these attributes.</p>
 
     <blockquote>"mediatype": [
-      "Image",
-      "Video",
-      "Text"
+      &nbsp;&nbsp;"Image",
+      &nbsp;&nbsp;"Video",
+      &nbsp;&nbsp;"Text"
     ],</blockquote>
     
 <p>Every entry of the mediatype array represents the type of the corresponding media. Medias can be image, video or
  text if they have True as mediashow. If their mediashow is False, they can be any file.</p>
 
     <blockquote>"keywords": [
-      "Some",
-      "Keywords",
-      "About",
-      "Feed"
+      &nbsp;&nbsp;"Some",
+      &nbsp;&nbsp;"Keywords",
+      &nbsp;&nbsp;"About",
+      &nbsp;&nbsp;"Feed"
     ],</blockquote>
     
 <p>Please write a few keywords representing your feed. These keywords will be used for disambiguation, entity linking 
@@ -171,9 +171,9 @@ etc. by our machine learning algorithms.</p>
 
 <blockquote>
     "mediamap": [
-      "#1", (this means 0th media is related to 1st hashtag)
-      "#0#1", (this means 1st media is related to 0th and 1st hashtags)
-      "#0" (this means 3rd media is related to 0th hashtag)
+      &nbsp;&nbsp;"#1", (this means 0th media is related to 1st hashtag)
+      &nbsp;&nbsp;"#0#1", (this means 1st media is related to 0th and 1st hashtags)
+      &nbsp;&nbsp;"#0" (this means 3rd media is related to 0th hashtag)
     ],</blockquote>
     
 <p>Mediamap links each media with one or more hashtags. Hashtags are counted starting from 0 in their order of occurrence
@@ -181,9 +181,9 @@ in the text. If they occur more than once, each occurrence is a different hashta
 have multiple facts about the same object push them separately.</p>
 
     <blockquote>"graphStructure": [
-      "has_appearance: #1 ->#0"
-      "Edge type and related nodes"
-      "It means there exist has_apparance edge from hashtag1 to hashtag0"
+      &nbsp;&nbsp;"has_appearance: #1 ->#0"
+      &nbsp;&nbsp;"Edge type and related nodes"
+      &nbsp;&nbsp;"It means there exist has_apparance edge from hashtag1 to hashtag0"
     ],</blockquote>
     
 <p>We also ask contributes to supply the graph structure in terms of predicate, subject and object.
@@ -205,32 +205,32 @@ previously used edges.</p>
     "source_text": "Hallucinating Humans",<br/>
     "source_url": "http://pr.cs.cornell.edu/hallucinatinghumans/",<br/>
     "mediashow": [<br/>
-      "True",<br/>
-      "True"<br/>
+      &nbsp;&nbsp;"True",<br/>
+      &nbsp;&nbsp;"True"<br/>
     ],<br/>
     "media": [<br/>
-      "/home/ubuntu/images/shoe_.jpg",<br/>
-      "/home/ubuntu/shoe_12_1.jpg_cr.jpg"<br/>
+      &nbsp;&nbsp;"/home/ubuntu/images/shoe_.jpg",<br/>
+      &nbsp;&nbsp;"/home/ubuntu/shoe_12_1.jpg_cr.jpg"<br/>
     ],<br/>
     "mediatype": [<br/>
-      "Image",<br/>
-      "image",<br/>
+      &nbsp;&nbsp;"Image",<br/>
+      &nbsp;&nbsp;"image",<br/>
     ],<br/>
     "keywords": [<br/>
-      "Human",<br/>
-      "Affordance",<br/>
-      "Object",<br/>
-      "shoe",<br/>
-      "Standing"<br/>
+      &nbsp;&nbsp;"Human",<br/>
+      &nbsp;&nbsp;"Affordance",<br/>
+      &nbsp;&nbsp;"Object",<br/>
+      &nbsp;&nbsp;"shoe",<br/>
+      &nbsp;&nbsp;"Standing"<br/>
     ],<br/>
     "mediamap": [<br/>
-      "#1",<br/>
-      "#0#1#2"<br/>
+      &nbsp;&nbsp;"#1",<br/>
+      &nbsp;&nbsp;"#0#1#2"<br/>
     ],<br/>
     "graphStructure": [<br/>
-      "spatially_distributed_as: #1 ->#2",<br/>
-      "spatially_distributed_as: #0 ->#2",<br/>
-      "can_use: #0 ->#1"<br/>
+      &nbsp;&nbsp;"spatially_distributed_as: #1 ->#2",<br/>
+      &nbsp;&nbsp;"spatially_distributed_as: #0 ->#2",<br/>
+      &nbsp;&nbsp;"can_use: #0 ->#1"<br/>
     ],<br/>
 }
 </blockquote>
