@@ -66,3 +66,5 @@ def test_deploy(user='ubuntu', speed='fast'):
     print(green('Copying changes into ./serve/...'))
     run('cp -R dist/* serve/')
   print(red('Done!'))
+
+
