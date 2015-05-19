@@ -8,17 +8,43 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
+  <style>
+    #menu{
+        padding: 25px;
+        font-size: 16px;
+        background: #f2f2f2;
+        text-align: center;
+        border-radius: 5px;
+    }
+</style>
 </head>
 <body>
 
 	<div class="jumbotron">
 <div class="container">
-
+   
 	<h3 class="text-center">Enter your Raquel code below:</h3>
 <p align="center"><span class="glyphicon glyphicon-console" aria-hidden="true"></span></p>
+<div class="col-sm-offset-5 col-sm-2 text-center">
+            <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle btn-block">Function <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Fetch</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Sort By</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Len</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Map</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Filter</a></li>
+            </ul>
+  </div>
+
 	<p align="center"><textarea rows="2" cols="50">
 	</textarea></p>
+  <div class="col-sm-offset-5 col-sm-2 text-center">
+  <button type="submit" class="btn btn-default">Submit</button>
+</div>
 </div>
 
 	</div>
@@ -28,22 +54,19 @@
 </div>
 
 
-  <div class="container-fluid">
- <div class="col-xs-5">
-        
-  </div>
-  <div class="col-xs-7">
- <ul style="text-decoration:underline;">
+  <div class="container-fluid" id="menu">
+ 
+    <ul>
        
-    <ol>
-        <li><a href="#raquel##fetch">Fetch Function</a></li>
-        <li><a href="#raquel##client">Display Graph</a></li>
-        <li><a href="#raquel##edges">Edges</a></li>
-        <li><a href="#raquel##execute">Execute</a></li>
-    </ol>
+        <a href="#raquel##fetch">1. FETCH</a>
+        <br><a href="#raquel##Sortby">2. SORT BY</a>
+        <br><a href="#raquel##len">3. LEN</a>
+        <br><a href="#raquel##map">4. MAP</a>
+        <br><a href="#raquel##filter">5. FILTER</a>
+
     </ul> 
 </div>
-</div>
+
 
 </body>
 </html>
