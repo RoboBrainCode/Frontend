@@ -1,11 +1,7 @@
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
 <div class="jumbotron">
 <div class="container-fluid">
    
-	<h3 class="text-center">Enter your Raquel code below:</h3>
+  <h3 class="text-center">Enter your Raquel code below:</h3>
 <p align="center"><span class="glyphicon glyphicon-console"></span></p>
 
 <form role="form">
@@ -20,27 +16,50 @@
       </select>
     </div>
   </form>
-
-	<textarea style="border: none; width: 100%;" rows="6" placeholder="Enter Code Here"> </textarea>
+ 
+<div class="btn-group">
+   <button type="button" class="btn btn-default dropdown-toggle" style="width:100%"
+      data-toggle="dropdown">
+      Saved Scripts <span class="caret"></span>
+   </button>
+   <ul class="dropdown-menu" role="menu">
+      <li><button type="button" class="btn btn-link" onclick="myFunction()" style="border:none; width:100% ">Create a node</button></li>
+      <li><button type="button" class="btn btn-link" onclick="myFunction1()" style="border:none; width:100%">Get some data</button></li>
+      <li><button type="button" class="btn btn-link" onclick="myFunction2()" style="border:none; width:100%">What is related, and how</button></li>
+   </ul>
+</div>
+  <textarea style="width: 100%;"rows="5" placeholder="Enter Code Here" id="demo"></textarea>
   <div class="form-group">        
      <br>
-        <button type="submit" class="btn btn-default btn-lg btn-block">Execute</button>
-     
+        <button type="submit" class="btn btn-default btn-lg btn-block">Execute</button>    
     </div>
 </div>
 
-	</div>
+  </div>
+<script>
+function myFunction() {
+    var x =document.getElementById("demo");
+    x.innerHTML="CREATE (n {name:\"World\"}) RETURN \"hello\"\, n.name";
+}
+function myFunction1() {
+    var y = document.getElementById("demo");
+    y.innerHTML="MATCH (n) RETURN n LIMIT 100";
+}
+function myFunction2() {
+    var z = document.getElementById("demo");
+    z.innerHTML="MATCH (a)-[r]->(b)\nWHERE labels(a) <> [ ]\ AND labels(b) <> [ ]\nRETURN DISTINCT head(labels(a)) AS\ This, type(r) as To,\nhead(labels(b)) AS That\nLIMIT\ 10";
+}
+</script>
 
 
 <div class="page-header">
     <h2 class="text-center">RaQuel <small>API Documentation</small></h1>
 </div>
 
-
   <div class="container-fluid" id="menu">
  
     <ul>
-       <p>Currently, RaQuel supports the following functions:</p>
+        <p>Currently, RaQuel supports the following functions:</p>
         <a href="#raquel##fetch">1. FETCH</a>
         <br><a href="#raquel##Sortby">2. SORT BY</a>
         <br><a href="#raquel##len">3. LEN</a>
@@ -49,4 +68,3 @@
 
     </ul> 
 </div>
-
