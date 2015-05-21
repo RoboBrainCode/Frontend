@@ -1,15 +1,4 @@
-
-  <!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-</head>
-<body>
-  <div class="jumbotron">
+<div class="jumbotron">
 <div class="container-fluid">
    
   <h3 class="text-center">Enter your Raquel code below:</h3>
@@ -25,10 +14,24 @@
         <option>MAP</option>
         <option>FILTER</option>
       </select>
-      <button type="button" class="btn btn-link" onclick="myFunction()" style="border:none; width:100%">Try</button>
     </div>
   </form>
-  
+<div class="btn-group">
+   <button type="button" class="btn btn-link" style=" font-size: 14px; font-weight:bold;" data-toggle="dropdown">
+      Saved Scripts <span class="caret"></span>
+   </button>
+   <ul class="dropdown-menu" role="menu">
+      <li><button type="button" class="btn btn-link" onclick="myFunction()" style="border:none; width:100% ">Fetch</button></li>
+      <li class="divider"></li>
+      <li><button type="button" class="btn btn-link" onclick="myFunction1()" style="border:none; width:100%">Sort By</button></li>
+      <li class="divider"></li>
+      <li><button type="button" class="btn btn-link" onclick="myFunction2()" style="border:none; width:100%">Len</button></li>
+      <li class="divider"></li>
+      <li><button type="button" class="btn btn-link" onclick="myFunction3()" style="border:none; width:100%">Map</button></li>
+      <li class="divider"></li>
+      <li><button type="button" class="btn btn-link" onclick="myFunction4()" style="border:none; width:100%">Filter</button></li>
+   </ul>
+</div>
   <textarea style="width: 100%;"rows="5" placeholder="Enter Code Here" id="demo"></textarea>
   <div class="form-group">        
      <br>
@@ -41,18 +44,21 @@
 
   </div>
 
+
 <script>
 function myFunction() {
-    var x=document.getElementById("sel2").value;
-    if(x=="FETCH")
     document.getElementById("demo").value="FETCH ADD 1 + 2";
-    else if(x=="SORT BY")
+}
+function myFunction1() {
     document.getElementById("demo").value="SORT SUBTRACT 3 - 2";
-    else if(x=="LEN")
+}
+function myFunction2() {
     document.getElementById("demo").value="LEN MULTIPLY 2 * 3";
-    else if(x=="MAP")
+  }
+function myFunction3() {
     document.getElementById("demo").value="MAP DIVIDE 3 / 2 ";
-    else if(x=="FILTER")
+}
+function myFunction4() {
    document.getElementById("demo").value="FILTER MODULUS 3 % 2";
 }
 function execute(){
@@ -101,5 +107,3 @@ $('#searchid').blur(function() {
 
     </ul> 
 </div>
-</body>
-</html>
