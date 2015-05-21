@@ -38,7 +38,7 @@
         <button type="submit" class="btn btn-default btn-lg btn-block" onclick="execute()" id="searchid">Execute</button>    
     </div>
     <div id="drope_box" style="display:none;">
-  <textarea style="width: 100%;"rows="1" placeholder="Result" id="result"></textarea>
+  <p id="result" style="width: 100%;"></p>
 </div>
 </div>
 
@@ -65,15 +65,15 @@ function execute(){
   var str= document.getElementById("demo").value;
   var res= str.split(" ");
   if(res[1]=="ADD")
-  document.getElementById("result").value=parseInt(res[2])+parseInt(res[4]);
+  document.getElementById("result").innerHTML="The result is: " + (parseInt(res[2])+ parseInt(res[4]));
   else if(res[1]=="SUBTRACT")
-  document.getElementById("result").value=parseInt(res[2])-parseInt(res[4]);
+  document.getElementById("result").innerHTML="The result is: " + (parseInt(res[2])-parseInt(res[4]));
   else if(res[1]=="MULTIPLY")
-  document.getElementById("result").value=parseInt(res[2])*parseInt(res[4]);
+  document.getElementById("result").innerHTML="The result is: " + (parseInt(res[2])*parseInt(res[4]));
   else if(res[1]=="DIVIDE")
-  document.getElementById("result").value=parseInt(res[2])/parseInt(res[4]);
+  document.getElementById("result").innerHTML="The result is: " + (parseInt(res[2])/parseInt(res[4]));
   else if(res[1]=="MODULUS")
-  document.getElementById("result").value=parseInt(res[2])%parseInt(res[4]);
+  document.getElementById("result").innerHTML="The result is: " + (parseInt(res[2])%parseInt(res[4]));
 }
 </script>
 
