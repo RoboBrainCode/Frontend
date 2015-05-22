@@ -14,7 +14,7 @@
     <button type="button" class="btn btn-link" onclick="myFunction()" style="font-size:14px; font-weight:bold;">Show</button>
 
   
-  <textarea style="width: 100%; border:none;"rows="5" placeholder="Enter Code Here" id="demo"></textarea>
+  <textarea class="form-control" style="width: 100%; border:none; color:#007A00" rows="5" placeholder="Enter Code Here" id="demo" autofocus></textarea>
   <div class="form-group">        
         <button type="submit" class="btn btn-link" onclick="execute()" id="searchid" style="font-size:14px; font-weight:bold;">Execute</button>    
     </div>
@@ -76,15 +76,41 @@ $('#searchid').blur(function() {
     <h2 class="text-center">RaQuel <small>API Documentation</small></h1>
 </div>
 
-  <div class="container-fluid" id="menu">
- 
-    <ul>
         <p>Currently, RaQuel supports the following functions:</p>
-        <a href="#raquel##fetch">1. FETCH</a>
-        <br><a href="#raquel##Sortby">2. SORT BY</a>
-        <br><a href="#raquel##len">3. LEN</a>
-        <br><a href="#raquel##map">4. MAP</a>
-        <br><a href="#raquel##filter">5. FILTER</a>
+        
+        <p class="flip">1. FETCH</p>
+        <div class="panel">
+        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
+        </div>
 
-    </ul> 
-</div>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".flip").click(function() {
+      $(".panel").slideToggle("slow");
+    });
+  });
+</script>
+
+ 
+
+ <style type="text/css">
+p.flip {
+  margin: 0px;
+  padding: 5px;
+  background: #ddd;
+  border: solid 1px #fff;
+  font-weight: bold;
+}
+ 
+div.panel {
+  widht: 50%;
+  height: 100px;
+  display: none;
+   margin: 0px;
+  padding: 5px;
+  border: solid 1px #fff;
+}
+</style>
