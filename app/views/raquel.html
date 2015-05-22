@@ -1,25 +1,24 @@
 <div class="jumbotron">
 <div class="container-fluid">
    
-  <h3 class="text-center">Enter your Raquel code below:</h3>
+  <h3 class="text-center">Enter your RaQuel code below:</h3>
 <p align="center"><span class="glyphicon glyphicon-console"></span></p>
 
 
-      <label>Select Function:</label>
+      <label>Saved Scripts:</label>
       <select class="form-control" id="sel2">
-        <option>FETCH</option>
-        <option>SORT BY</option>
-        <option>LEN</option>
-        <option>MAP</option>
-        <option>FILTER</option>
+        <option>Example 1</option>
+        <option>Example 2</option>
+        <option>Example 3</option>
+        <option>Example 4</option>
       </select>
-    <button type="button" class="btn btn-link" onclick="myFunction()" style="border:none; width:100%; font-size:14px; font-weight: bold">Show</button>
+    <button type="button" class="btn btn-link" onclick="myFunction()" style="border:none; width:100%; font-size:14px">Show</button>
  
   
   <textarea style="width: 100%;"rows="5" placeholder="Enter Code Here" id="demo"></textarea>
   <div class="form-group">        
      <br>
-        <button type="submit" class="btn btn-default btn-lg btn-block" onclick="execute()" id="searchid">Execute</button>    
+        <button type="submit" class="btn btn-default btn-lg btn-block" onclick="execute()" id="searchid" style="border:none; width:100%; font-size:14px">Execute</button>    
     </div>
     <div id="drope_box" style="display:none;">
   <p id="result" style="width: 100%;"></p>
@@ -31,16 +30,14 @@
 <script type="text/javascript">
 function myFunction() {
     var x=document.getElementById("sel2").value;
-    if(x=="FETCH")
-    document.getElementById("demo").value="FETCH ADD 1 + 2";
-    else if(x=="SORT BY")
-    document.getElementById("demo").value="SORT SUBTRACT 3 - 2";
-    else if(x=="LEN")
-    document.getElementById("demo").value="LEN MULTIPLY 2 * 3";
-    else if(x=="MAP")
-    document.getElementById("demo").value="MAP DIVIDE 3 / 2 ";
-    else if(x=="FILTER")
-   document.getElementById("demo").value="FILTER MODULUS 3 % 2";
+    if(x=="Example 1")
+    document.getElementById("demo").value="fetch(\"({handle:'wall'})-[\e:`HAS_MATERIAL`]->(b)\")";
+    else if(x=="Example 2")
+    document.getElementById("demo").value="path = fetch(\"(\{handle:'sitting_human'})-[e*1..3]->({handle:'cup'})\")\nSortBy(\paths,'Belief')";
+    else if(x=="Example 3")
+    document.getElementById("demo").value="objects = fetch(\"(\{handle:'sitting_human'})-[:`CAN_USE`]->(v)\")\naffordance = lambda n: fetch\(\"{handle :'\" + n + \"'}) - [:`HasAffordance` ] -> (v)\")\niter = imap(\ lambda u: affordances(u) ,objects)\niter.next()";
+    else if(x=="Example 4")
+    document.getElementById("demo").value="paths = fetch(\"({handle:'sitting_human'})-[e*1..3]->({handle:'cup'})\")\niter = ifilter(\ lambda u: Belief(u)  > 0.5 ,paths)\niter.next()";
 }
 function execute(){
   var str= document.getElementById("demo").value;
