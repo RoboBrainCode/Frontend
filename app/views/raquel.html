@@ -78,18 +78,34 @@ $('#searchid').blur(function() {
 
         <p>Currently, RaQuel supports the following functions:</p>
         
-        <p class="flip">1. FETCH</p>
-        <div class="panel">
+        <p class="fetch">1. FETCH</p>
+        <div class="panel1">
+        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
+        </div>
+        <p class="sort">2. SORT BY</p>
+        <div class="panel2">
+        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
+        </div>
+        <p class="len">3. LEN</p>
+        <div class="panel3">
+        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
+        </div>
+        <p class="map">4. MAP</p>
+        <div class="panel4">
+        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
+        </div>
+        <p class="filter">5. FILTER</p>
+        <div class="panel5">
         <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
         </div>
 
 
-
+<br>
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $(".flip").click(function() {
-      $(".panel").slideToggle("slow");
+    $(".fetch").click(function() {
+      $(".panel1").slideToggle("slow");
     });
   });
 </script>
@@ -97,15 +113,15 @@ $('#searchid').blur(function() {
  
 
  <style type="text/css">
-p.flip {
+p.fetch,p.sort,p.len,p.map,p.filter{
   margin: 0px;
   padding: 5px;
-  background: #ddd;
+  background: #eee;
   border: solid 1px #fff;
   font-weight: bold;
 }
  
-div.panel {
+div.panel1,div.panel2,div.panel3,div.panel4,div.panel5 {
   widht: 50%;
   height: 100px;
   display: none;
