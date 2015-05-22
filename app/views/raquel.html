@@ -2,7 +2,7 @@
 <div class="container-fluid">
    
   <h3 class="text-center">Enter your RaQuel code below:</h3>
-
+  <br>
 
       <label>Saved Scripts:</label>
       <select class="form-control" id="sel2">
@@ -29,6 +29,7 @@
 <script type="text/javascript">
 function myFunction() {
     var x=document.getElementById("sel2").value;
+    alert("I am an alert box!");
     if(x=="Example 1")
     document.getElementById("demo").value="fetch(\"({handle:'wall'})-[\e:`HAS_MATERIAL`]->(b)\")";
     else if(x=="Example 2")
