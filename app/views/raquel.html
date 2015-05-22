@@ -4,8 +4,8 @@
   <h3 class="text-center">Enter your Raquel code below:</h3>
 <p align="center"><span class="glyphicon glyphicon-console"></span></p>
 
-<form role="form">
-      <label for="sel2">Select Function:</label>
+
+      <label>Select Function:</label>
       <select class="form-control" id="sel2">
         <option>FETCH</option>
         <option>SORT BY</option>
@@ -13,9 +13,8 @@
         <option>MAP</option>
         <option>FILTER</option>
       </select>
-    <button type="button" class="btn btn-link" onclick="myFunction()" style="border:none; width:100%; font-size:14px">Show</button>
+    <button type="button" class="btn btn-link" onclick="myFunction()" style="border:none; width:100%; font-size:14px; font-weight: bold">Show</button>
  
-  </form>
   
   <textarea style="width: 100%;"rows="5" placeholder="Enter Code Here" id="demo"></textarea>
   <div class="form-group">        
@@ -29,7 +28,7 @@
 
   </div>
 
-<script>
+<script type="text/javascript">
 function myFunction() {
     var x=document.getElementById("sel2").value;
     if(x=="FETCH")
