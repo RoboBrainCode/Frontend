@@ -87,5 +87,6 @@ angular.module('roboBrainApp')
 	};
 
   	$scope.weaver={}
+  	$scope.weaver.limit='10';
 
   }]);
