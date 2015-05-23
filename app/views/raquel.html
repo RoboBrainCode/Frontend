@@ -4,21 +4,21 @@
   <h3 class="text-center">Enter your RaQuel code below:</h3>
   <br>
 
-      <label style="float:left;">Saved Scripts:</label>
+      <label>Saved Scripts:</label>
       <select class="form-control" id="sel2">
         <option>Example 1</option>
         <option>Example 2</option>
         <option>Example 3</option>
         <option>Example 4</option>
       </select>
-    <button type="button" class="btn btn-link" onclick="myFunction()" style="font-size:14px; font-weight:bold;">Show</button>
+    <button type="button" class="btn btn-link" onclick="myFunction()" style="font-size:14px font-weight:bold; outline:0">Show</button>
 
   
-  <textarea class="form-control" style="width: 100%; border:none; color:#007A00" rows="5" placeholder="Enter Code Here" id="demo" autofocus></textarea>
+  <textarea class="form-control" style="width: 100%; border:none; color:#009900" rows="5" placeholder="Enter Code Here" id="demo" autofocus></textarea>
   <div class="form-group">        
-        <button type="submit" class="btn btn-link" onclick="execute()" id="searchid" style="font-size:14px; font-weight:bold;">Execute</button>    
+        <button type="submit" class="btn btn-link" onclick="execute()" id="searchid" style="font-size:14px font-weight:bold; outline:0">Execute</button>    
     </div>
-    <div id="drope_box" style="display:none;">
+     <div id="drope_box" style="display:none;">
   <textarea style="width: 100%; border:none;"rows="2" placeholder="Result Shown Here" id="result"></textarea>
 </div>
 </div>
@@ -70,8 +70,10 @@ $('#searchid').blur(function() {
 
  $('#searchid').focus(function() {
     $("#drope_box").show();
- });  
+ });
+
 </script>
+
 <div class="page-header">
     <h2 class="text-center">RaQuel <small>API Documentation</small></h1>
 </div>
@@ -80,23 +82,34 @@ $('#searchid').blur(function() {
         
         <p class="fetch">1. FETCH</p>
         <div class="panel1">
-        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
+        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern.
+          <code>fetch: Pattern(arg<sub>1</sub>,arg<sub>2</sub>,...)</code> returns a list of tuples with instantiated values of variables <code>->[(arg<sub>1</sub><sup>(i)</sup>,arg<sub>1</sub><sup>(i)</sup>,...)]<sub>i<sub></code>. 
+          This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.<br>
+          For example, to retrieve all nodes and edges with label 'HAS_MATERIAL' connected to nodes with handle "wall":
+        </p>
+        <blockquote>
+          >>> fetch("({handle:'wall'})-[e:`HAS_MATERIAL`]->(b)")
+        </blockquote>
+        <p>
+          The pattern will match against paths of length one {u, e, v}; where node
+          u has handle "wall" and edge e has label 'HAS_MATERIAL'.
+        </p>
         </div>
         <p class="sort">2. SORT BY</p>
         <div class="panel2">
-        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
+        <p>The sort by function is used to sort a list of nodes or relationships with a given key.</p>
         </div>
         <p class="len">3. LEN</p>
         <div class="panel3">
-        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
+        <p>The len function is used to find the length of the list of nodes or edges.</p>
         </div>
         <p class="map">4. MAP</p>
         <div class="panel4">
-        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
+        <p>The map function calls a function on a specific set of values.</p>
         </div>
         <p class="filter">5. FILTER</p>
         <div class="panel5">
-        <p>The fetch function is used to retrieve a sub-graph of RoboBrain that matches an input pattern. The function fetch takes as input a pattern and returns a list of tuples with instantiated values of variables. This pattern is matched against sub-graphs of RoboBrain and these matched sub-graphs are used to create initialized entries for the pattern variables.</p>
+        <p>The filter function returns a sequence which consistes a set of items for which a function is true on a specific set of values.</p>
         </div>
 
 
@@ -106,6 +119,26 @@ $('#searchid').blur(function() {
   $(document).ready(function() {
     $(".fetch").click(function() {
       $(".panel1").slideToggle("slow");
+    });
+  });
+  $(document).ready(function() {
+    $(".sort").click(function() {
+      $(".panel2").slideToggle("slow");
+    });
+  });
+  $(document).ready(function() {
+    $(".len").click(function() {
+      $(".panel3").slideToggle("slow");
+    });
+  });
+  $(document).ready(function() {
+    $(".map").click(function() {
+      $(".panel4").slideToggle("slow");
+    });
+  });
+  $(document).ready(function() {
+    $(".filter").click(function() {
+      $(".panel5").slideToggle("slow");
     });
   });
 </script>
@@ -118,12 +151,11 @@ p.fetch,p.sort,p.len,p.map,p.filter{
   padding: 5px;
   background: #eee;
   border: solid 1px #fff;
-  font-weight: bold;
 }
  
 div.panel1,div.panel2,div.panel3,div.panel4,div.panel5 {
   widht: 50%;
-  height: 100px;
+  height: 180px;
   display: none;
    margin: 0px;
   padding: 5px;
