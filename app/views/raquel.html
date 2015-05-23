@@ -14,12 +14,12 @@
     <button type="button" class="btn btn-link" onclick="myFunction()" style="font-size:14px; font-weight:bold; outline:0">Show</button>
 
   
-  <textarea class="form-control" style="width: 100%; border:none; color:#009900;" rows="5" placeholder="//Enter Code Here" id="demo" autofocus></textarea>
+  <textarea class="form-control" style="width: 100%; border:none; color:#009900; background-color:#D6D6D0; font-family: Courier" rows="5" placeholder="//Enter Code Here" id="demo" autofocus></textarea>
   <div class="form-group">        
         <button type="submit" class="btn btn-link" onclick="execute()" id="searchid" style="font-size:14px; font-weight:bold; outline:0">Execute</button>    
     </div>
      <div id="drope_box" style="display:none;">
-  <textarea style="width: 100%; border:none;"rows="2" placeholder="Result Shown Here" id="result"></textarea>
+  <p id="result"></p>
 </div>
 </div>
 
@@ -102,7 +102,7 @@ $('#searchid').blur(function() {
         </p>
         <blockquote>
           >>> path = fetch("({handle:'sitting_human'})-[e*1..3]->({handle:'cup'})")
-          <br>>>> SortBy(paths,'Belief')
+          <br> >>> SortBy(paths,'Belief')
         </blockquote>
         </div>
         <p class="len">3. LEN</p>
