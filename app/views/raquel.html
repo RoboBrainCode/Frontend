@@ -14,10 +14,13 @@
     <button type="button" class="btn btn-link" onclick="myFunction()" style="font-size:14px; font-weight:bold; outline:0">Show</button>
 
   <textarea class="form-control" style="width: 100%; border:none; color:#009900; font-family: Courier; resize:none" rows="5" placeholder='//Enter Code Here' id="demo" autofocus></textarea>
+  <div class="form-group">   
+  <button type="submit" class="btn btn-link" onclick="cleararea()" style="font-size:14px; font-weight:bold; outline:0; float:left">Clear</button></div>
   <div class="form-group">        
-        <button type="submit" class="btn btn-link" onclick="execute()" id="searchid" style="font-size:14px; font-weight:bold; outline:0">Execute</button>    
+        <button type="submit" class="btn btn-link" onclick="execute()" id="searchid" style="font-size:14px; font-weight:bold; outline:0; float:right">Execute</button>    
     </div>
      <div id="drope_box" style="display:none;">
+      <br>
   <p id="result"></p>
 </div>
 </div>
@@ -42,19 +45,11 @@ function myFunction() {
   }
 }
 function execute(){
-  var str= document.getElementById("demo").value;
-  var res= str.split(" ");
-  if(res[1]=="ADD")
-  document.getElementById("result").innerHTML="The result is: " + (parseInt(res[2])+ parseInt(res[4]));
-  else if(res[1]=="SUBTRACT")
-  document.getElementById("result").innerHTML="The result is: " + (parseInt(res[2])-parseInt(res[4]));
-  else if(res[1]=="MULTIPLY")
-  document.getElementById("result").innerHTML="The result is: " + (parseInt(res[2])*parseInt(res[4]));
-  else if(res[1]=="DIVIDE")
-  document.getElementById("result").innerHTML="The result is: " + (parseInt(res[2])/parseInt(res[4]));
-  else if(res[1]=="MODULUS")
-  document.getElementById("result").innerHTML="The result is: " + (parseInt(res[2])%parseInt(res[4]));
+  document.getElementById("result").innerHTML="The result is: ";
 }
+function cleararea(){
+  document.getElementById("demo").value="";
+  }
 </script>
 
 <script type="text/javascript">
