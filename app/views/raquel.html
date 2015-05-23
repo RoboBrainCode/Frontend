@@ -13,7 +13,7 @@
       </select>
     <button type="button" class="btn btn-link" onclick="myFunction()" style="font-size:14px; font-weight:bold; outline:0">Show</button>
 
-  <textarea class="form-control" style="width: 100%; border:none; color:#009900; font-family: Courier; resize:none" rows="5" placeholder="//Enter Code Here" id="demo" autofocus></textarea>
+  <textarea class="form-control" style="width: 100%; border:none; color:#009900; font-family: Courier; resize:none" rows="5" placeholder='//Enter Code Here' id="demo" autofocus></textarea>
   <div class="form-group">        
         <button type="submit" class="btn btn-link" onclick="execute()" id="searchid" style="font-size:14px; font-weight:bold; outline:0">Execute</button>    
     </div>
@@ -79,7 +79,7 @@ $('#searchid').blur(function() {
 
         <p>Currently, RaQuel supports the following functions:</p>
         
-        <p class="fetch">1. FETCH</p>
+        <p class="fetch">1. <span style="font-family: Courier;">fetch</span> function</p>
         <div class="panel1">
         <p>
           <code>fetch: Pattern(arg<sub>1</sub>,arg<sub>2</sub>,...)</code> returns a list of tuples with instantiated values of variables <code>[(arg<sub>1</sub><sup>(i)</sup>,arg<sub>1</sub><sup>(i)</sup>,...)]<sub>i<sub></code>. 
@@ -94,7 +94,7 @@ $('#searchid').blur(function() {
           u has handle "wall" and edge e has label 'HAS_MATERIAL'.
         </p>
         </div>
-        <p class="sort">2. SORT BY</p>
+        <p class="sort">2. <span style="font-family: Courier;">sort</span> function</p>
         <div class="panel2">
         <code>SortBy(Pattern,'key')</code> returns a list of tuples sorted according to the key. <br><br>
           For example, to sort all paths of length between 1 and 3, which connects nodes with handle 'sitting_human' to nodes with handle 'cup', according to belief:
@@ -104,15 +104,15 @@ $('#searchid').blur(function() {
           <br> >>> SortBy(paths,'Belief')
         </blockquote>
         </div>
-        <p class="len">3. LEN</p>
+        <p class="len">3. <span style="font-family: Courier;">len</span> function</p>
         <div class="panel3">
         <p>The len function is used to find the length of the list of nodes or edges.</p>
         </div>
-        <p class="map">4. MAP</p>
+        <p class="map">4. <span style="font-family: Courier;">map</span> function</p>
         <div class="panel4">
         <p>The map function calls a function on a specific set of values.</p>
         </div>
-        <p class="filter">5. FILTER</p>
+        <p class="filter">5. <span style="font-family: Courier;">filter</span> function</p>
         <div class="panel5">
         <p>The filter function returns a sequence on which a function is true.</p>
         </div>
@@ -157,12 +157,12 @@ $('#searchid').blur(function() {
   $(document).keypress(function(e) {
     if(e.which == 13) {
         var content=">>>";
-        var txt =$("textarea#demo");
+        var txt = $("textarea#demo");
         txt.val( txt.val() + "\n>>>");
         e.preventDefault();
     }
 });
-     
+
 </script>
 
  
