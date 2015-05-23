@@ -97,7 +97,13 @@ $('#searchid').blur(function() {
         </div>
         <p class="sort">2. SORT BY</p>
         <div class="panel2">
-        <p>The sort by function is used to sort a list of nodes or relationships with a given key.</p>
+        <code>SortBy(Pattern,'key')</code> returns a list of tuples sorted according to the key. <br><br>
+          For example, to sort all paths of length between 1 and 3, which connects nodes with handle 'sitting_human' to nodes with handle 'cup', according to belief:
+        </p>
+        <blockquote>
+          >>> path = fetch("({handle:'sitting_human'})-[e*1..3]->({handle:'cup'})")
+          <br>>>> SortBy(paths,'Belief')
+        </blockquote>
         </div>
         <p class="len">3. LEN</p>
         <div class="panel3">
