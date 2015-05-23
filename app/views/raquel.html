@@ -157,7 +157,7 @@ $('#searchid').blur(function() {
   $(document).keypress(function(e) {
     if(e.which == 13) {
         var content=">>>";
-        var txt = $("textarea#demo");
+        var txt =$("textarea#demo");
         txt.val( txt.val() + "\n>>>");
         e.preventDefault();
     }
