@@ -13,7 +13,7 @@
       </select>
     <button type="button" class="btn btn-link" onclick="myFunction()" style="font-size:14px; font-weight:bold; outline:0">Show</button>
 
-  <textarea class="form-control" style="width: 100%; border:none; color:#009900; font-family: Courier; resize:none" rows="5" placeholder='//Enter Code Here' id="demo" ></textarea>
+  <textarea class="form-control" style="width: 100%; border:none; color:#009900; font-family: Courier; resize:none" rows="5" id="demo">//Enter Your Code</textarea>
   <div class="form-inline">
   <div class="form-group">   
   <button type="submit" class="btn btn-link" onclick="cleararea()" style="font-size:14px; font-weight:bold; outline:0; float:left">Clear</button></div>
@@ -34,23 +34,23 @@ function myFunction() {
     var x=document.getElementById("sel2").value;
     var y=x.split(" ")
     if(y[0]=="Fetch"){
-    document.getElementById("demo").value=">>>fetch(\"({handle:'wall'})-[\e:`HAS_MATERIAL`]->(b)\")";
+    document.getElementById("demo").value="//Enter Your Code\n>>>fetch(\"({handle:'wall'})-[\e:`HAS_MATERIAL`]->(b)\")";
   }
     else if(y[0]=="Sort"){
-    document.getElementById("demo").value=">>>path = fetch(\"(\{handle:'sitting_human'})-[e*1..3]->({handle:'cup'})\")\n>>>SortBy(\paths,'Belief')";
+    document.getElementById("demo").value="//Enter Your Code\n>>>path = fetch(\"(\{handle:'sitting_human'})-[e*1..3]->({handle:'cup'})\")\n>>>SortBy(\paths,'Belief')";
   }
     else if(y[0]=="Map"){
-    document.getElementById("demo").value=">>>objects = fetch(\"(\{handle:'sitting_human'})-[:`CAN_USE`]->(v)\")\n>>>affordance = lambda n:\ fetch(\"{handle :'\" + n + \"'}) - [:`HasAffordance` ] -> (v)\")\n>>>iter = imap(\ lambda u: affordances(u) ,objects)\n>>>iter.next()";
+    document.getElementById("demo").value="//Enter Your Code\n>>>objects = fetch(\"(\{handle:'sitting_human'})-[:`CAN_USE`]->(v)\")\n>>>affordance = lambda n:\ fetch(\"{handle :'\" + n + \"'}) - [:`HasAffordance` ] -> (v)\")\n>>>iter = imap(\ lambda u: affordances(u) ,objects)\n>>>iter.next()";
   }
     else if(y[0]=="Filter"){
-    document.getElementById("demo").value=">>>paths = fetch(\"({handle:'sitting_human'})-[e*1..3]->({handle:'cup'})\")\n>>>iter = ifilter(\ lambda u: Belief(u)  > 0.5 ,paths)\n>>>iter.next()";
+    document.getElementById("demo").value="//Enter Your Code\n>>>paths = fetch(\"({handle:'sitting_human'})-[e*1..3]->({handle:'cup'})\")\n>>>iter = ifilter(\ lambda u: Belief(u)  > 0.5 ,paths)\n>>>iter.next()";
   }
 }
 function execute(){
   document.getElementById("result").innerHTML="The result is: ";
 }
 function cleararea(){
-  document.getElementById("demo").value="";
+  document.getElementById("demo").value="//Enter Your Code";
   }
 </script>
 
@@ -146,13 +146,14 @@ $('#searchid').blur(function() {
   var count;
   $(document).ready(function(){
     $("#demo").click(function(){
-   if (!$("#demo").val()) {
-        var content=">>>";
+   if ($("#demo").val()=="//Enter Your Code"){
+        var content="//Enter Your Code\n>>>";
         $("#demo").val(content);
         count = $("#demo").val().length;
-     }
-     else
-        count =3;
+      }
+    else{
+      count=21;
+    }
     });
   });
   
@@ -173,10 +174,7 @@ $('#searchid').blur(function() {
       e.preventDefault();
     }
 });
-
 </script>
-
- 
 
  <style type="text/css">
 p.fetch,p.sort,p.len,p.map,p.filter{
