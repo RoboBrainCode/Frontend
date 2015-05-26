@@ -16,7 +16,8 @@ angular.module('roboBrainApp')
       institution: 'Cornell / Stanford',
       role: 'Robot Learning and Project Lead',
       photo: 'images/contrib/asaxena.jpg',
-      url: 'http://www.cs.cornell.edu/~asaxena/'
+      url: 'http://www.cs.cornell.edu/~asaxena/',
+      email:'asaxena@cs.cornell.edu'
     },
     {
       name: 'Ashesh Jain',
@@ -24,7 +25,16 @@ angular.module('roboBrainApp')
       role: 'Interactive Online Learning',
       photo: 'images/contrib/ajain.jpg',
       url: 'http://www.cs.cornell.edu/~ashesh/',
-      roleUrl: 'http://planit.cs.cornell.edu/'
+      roleUrl: 'http://planit.cs.cornell.edu/',
+      email:'ashesh@cs.cornell.edu'
+    },
+    {
+      name: 'Aditya Jami',
+      institution: 'Cornell / Zoodig',
+      role: 'Large-Scale Systems',
+      photo: 'images/contrib/ajami.jpg',
+      url: 'http://www.cs.stanford.edu/people/adityaj/',
+      email:'adityajami@gmail.com'
     },
     {
       name: 'Ozan Sener',
@@ -33,13 +43,7 @@ angular.module('roboBrainApp')
       photo: 'images/contrib/osener.jpg',
       url: 'http://ozansener.net/'
     },
-    {
-      name: 'Aditya Jami',
-      institution: 'Cornell / Zoodig',
-      role: 'Large-Scale Systems',
-      photo: 'images/contrib/ajami.jpg',
-      url: 'http://www.cs.stanford.edu/people/adityaj/'
-    },
+    
     {
       name: 'Dipendra K. Misra',
       institution: 'Cornell / Stanford',

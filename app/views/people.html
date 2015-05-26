@@ -8,7 +8,12 @@
       <a ng-href="{{ p.url }}" target="_blank">{{ p.name }}</a>
       <br>
       <small>
+
         {{ p.institution }}<br>
+        <a ng-if="p.email" ng-href="mailto:{{ p.email }}" target="_blank">
+          {{ p.email }}
+        </a>
+        <br>
         <a ng-if="p.roleUrl" ng-href="{{ p.roleUrl }}" target="_blank">
           {{ p.role }}
         </a>
