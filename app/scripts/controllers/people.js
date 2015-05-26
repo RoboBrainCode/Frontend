@@ -54,7 +54,7 @@ angular.module('roboBrainApp')
     },
     {
         name: 'Hema Koppula',
-        instituion: 'Cornell Univeristy',
+        institution: 'Cornell Univeristy',
         role: 'Machine Learning and 3D Perception',
         photo: 'images/contrib/hkoppula.jpg',
         url: 'http://www.cs.cornell.edu/~hema/'
