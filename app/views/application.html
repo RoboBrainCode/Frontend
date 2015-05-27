@@ -1,4 +1,4 @@
-<div class="row" style="margin-left:35px;margin-right:35px;">
+<!-- <div class="row" style="margin-left:35px;margin-right:35px;">
 <h2 style="text-align:center;">Applications Using RoboBrain</h2>
 
 <div class="row">
@@ -48,7 +48,7 @@ have turnable object parts). The parameters of the deep network used by the Robo
 with parts similar to the objects on which it was trained.</p>
 </div>-->
 
-<p>More applications and RaQueL query code for each of the application is coming soon.<p>
+<!-- <p>More applications and RaQueL query code for each of the application is coming soon.<p>
 </div>
 
 <div class="row">
@@ -63,4 +63,365 @@ with parts similar to the objects on which it was trained.</p>
 		<div class="row"><a href="http://robobarista.cs.cornell.edu/" target="_blank"><b>RoboBarista</b></a></div>
 		<div class="row">Manipulating novel objects using learning based on transfer of object parts</div>
 	</div>
+</div> --> 
+
+RoboBrain contains knowledge from different sources stored as a 
+<a href="http://arxiv.org/abs/1412.0691"><strong>graph</strong> </a>. 
+With our 
+<a href="https://github.com/RoboBrainCode/RoboBrainWiki#robobrain-client-api"><strong>API</strong></a>
+, one can push and retrieve this knowledge.  With our query language 
+<a href="https://github.com/RoboBrainCode/RoboBrainWiki/blob/master/RaQueL.md#welcome-to-raquel"><strong>RaQueL</strong></a>
+, one can enable several robotics applications.
+
+<div class="container">
+  <div class="row">
+    
+
+	<div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="pull-right clickableParent "><i class="glyphicon glyphicon-chevron-up"></i></span>
+          <h3 class="panel-title">Play with RaQueL online</h3>
+          
+        </div>
+        <div class="panel-body collapseParent">
+         	<div class="jumbotron">
+			<div class="container-fluid">
+  
+
+      <label style="float:left ">Try out:</label>
+      <select class="form-control" id="sel2">
+        <option>Fetch</option>
+        <option>Sort</option>
+        <option>Map</option>
+        <option>Filter</option>
+      </select>
+    <button type="button" class="btn btn-link" onclick="myFunction()" style="font-size:14px; font-weight:bold; outline:0">Insert the example</button>
+
+  <textarea class="form-control" style="width: 110%; border:none; color:#000000; font-family: Courier; resize:none" rows="5" id="demo">>>></textarea>
+  <div class="form-inline">
+  <div class="form-group">   
+  <button type="submit" class="btn btn-link" onclick="cleararea()" style="font-size:14px; font-weight:bold; outline:0; float:left">Clear</button></div>
+  <div class="form-group">        
+        <button type="submit" class="btn btn-link" onclick="execute()" id="searchid" style="font-size:14px; font-weight:bold; outline:0; float:right">Execute</button>    
+    </div>
+  </div>
+     <div id="drope_box" style="display:none;">
+      <br>
+  <p id="result"></p>
 </div>
+</div>
+
+  </div>
+
+<script type="text/javascript">
+function myFunction() {
+    var x=document.getElementById("sel2").value;
+    var y=x.split(" ")
+    if(y[0]=="Fetch"){
+    document.getElementById("demo").value=">>>fetch(\"({handle:'wall'})-[\e:`HAS_MATERIAL`]->(b)\")";
+  }
+    else if(y[0]=="Sort"){
+    document.getElementById("demo").value=">>>path = fetch(\"(\{handle:'sitting_human'})-[e*1..3]->({handle:'cup'})\")\n>>>SortBy(\paths,'Belief')";
+  }
+    else if(y[0]=="Map"){
+    document.getElementById("demo").value=">>>objects = fetch(\"(\{handle:'sitting_human'})-[:`CAN_USE`]->(v)\")\n>>>affordance = lambda n:\ fetch(\"{handle :'\" + n + \"'}) - [:`HasAffordance` ] -> (v)\")\n>>>iter = imap(\ lambda u: affordances(u) ,objects)\n>>>iter.next()";
+  }
+    else if(y[0]=="Filter"){
+    document.getElementById("demo").value=">>>paths = fetch(\"({handle:'sitting_human'})-[e*1..3]->({handle:'cup'})\")\n>>>iter = ifilter(\ lambda u: Belief(u)  > 0.5 ,paths)\n>>>iter.next()";
+  }
+}
+function execute(){
+  document.getElementById("result").innerHTML="The result is: ";
+}
+function cleararea(){
+  document.getElementById("demo").value="";
+  }
+</script>
+
+<script type="text/javascript">
+$('#searchid').blur(function() {
+   if($(this).val() != ""){
+        $("#drope_box").show();    
+    }
+    else{
+        $("#drope_box").hide(); 
+    }
+});
+
+ $('#searchid').focus(function() {
+    $("#drope_box").show();
+ });
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {$(".fetch").click(function() 
+  {$(".panel1").slideToggle("slow");});
+});
+  $(document).ready(function() {
+    $(".sort").click(function() {
+      $(".panel2").slideToggle("slow");
+    });
+  });
+  $(document).ready(function() {
+    $(".len").click(function() {
+      $(".panel3").slideToggle("slow");
+    });
+  });
+  $(document).ready(function() {
+    $(".map").click(function() {
+      $(".panel4").slideToggle("slow");
+    });
+  });
+  $(document).ready(function() {
+    $(".filter").click(function() {
+      $(".panel5").slideToggle("slow");
+    });
+  });
+  var count;
+  $(document).ready(function(){
+    $("#demo").click(function(){
+   if ($("#demo").val()==""){
+        var content=">>>";
+        $("#demo").val(content);
+        count = $("#demo").val().length;
+      }
+    else{
+      count=21;
+    }
+    });
+  });
+  
+  $(document).keypress(function(e) {
+    if(e.which == 13) {
+        var content=">>>";
+        var txt = $("textarea#demo");
+        txt.val( txt.val() + "\n>>>");
+        e.preventDefault();
+        count = $("#demo").val().length;
+    }
+});
+  var after;
+  $(document).keydown(function(e){
+    if ( e.keyCode == 8 ){
+    after = $("#demo").val().length;
+    if(after<count+1)
+      e.preventDefault();
+    }
+});
+</script>
+
+ <style type="text/css">
+p.fetch,p.sort,p.len,p.map,p.filter{
+  margin: 0px;
+  padding: 5px;
+  background: #eee;
+  border: solid 1px #fff;
+}
+ 
+div.panel1,div.panel2,div.panel3,div.panel4,div.panel5 {
+
+  display: none;
+   margin: 0px;
+  padding: 5px;
+  border: solid 1px #fff;
+}
+</style>
+</div>
+</div>
+</div>
+  
+<br>
+<br>
+<h3>Robotic Applications</h3>
+     <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="pull-right clickableParent panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
+          <h3 class="panel-title">PlanIt</h3>
+          
+        </div>
+        <div class="panel-body collapse  collapseParent panel-collapse "><h4>
+           <a href="http://planit.cs.cornell.edu/" target="_blank" style="color:blue;text-decoration:underline;">A Crowdsourcing Approach for Learning to Plan Paths from Large</a></h4>
+          One key problem robots face in performing tasks in human environments is identifying trajectories desirable to the users. An appropriate trajectory not only needs to be geometrically valid (i.e., feasible and obstacle-free), but it also needs to satisfy the user preferences. For example, a robot should move sharp objects such as knife strictly away from nearby humans. PlanIt uses attributes such as heavy, fragile, hot etc. to rank trajectory by learning user preferences given these objects. It uses RoboBrain to fetch trajectory parameters from different attributes computed from web sources such as wikipedia etc. The following figure shows the schematic connections between parts of RoboBrain and the planit trajectory preference algorithm.
+          <br><br><div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <span class="pull-right clickableChild panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                <h3 class="panel-title">RaQueL query</h3>
+              </div>
+              <div class="panel-body collapse collapseChild">
+               <code>trajectories = fetch("({handle:'egg_carton'})-[e:`IS_TRAJECTORY_OF`]-()")</code>
+                        
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <img src="images/application/planit_robobrain.png" style="width:98%" class="application_image"> 
+
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="pull-right clickableParent panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
+          <h3 class="panel-title">Anticipation</h3>
+          
+        </div>
+        <div class="panel-body collapseParent panel-collapse collapse">
+             <h4><a href="http://pr.cs.cornell.edu/anticipation/" target="_blank" style="color:blue;text-decoration:underline;">Anticipating Human Activities for Reactive Robotic Responses</a></h4><br>
+The assistive robots working with humans should be able to understand human activities and also anticipate the future actions that the human can perform. In order to anticipate, the robot should reason over the action possibilities in the environment, i.e., object affordances, and how the actions can be performed, i.e., trajectories.
+<br><br><div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <span class="pull-right clickableChild panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                <h3 class="panel-title">RaQueL query</h3>
+              </div>
+              <div class="panel-body collapse collapseChild">
+               
+              <code >trajectories = fetch("({handle:'standing_human'})-[e]-({handle:'refrigerator'})")<br>
+                     anticipated_trajectory = SortBy(trajectories, 'Belief')
+               </code>
+                        
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <img src="images/application/anticipation_robobrain.png" class="application_image" style="width:100%"> 
+
+
+        </div>
+      </div>
+    </div>
+
+ <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="pull-right clickableParent panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
+          <h3 class="panel-title">Tell Me Dave</h3>
+          
+        </div>
+        <div class="panel-body collapseParent panel-collapse collapse">
+  <h4>
+<a href="http://tellmedave.com" target="_blank" style="color:blue;text-decoration:underline;">Learning to map text to actions</a></h4>
+<p>Natural language is a popular choice for non-expert users to communicate to robots, computers etc. An important sub-task in this area is the problem of 
+mapping imperative sentences (<i>get me water and clean the table?</i>) to actions in the physical world. One way to do this, which has gained popularity in the past decade is the use of compositional grammar with few rules and putting the main
+burden of semantic parsing on lexicon. A lexicon of a language is a set of lexical item which maps parts of text to representation space. Tell Me Dave project
+uses VEIL representation as its choice of lexicon which are stored in the RoboBrain. Plans are underway to store other type of lexicon e.g., CCG lexicon in the RoboBrain
+and use them in a joint setting. <br><br><div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <span class="pull-right clickableChild panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                <h3 class="panel-title">RaQueL query</h3>
+              </div>
+              <div class="panel-body collapseChild collapse">
+               
+              <code >trajectories = fetch("({handle:'egg_carton'})-[e:`IS_TRAJECTORY_OF`]-()")<br>
+                     anticipated_trajectory = SortBy(trajectories, 'Belief')
+               </code>
+                        
+              </div>
+            </div>
+          </div>
+          <br><br>The flowchar of using knowledge from RoboBrain is shown below:</p><img src="images/application/tellmedave_robobrain.png" class="application_image"  style="width:100%; height:180px;"> 
+
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="pull-right clickableParent panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
+          <h3 class="panel-title">Partner Projects</h3>
+          
+        </div>         <div class="panel-body collapseParent collapsepanel-collapse collapse">
+<div class="row">     <div class="col-md-5" style="margin-right:10%;">
+<img src="images/application/brain4cars.jpg" style="height:125px; width:110%;border:5px;" >         <h4><a href="http://brain4cars.com/"
+target="_blank"><b>Brain4Cars</b></a></h4>         Intelligent car cabin
+sensing     </div>     <div class="col-md-5">         <img
+src="images/application/robobarista.png" style="height:125px;">         <h4><a
+href="http://robobarista.cs.cornell.edu/"
+target="_blank"><b>RoboBarista</b></a></h4>         Manipulating novel objects
+using learning based on transfer of object parts     </div> </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    
+  </div>
+</div>
+
+
+
+
+
+<style>
+. span {
+    margin-top: -20px;
+    font-size: 15px;
+}
+.row {
+    margin-top: 40px;
+    padding: 0 10px;
+}
+.clickableChild {
+    cursor: pointer;
+} 
+.clickableParent {
+    cursor: pointer;
+}    
+</style>
+
+<script type="text/javascript">
+
+
+    jQuery(function ($) {
+        $('span.clickableChild').on("click", function (e) {
+            if ($(this).hasClass('panel-collapsed')) {
+                // expand the panel
+                $(this).parents('.panel').find('.collapseChild').slideDown();
+                $(this).removeClass('panel-collapsed');
+                $(this).find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+            }
+            else {
+                // collapse the panel
+                $(this).parents('.panel').find('.collapseChild').slideUp();
+                $(this).addClass('panel-collapsed');
+                $(this).find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+            }
+        });
+    });
+</script>
+
+
+
+<script type="text/javascript">
+
+    jQuery(function ($) {
+        $('span.clickableParent').on("click", function (e) {
+            if ($(this).hasClass('panel-collapsed')) {
+                // expand the panel
+                $(this).parents('.panel').find('.collapseParent').slideDown();
+                $(this).removeClass('panel-collapsed');
+                $(this).find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+            }
+            else {
+                // collapse the panel
+                $(this).parents('.panel').find('.collapseParent').slideUp();
+                $(this).addClass('panel-collapsed');
+                $(this).find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+            }
+        });
+    });
+</script>
