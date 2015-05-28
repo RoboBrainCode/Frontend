@@ -96,7 +96,7 @@ angular.module('roboBrainApp')
     {
       name: 'Army Research Office',
       logo: 'images/sponsors/aro.jpg',
-      url: 'http://www.nsf.gov/'
+      url: 'http://www.arl.army.mil/'
     },
     {
       name: 'National Robotics Initiative',

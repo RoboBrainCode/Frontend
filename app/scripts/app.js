@@ -30,7 +30,7 @@ angular
         controller: 'SearchCtrl'
       })
       .when('/graph', {
-        templateUrl: 'views/graph.html',
+        templateUrl: 'views/weaverGraph.html',
         controller: 'GraphCtrl'
       })
       .when('/query', {
@@ -55,7 +55,7 @@ angular
       })
       .when('/application', {
           templateUrl: 'views/application.html',
-	    controller: 'ApplicationCtrl'
+	    controller: 'RaquelCtrl'
       })
       .when('/raquel', {
           templateUrl: 'views/raquel.html',
@@ -76,6 +76,10 @@ angular
       .when('/createuser', {
         templateUrl: 'views/createuser.html',
         controller: 'LoginCtrl'
+      })
+      .when('/raquel', {
+        templateUrl: 'views/raquel.html',
+        controller: 'RaquelCtrl'
       })
       .otherwise({
         redirectTo: '/'
