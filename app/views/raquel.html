@@ -36,7 +36,7 @@ function myFunction() {
     var x=document.getElementById("sel2").value;
     var y=x.split(" ")
     if(y[0]=="Fetch"){
-    document.getElementById("demo").value="//Enter Your Code\n>>>fetch(\"({handle:'wall'})-[\e:`HAS_MATERIAL`]->(b)\")";
+    document.getElementById("demo").value="//Enter Your Code\n>>>fetch(\"({handle:'wall'})-[:`HAS_MATERIAL`]->(b)\")";
   }
     else if(y[0]=="Sort"){
     document.getElementById("demo").value="//Enter Your Code\n>>>path = fetch(\"(\{handle:'sitting_human'})-[e*1..3]->({handle:'cup'})\")\n>>>SortBy(\paths,'Belief')";
