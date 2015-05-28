@@ -16,7 +16,7 @@ $scope.sendQuery = function(query)
       // console.log(query.query);
       var retVal=document.getElementById('demo').value;
       retVal=retVal.split('>>>').join("");
-      console.log(retVal)
+      // console.log(retVal)
       $.getJSON(raquelEndPoint, 
         {
             query: retVal
@@ -25,6 +25,7 @@ $scope.sendQuery = function(query)
         {
 
                  var jsonVar=data['result'];
+                 console.log(jsonVar);
 //		 document.getElementById('regeStr').innerHTML = data['result'];
                  var jsonStr = JSON.stringify(jsonVar);
                  var regeStr = '';
