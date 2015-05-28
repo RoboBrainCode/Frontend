@@ -528,7 +528,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('prod_build', [
     'clean:dist',
-    'ngconstant:production',
+    'ngconstant:localbackend',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
