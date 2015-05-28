@@ -61,6 +61,7 @@ function myFunction() {
   }
     else if(y[0]=="Map"){
     document.getElementById("demo").value=">>>global affordances\n>>>objects =fetch(\"({handle:'sitting_human'})-[:`CAN_USE`]->(V)\")\n>>>affordances=lambda n:fetch(\"({handle :'\" + n + \"'})-[:`HAS_AFFORDANCE`]->(v)\")\n>>>iter = imap( lambda u: affordances(u) ,objects[1])\n>>>print iter.next()\n>>>print iter.next()";
+  //  document.getElementById("demo").value=">>>global affordances>>>\nobjects =fetch(\"({handle:'sitting_human'})-[:`CAN_USE`]->(V)\")>>>\naffordances=lambda n:fetch(\"({handle :'\" + n + \"'})-[:`HAS_AFFORDANCE`]->(v)\")>>>\niter = imap( lambda u: affordances(u) ,objects[1])>>>\nprint iter.next()";
   }
     else if(y[0]=="Filter"){
     document.getElementById("demo").value=">>>global entities, media\n>>>entities = lambda n: fetch(\"(v)-[:`HAS_MEDIA`]->(\{handle :'\" + n + \"'})\")\n>>>media = lambda n:fetch(\"({handle :'\" + n + \"'})-[:`HAS_MEDIA`]->(v)\")\n>>>ind_media = lambda a: ifilter(lambda u: len(entities(u)[1])==1,(media(a))[1])\n>>>iter= ind_media('tv')\n>>>print iter.next()";
