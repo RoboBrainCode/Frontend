@@ -55,7 +55,7 @@ angular
       })
       .when('/application', {
           templateUrl: 'views/application.html',
-	    controller: 'ApplicationCtrl'
+	    controller: 'RaquelCtrl'
       })
       .when('/raquel', {
           templateUrl: 'views/raquel.html',

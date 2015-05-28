@@ -103,17 +103,19 @@ With our
       </select>
     <button type="button" class="btn btn-link" onclick="myFunction()" style="font-size:14px; font-weight:bold; outline:0">Insert the example</button>
 
-  <textarea class="form-control" style="width: 110%; border:none; color:#000000; font-family: Courier; resize:none" rows="5" id="demo">>>></textarea>
+  <textarea class="form-control" style="width: 110%; border:none; color:#000000; font-family: Courier; resize:none" rows="5" id="demo" ng-model="query.query" >>>></textarea>
   <div class="form-inline">
   <div class="form-group">   
   <button type="submit" class="btn btn-link" onclick="cleararea()" style="font-size:14px; font-weight:bold; outline:0; float:left">Clear</button></div>
   <div class="form-group">        
-        <button type="submit" class="btn btn-link" onclick="execute()" id="searchid" style="font-size:14px; font-weight:bold; outline:0; float:right">Execute</button>    
+        <button type="submit" class="btn btn-link" ng-click="sendQuery(query)" id="searchid" style="font-size:14px; font-weight:bold; outline:0; float:right">Execute</button>    
     </div>
   </div>
      <div id="drope_box" style="display:none;">
       <br>
-  <p id="result"></p>
+  <div id="regeStr" style="overflow-y:scroll;height:300px;text-wrap:unrestricted"> 
+
+   </div>
 </div>
 </div>
 
