@@ -76,7 +76,9 @@ $('#searchid').blur(function() {
     <h2 class="text-center">RaQuel <small>API Documentation</small></h1>
 </div>
 
-        <p>Currently, RaQuel supports the following functions:</p>
+        <p>RaQueL is a query language, through which the robots use RoboBrain for various robotic applica- tions. The RQL provides a rich set of retrieval functions and programming constructs to perform complex traversals on the RoboBrain graph. <br>
+          RaQuel v1.0 can only support functions {u,e,v} with only one node variable 'v'. The node 'u' and edge 'e' cannot be assigned a variable. Nodes 'u' and 'v' can only support one attribute i.e. 'handle'. In addition,'Belief' is the only key supported for sorting tuples.<br>
+          Currently, RaQuel supports the following functions:</p>
         
         <p class="fetch">1. <span style="font-family: Courier;">fetch</span> function</p>
         <div class="panel1">
@@ -103,10 +105,6 @@ $('#searchid').blur(function() {
           <br> >>> SortBy(paths,'Belief')
         </blockquote>
         </div>
-        <p class="len">3. <span style="font-family: Courier;">len</span> function</p>
-        <div class="panel3">
-        <p>The len function is used to find the length of the list of nodes or edges.</p>
-        </div>
         <p class="map">4. <span style="font-family: Courier;">map</span> function</p>
         <div class="panel4">
         <p>The map function calls a function on a specific set of values.</p>
@@ -130,11 +128,7 @@ $('#searchid').blur(function() {
       $(".panel2").slideToggle("slow");
     });
   });
-  $(document).ready(function() {
-    $(".len").click(function() {
-      $(".panel3").slideToggle("slow");
-    });
-  });
+ 
   $(document).ready(function() {
     $(".map").click(function() {
       $(".panel4").slideToggle("slow");
