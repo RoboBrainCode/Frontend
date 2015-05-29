@@ -80,7 +80,7 @@ $('#searchid').blur(function() {
           RaQuel v1.0 can only support functions {u,e,v} with only one node variable 'v'. The node 'u' and edge 'e' cannot be assigned a variable. Nodes 'u' and 'v' can only support one attribute i.e. 'handle'. In addition,'Belief' is the only key supported for sorting tuples. <br>[*a..b] defines the length of the path and are called hops. {u,[e*a..b],v} finds path which can be a to b edges from 'u' node to 'v' node.<br><br>
           Currently, RaQuel supports the following functions:</p>
         
-        <p class="fetch">1. <span style="font-family: Courier;">fetch(Pattern)</span> function</p>
+        <p class="fetch">1. <span style="font-family: Courier;">fetch</span> function</p>
         <div class="panel1">
         <p>
           <code>fetch: Pattern(arg<sub>1</sub>,arg<sub>2</sub>,...)</code> returns a list of tuples with instantiated values of variables <code>[(arg<sub>1</sub><sup>(i)</sup>,arg<sub>1</sub><sup>(i)</sup>,...)]<sub>i<sub></code>. 
@@ -95,7 +95,7 @@ $('#searchid').blur(function() {
           u has handle 'standing_human' and edge e has label 'CAN_USE'.
         </p>
         </div>
-        <p class="sort">2. <span style="font-family: Courier;">SortBy(list,property)</span> function</p>
+        <p class="sort">2. <span style="font-family: Courier;">SortBy</span> function</p>
         <div class="panel2">
         <p><code>SortBy(Pattern,'key')</code> returns a list of tuples sorted according to the key. <br><br>
           For example, to find path which are 1 to 5 edges away from standing_human node to the phone node and then to rank these paths in ascending order by their beliefs:
