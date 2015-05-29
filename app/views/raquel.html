@@ -73,11 +73,11 @@ $('#searchid').blur(function() {
 </script>
 
 <div class="page-header">
-    <h2 class="text-center">RaQuel <small>API Documentation</small></h1>
+    <h2 class="text-center">RaQuel <small>API Documentation v1.0</small></h1>
 </div>
 
-        <p>RaQueL is a query language, through which the robots use RoboBrain for various robotic applica- tions. The RQL provides a rich set of retrieval functions and programming constructs to perform complex traversals on the RoboBrain graph. <br>
-          RaQuel v1.0 can only support functions {u,e,v} with only one node variable 'v'. The node 'u' and edge 'e' cannot be assigned a variable. Nodes 'u' and 'v' can only support one attribute i.e. 'handle'. In addition,'Belief' is the only key supported for sorting tuples.<br>
+        <p>RaQueL is a query language, through which the robots use RoboBrain for various robotic applica- tions. The RQL provides a rich set of retrieval functions and programming constructs to perform complex traversals on the RoboBrain graph. <br><br>
+          RaQuel v1.0 can only support functions {u,e,v} with only one node variable 'v'. The node 'u' and edge 'e' cannot be assigned a variable. Nodes 'u' and 'v' can only support one attribute i.e. 'handle'. In addition,'Belief' is the only key supported for sorting tuples.<br><br>
           Currently, RaQuel supports the following functions:</p>
         
         <p class="fetch">1. <span style="font-family: Courier;">fetch</span> function</p>
@@ -85,14 +85,14 @@ $('#searchid').blur(function() {
         <p>
           <code>fetch: Pattern(arg<sub>1</sub>,arg<sub>2</sub>,...)</code> returns a list of tuples with instantiated values of variables <code>[(arg<sub>1</sub><sup>(i)</sup>,arg<sub>1</sub><sup>(i)</sup>,...)]<sub>i<sub></code>. 
           This pattern is matched against the RoboBrain graph and these matched sub-graphs are used to create initialized entries for the pattern variables.<br><br>
-          For example, to retrieve all nodes and edges with label 'HAS_MATERIAL' connected to nodes with handle "wall":
+          For example, to retrieve all the objects which a 'standing human' can use:
         </p>
         <blockquote>
-          >>> fetch("({handle:'wall'})-[e:`HAS_MATERIAL`]->(b)")
+          >>> fetch("({handle:'standing_human'})-[:`CAN_USE`]->(v)")
         </blockquote>
         <p>
           The pattern will match against paths of length one {u, e, v}; where node
-          u has handle "wall" and edge e has label 'HAS_MATERIAL'.
+          u has handle 'standing_human' and edge e has label 'CAN_USE'.
         </p>
         </div>
         <p class="sort">2. <span style="font-family: Courier;">sort</span> function</p>
@@ -105,11 +105,11 @@ $('#searchid').blur(function() {
           <br> >>> SortBy(paths,'Belief')
         </blockquote>
         </div>
-        <p class="map">4. <span style="font-family: Courier;">map</span> function</p>
+        <p class="map">3. <span style="font-family: Courier;">map</span> function</p>
         <div class="panel4">
         <p>The map function calls a function on a specific set of values.</p>
         </div>
-        <p class="filter">5. <span style="font-family: Courier;">filter</span> function</p>
+        <p class="filter">4. <span style="font-family: Courier;">filter</span> function</p>
         <div class="panel5">
         <p>The filter function returns a sequence on which a function is true.</p>
         </div>
