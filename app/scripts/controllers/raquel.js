@@ -16,12 +16,12 @@ $scope.sendQuery = function(query)
       $.getJSON(raquelEndPoint, 
         {
             query: query.query,
-            qtype: query.qtype,
         }, 
         function(data) 
         {
 
-                 var jsonVar=data;
+                 var jsonVar=data['result'];
+//		 document.getElementById('regeStr').innerHTML = data['result'];
                  var jsonStr = JSON.stringify(jsonVar);
                  var regeStr = '';
                  var f = {
@@ -54,7 +54,6 @@ $scope.sendQuery = function(query)
   	};
 
   	$scope.query={};
-  	$scope.query.qtype='FETCH';
 
 
   }]);
