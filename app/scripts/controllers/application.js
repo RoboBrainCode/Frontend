@@ -2,30 +2,28 @@
 
 /**
  * @ngdoc function
- * @name roboBrainApp.controller:RaquelCtrl
+ * @name roboBrainApp.controller:QueryCtrl
  * @description
- * # RaquelCtrl
- * Controller to execute raquel queries
+ * # QueryCtrl
+ * Controller of the roboBrainApp
+ * Note: Feed type must be one of: affordance, vision, planning, object-usage, 3D-detection
+ * Media content type must be one of: image
  */
 angular.module('roboBrainApp')
-  .controller('RaquelCtrl', ['$scope', '$http','ENV', function ($scope, $http, ENV) {
+  .controller('ApplicationCtrl', '$scope',function ($scope) {
+    // $scope.feeds = brainFeeds.init();
 
-$scope.sendQuery = function(query) 
+    $scope.sendQuery = function(query) 
   	{
-      var raquelEndPoint = ENV.graphApiEndpoint + 'raquel/rachQuery/';
-      // console.log(query.query);
-      var retVal=document.getElementById('demo').value;
-      retVal=retVal.split('>>>').join("");
-      // console.log(retVal)
+  	  var raquelEndPoint = ENV.apiEndpoint + 'raquel/rachQuery/';
       $.getJSON(raquelEndPoint, 
         {
-            query: retVal
+            query: query.query,
         }, 
         function(data) 
         {
 
                  var jsonVar=data['result'];
-                 console.log(jsonVar);
 //		 document.getElementById('regeStr').innerHTML = data['result'];
                  var jsonStr = JSON.stringify(jsonVar);
                  var regeStr = '';
@@ -61,4 +59,4 @@ $scope.sendQuery = function(query)
   	$scope.query={};
 
 
-  }]);
+  });

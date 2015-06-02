@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Robo Brain</title>
     <meta name="description" content="">
-    <meta name="Keywords" content="ashutosh, saxena, aditya, jami, ashesh, jain, ozan, sener, dipendra, misra, planit, tell me dave, plan it, tellmedave, robots, 3d images, cornell, stanford, machine learning, artificial intelligence, hema, koppula, large scale systems, large scale, knowledge base, knowledge engine,knowledge vault, grasping, robot grasping, dishwasher unloading, make3d, assistive, personal, robots, point cloud, humanoid, kinect, rgbd, robot manipulation, computer vision, robotics, robot learning, research, computer, cs, learning, vision, ai, perception, videos">
+    <meta name="Keywords" content="arpit, agarwal, ashutosh, saxena, aditya, jami, ashesh, jain, ozan, sener, dipendra, misra, planit, tell me dave, plan it, tellmedave, robots, 3d images, cornell, stanford, machine learning, artificial intelligence, hema, koppula, large scale systems, large scale, knowledge base, knowledge engine,knowledge vault, grasping, robot grasping, dishwasher unloading, make3d, assistive, personal, robots, point cloud, humanoid, kinect, rgbd, robot manipulation, computer vision, robotics, robot learning, research, computer, cs, learning, vision, ai, perception, videos">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -42,23 +42,23 @@
           </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
-          <ul class="nav navbar-nav pull-right">
+          <ul class="nav navbar-nav pull-right" id="menu">
             <li><a ng-href="#/">Home</a></li>
-            <li><a ng-href="#/search">Search</a></li>
-            <li><a ng-href="#/graph">Graph</a></li>
             <li><a ng-href="#/about">About</a></li>
-            <li><a ng-href="#/research">Research</a></li>
+            <!-- <li><a ng-href="#/graph">Graph</a></li> -->
+            <!-- <li><a ng-href="#/search">Search</a></li> -->
+            <!-- <li><a ng-href="#/research">Research</a></li> -->
+            <li><a ng-href="#/application">Applications</a></li>
+
+            <li><a ng-href="http://52.25.65.189:4242/#/" target="blank">Graph</a></li>
             <li><a ng-href="#/people">People</a></li>
-            <li><a ng-href="#/contact">Contact</a></li>
-            <li><a ng-href="#/raquel">Raquel</a></li>
-            <li ng-cloak ng-if='user'><a ng-href="#" ng-click="logout()" class="login-text">Logout</a></li>
-            <li ng-cloak ng-if='!user'><a ng-href="#/login" class="login-text">Login</a></li>
+
           </ul>
         </div>
       </div>
       <div ng-view=""></div>
       <div class="footer">
-        <p>&#169; Cornell University 2014</p>
+        <p>&#169; Cornell University 2015</p>
       </div>
     </div>
 
@@ -118,6 +118,7 @@
         <script src="scripts/controllers/search.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/research.js"></script>
+        <script src="scripts/ng-controllerrs/api.js"></script>
         <script src="scripts/controllers/people.js"></script>
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/search.js"></script>

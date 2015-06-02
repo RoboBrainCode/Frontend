@@ -21,5 +21,13 @@ angular.module('roboBrainApp')
     {
       name: 'Aditya Jami',
       email: 'adityajami@gmail.com'
+    },
+    {
+      name: 'Ashesh Jain',
+      email: 'ashesh@cs.cornell.edu',
+      address: 'Gates 142',
+      street: 'Stanford University',
+      state: 'CA',
+      zip: '94305'
     }];
   });

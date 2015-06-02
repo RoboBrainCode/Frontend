@@ -2,13 +2,19 @@
 <h3>Robo Brain Team</h3>
 <br>
 <div class="row">
-  <div class="contrib col-sm-4 col-xs-9" ng-class="($index==3) ? 'col-sm-offset-2' : ''" ng-repeat="p in leads">
+    <div class="contrib col-sm-4 col-xs-9"  ng-repeat="p in leads">
     <img class="contrib-pic img-center" ng-src="{{ p.photo }}">
     <h4 class="text-center">
       <a ng-href="{{ p.url }}" target="_blank">{{ p.name }}</a>
       <br>
       <small>
+
         {{ p.institution }}<br>
+        <a ng-if="p.email" ng-href="mailto:{{ p.email }}" target="_blank">
+          {{ p.email }}
+          <br>
+        </a>
+        
         <a ng-if="p.roleUrl" ng-href="{{ p.roleUrl }}" target="_blank">
           {{ p.role }}
         </a>

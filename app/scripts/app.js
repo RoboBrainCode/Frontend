@@ -49,6 +49,18 @@ angular
         templateUrl: 'views/research.html',
         controller: 'ResearchCtrl'
       })
+      .when('/api', {
+        templateUrl: 'views/api.html',
+        controller: 'APICtrl'
+      })
+      .when('/application', {
+          templateUrl: 'views/application.html',
+	    controller: 'RaquelCtrl'
+      })
+      .when('/raquel', {
+          templateUrl: 'views/raquel.html',
+        controller: 'RaquelCtrl'
+      })
       .when('/people', {
         templateUrl: 'views/people.html',
         controller: 'PeopleCtrl'
