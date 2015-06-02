@@ -12,7 +12,7 @@ angular.module('roboBrainApp')
 
 $scope.sendQuery = function(query) 
   	{
-  	  var raquelEndPoint = ENV.apiEndpoint + 'raquel/rachQuery/';
+  	  var raquelEndPoint = ENV.graphApiEndpoint + 'raquel/rachQuery/';
       $.getJSON(raquelEndPoint, 
         {
             query: query.query,

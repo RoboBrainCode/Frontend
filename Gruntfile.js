@@ -49,6 +49,7 @@ module.exports = function (grunt) {
           ENV: {
             name: 'development',
             apiEndpoint: 'http://test.robobrain.me:3000/',
+            graphApiEndpoint: 'http://52.25.65.189:6363/',
             staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
           }
         }
@@ -61,6 +62,7 @@ module.exports = function (grunt) {
           ENV: {
             name: 'production',
             apiEndpoint: 'http://robobrain.me:3000/',
+            graphApiEndpoint: 'http://52.25.65.189:6363/',
             staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
           }
         }
@@ -73,6 +75,7 @@ module.exports = function (grunt) {
           ENV: {
             name: 'local',
             apiEndpoint: 'http://test.robobrain.me:3000/',
+            graphApiEndpoint: 'http://52.25.65.189:6363/',
             staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
           }
         }
@@ -85,6 +88,7 @@ module.exports = function (grunt) {
           ENV: {
             name: 'localbackend',
             apiEndpoint: 'http://52.25.65.189:8000/',
+            graphApiEndpoint: 'http://52.25.65.189:6363/',
             staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
           }
         }
