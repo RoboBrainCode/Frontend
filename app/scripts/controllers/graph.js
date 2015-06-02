@@ -11,7 +11,7 @@ angular.module('roboBrainApp')
   .controller('GraphCtrl', ['$scope', '$http','ENV', function ($scope, $http, ENV) {
   	$scope.weaverGraph = function(weaver) 
   	{
-  		var weaverGraphEndpoint = ENV.apiEndpoint + 'graph/getNode/';
+  		var weaverGraphEndpoint = ENV.graphApiEndpoint + 'graph/getNode/';
 
   		  $("#wheel").addClass("spinning");
           $.getJSON(weaverGraphEndpoint, 
@@ -73,7 +73,7 @@ angular.module('roboBrainApp')
 
 	$scope.addMoreNodes=function(nodename)
 	{
-		var weaverGraphEndpoint = ENV.apiEndpoint + 'graph/getNode/';
+		var weaverGraphEndpoint = ENV.graphApiEndpoint + 'graph/getNode/';
 		$.getJSON(weaverGraphEndpoint, 
 	    {
 	        query: nodename,
