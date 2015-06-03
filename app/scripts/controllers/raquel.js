@@ -59,6 +59,7 @@ $scope.sendQuery = function(query)
   	};
 
   	$scope.query={};
+    $scope.query.query='>>>';
 
 
   }]);
