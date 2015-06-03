@@ -31,7 +31,7 @@ With our
       </select>
     <button type="button" class="btn btn-link" onclick="myFunction()" style="font-size:14px; font-weight:bold; outline:0">Insert the example</button>
 
-  <textarea class="form-control" style="width: 110%; border:none; color:#000000; font-family: Courier; resize:none" rows="5" id="demo" ng-model="query.query" >>>></textarea>
+  <textarea class="form-control" style="width: 110%; border:none; color:#000000; font-family: Courier; resize:none" rows="5" id="demo" ng-model="query.query" ></textarea>
   <div class="form-inline">
   <div class="form-group">   
   <button type="submit" class="btn btn-link" onclick="cleararea()" style="font-size:14px; font-weight:bold; outline:0; float:left">Clear</button></div>
@@ -61,71 +61,26 @@ function myFunction() {
   }
     else if(y[0]=="Map"){
     document.getElementById("demo").value=">>>global affordances\n>>>objects =fetch(\"({handle:'sitting_human'})-[:`CAN_USE`]->(V)\")\n>>>affordances=lambda n:fetch(\"({handle :'\" + n + \"'})-[:`HAS_AFFORDANCE`]->(v)\")\n>>>iter = imap( lambda u: affordances(u) ,objects[1])\n>>>print iter.next()\n>>>print iter.next()";
-  //  document.getElementById("demo").value=">>>global affordances>>>\nobjects =fetch(\"({handle:'sitting_human'})-[:`CAN_USE`]->(V)\")>>>\naffordances=lambda n:fetch(\"({handle :'\" + n + \"'})-[:`HAS_AFFORDANCE`]->(v)\")>>>\niter = imap( lambda u: affordances(u) ,objects[1])>>>\nprint iter.next()";
   }
     else if(y[0]=="Filter"){
     document.getElementById("demo").value=">>>global entities, media\n>>>entities = lambda n: fetch(\"(v)-[:`HAS_MEDIA`]->(\{handle :'\" + n + \"'})\")\n>>>media = lambda n:fetch(\"({handle :'\" + n + \"'})-[:`HAS_MEDIA`]->(v)\")\n>>>ind_media = lambda a: ifilter(lambda u: len(entities(u)[1])==1,(media(a))[1])\n>>>iter= ind_media('tv')\n>>>print iter.next()";
   }
 }
-// function execute(){
-//   document.getElementById("result").innerHTML="The result is: ";
-// }
-function cleararea(){
+
+function cleararea()
+{
   document.getElementById("demo").value=">>>";
   document.getElementById("regeStr").innerHTML="";
+}
+$(document).keypress(function(e) {
+  if(e.which == 13) {
+      var content=">>>";
+      var txt = $("textarea#demo");
+      txt.val( txt.val() + "\n>>>");
+      e.preventDefault();
+      count = $("#demo").val().length;
   }
-</script>
-
-<script type="text/javascript">
-// $('#searchid').blur(function() {
-//    if($(this).val() != ""){
-//         $("#drope_box").show();    
-//     }
-//     else{
-//         $("#drope_box").hide(); 
-//     }
-// });
-
-//  $('#searchid').focus(function() {
-//     $("#drope_box").show();
-//  });
-
-</script>
-
-<script type="text/javascript">
-  
-//   var count;
-//   $(document).ready(function(){
-//     $("#demo").click(function(){
-//    if ($("#demo").val()==""){
-//         var content=">>>";
-//         console.log('Hello');
-//         $("#demo").val(content);
-//         count = $("#demo").val().length;
-//       }
-//     else{
-//       count=21;
-//     }
-//     });
-//   });
-  
-//   $(document).keypress(function(e) {
-//     if(e.which == 13) {
-//         var content=">>>";
-//         var txt = $("textarea#demo");
-//         txt.val( txt.val() + "\n>>>");
-//         e.preventDefault();
-//         count = $("#demo").val().length;
-//     }
-// });
-//   var after;
-//   $(document).keydown(function(e){
-//     if ( e.keyCode == 8 ){
-//     after = $("#demo").val().length;
-//     if(after<count+1)
-//       e.preventDefault();
-//     }
-// });
+});
 </script>
 
  <style type="text/css">
