@@ -83,6 +83,8 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+	<script src="http://nervgh.github.io/js/es5-shim.min.js"></script>
+	<script src="http://nervgh.github.io/js/es5-sham.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
@@ -107,11 +109,9 @@
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
     <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/js-priority-queue/priority-queue.js"></script>
-    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-    <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
+    <script src="scripts/angular-file-upload.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    <script src="scripts/angular-file-upload.js"></script>
         <script src="scripts/config.js"></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>

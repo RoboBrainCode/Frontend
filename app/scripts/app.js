@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'infinite-scroll',
-    'config'
+    'config',
+    'angularFileUpload'
   ])
   .config(['$routeProvider', '$locationProvider', '$sceProvider', function ($routeProvider, $locationProvider, $sceProvider) {
     $routeProvider
@@ -80,6 +81,10 @@ angular
       .when('/raquel', {
         templateUrl: 'views/raquel.html',
         controller: 'RaquelCtrl'
+      })
+      .when('/planit', {
+        templateUrl: 'views/planit.html',
+        controller: 'PlanItCtrl'
       })
       .otherwise({
         redirectTo: '/'
