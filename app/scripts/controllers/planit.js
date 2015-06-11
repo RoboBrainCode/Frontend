@@ -1,15 +1,21 @@
 'use strict';
 angular.module('roboBrainApp')
-    .controller('PlanItCtrl', ['$scope', 'FileUploader', function($scope, FileUploader) {
+    .controller('PlanItCtrl', ['$scope', 'FileUploader','$rootScope', function($scope, FileUploader,$rootScope) {
         
 
     $scope.activity_name='dancing';
-
+    $rootScope.dispWarn=""
+    $scope.loadMore=function()
+    {
+        document.getElementById('seemore').style.display='block';
+        document.getElementById('loadmore').style.display='none';
+    }
     $scope.getHeatMap=function()
     {
         console.log('Clicked');
         var planitEndPoint="http://localhost:6363/planit/showHeatMap/"
         $("#wheel").addClass("spinning");
+        document.getElementById('warnDisp').innerHTML='Please wait while we query the roboBrain and obtain the heatmap.'
         $.getJSON(planitEndPoint, 
         {
             query: $scope.activity_name
@@ -17,6 +23,7 @@ angular.module('roboBrainApp')
         function(data) 
         {
             console.log(data);
+            document.getElementById('warnDisp').innerHTML="";
             $("#wheel").removeClass("spinning");
             var newImage = new Image();
             newImage.src = data['result'];
