@@ -38,7 +38,7 @@ With our
           <h3 class="panel-title">Play with RaQueL online</h3>
           
         </div>
-        <div class="panel-body collapseParent">
+        <div class="panel-body collapseParent ">
          	<div class="jumbotron">
 			<div class="container-fluid">
   
@@ -127,7 +127,7 @@ p.fetch,p.sort,p.len,p.map,p.filter{
           <h3 class="panel-title">PlanIt</h3>
           
         </div>
-        <div class="panel-body collapseParent " ng-controller="PlanItCtrl"><h4>
+        <div class="panel-body collapseParent" ng-controller="PlanItCtrl"><h4>
            <a href="http://planit.cs.cornell.edu/" target="_blank" ><b>A Crowdsourcing Approach for Learning to Plan Paths from Large</b></a></h4>
 PlanIt uses RoboBrain to fetch trajectory parameters from different attributes computed from web sources such as wikipedia etc. You can try the example below.
 
@@ -322,7 +322,8 @@ The assistive robots working with humans should be able to understand human acti
 mapping imperative sentences (<i>get me water and clean the table?</i>) to actions in the physical world. One way to do this, which has gained popularity in the past decade is the use of compositional grammar with few rules and putting the main
 burden of semantic parsing on lexicon. A lexicon of a language is a set of lexical item which maps parts of text to representation space. Tell Me Dave project
 uses VEIL representation as its choice of lexicon which are stored in the RoboBrain. Plans are underway to store other type of lexicon e.g., CCG lexicon in the RoboBrain
-and use them in a joint setting. <br><br><div class="col-md-12">
+and use them in a joint setting. <br><br>
+          <div class="col-md-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <span class="pull-right clickableChild panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
@@ -339,9 +340,32 @@ and use them in a joint setting. <br><br><div class="col-md-12">
           </div>
           <br><br>The flowchar of using knowledge from RoboBrain is shown below:</p><img src="images/application/tellmedave_robobrain.png" class="application_image"  style="width:100%; height:180px;"> 
 
+
+          <div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <span class="pull-right clickableChild panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                <h3 class="panel-title">Online simulator</h3>
+              </div>
+              <div class="panel-body collapseChild collapse ">
+             
+
+            <div class="contaier">   
+              <iframe src="http://tellmedave.com/livedemos" height="500" width="600">
+                <p>Your browser does not support iframes.</p>
+              </iframe>
+            </div >            
+              </div>
+            </div>
+          </div>
+          
+
         </div>
+
       </div>
     </div>
+
+
 
      <div class="col-md-12">
       <div class="panel panel-default">
@@ -378,6 +402,12 @@ using learning based on transfer of object parts     </div> </div>
 
 
 <style>
+.contaier {
+    width: 580px;
+    height: auto;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}
 . span {
     margin-top: -20px;
     font-size: 15px;
