@@ -10,6 +10,11 @@ angular.module('roboBrainApp')
         document.getElementById('seemore').style.display='block';
         document.getElementById('loadmore').style.display='none';
     }
+    $scope.loadedMore=function()
+    {
+        document.getElementById('seenmore').style.display='block';
+        document.getElementById('loadedmore').style.display='none';
+    }
     $scope.getHeatMap=function()
     {
         console.log('Clicked');

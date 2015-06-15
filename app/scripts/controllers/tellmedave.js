@@ -6,8 +6,8 @@ angular.module('roboBrainApp')
     
     $scope.loadMore=function()
     {
-        document.getElementById('seemore').style.display='block';
-        document.getElementById('loadmore').style.display='none';
+        document.getElementById('seenmore').style.display='block';
+        document.getElementById('loadedmore').style.display='none';
     }
     }]);
 
