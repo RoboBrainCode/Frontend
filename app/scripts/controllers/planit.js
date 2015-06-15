@@ -13,7 +13,7 @@ angular.module('roboBrainApp')
     $scope.getHeatMap=function()
     {
         console.log('Clicked');
-        var planitEndPoint="http://localhost:6363/planit/showHeatMap/"
+        var planitEndPoint="http://52.25.65.189:6363/planit/showHeatMap/"
         $("#wheel").addClass("spinning");
         document.getElementById('warnDisp').innerHTML='Please wait while we query the roboBrain and obtain the heatmap.'
         $.getJSON(planitEndPoint, 
@@ -27,7 +27,8 @@ angular.module('roboBrainApp')
             $("#wheel").removeClass("spinning");
             var newImage = new Image();
             newImage.src = data['result'];
-            document.getElementById('heatMapResult').innerHTML='<img src="'+data['result']+'" alt="Heat Map" title="Heat Map" />';
+            var prependUrl='http://52.25.65.189:9000/';
+            document.getElementById('heatMapResult').innerHTML='<img src="'+prependUrl+data['result']+'" alt="Heat Map" title="Heat Map" />';
 
 
         });
@@ -39,7 +40,7 @@ angular.module('roboBrainApp')
 
 
         var uploader = $scope.uploader = new FileUploader({
-            url: 'http://localhost:6363/planit/uploadFile/'
+            url: 'http://52.25.65.189:6363/planit/uploadFile/'
         });
 
         // FILTERS
