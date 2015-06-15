@@ -38,7 +38,7 @@ With our
           <h3 class="panel-title">Play with RaQueL online</h3>
           
         </div>
-        <div class="panel-body collapseParent ">
+        <div class="panel-body collapseParent collapse">
          	<div class="jumbotron">
 			<div class="container-fluid">
   
@@ -315,14 +315,37 @@ The assistive robots working with humans should be able to understand human acti
           <h3 class="panel-title">Tell Me Dave</h3>
           
         </div>
-        <div class="panel-body collapseParent panel-collapse collapse">
-  <h4>
-<a href="http://tellmedave.com" target="_blank" style="color:blue;text-decoration:underline;">Learning to map text to actions</a></h4>
-<p>Natural language is a popular choice for non-expert users to communicate to robots, computers etc. An important sub-task in this area is the problem of 
-mapping imperative sentences (<i>get me water and clean the table?</i>) to actions in the physical world. One way to do this, which has gained popularity in the past decade is the use of compositional grammar with few rules and putting the main
-burden of semantic parsing on lexicon. A lexicon of a language is a set of lexical item which maps parts of text to representation space. Tell Me Dave project
-uses VEIL representation as its choice of lexicon which are stored in the RoboBrain. Plans are underway to store other type of lexicon e.g., CCG lexicon in the RoboBrain
-and use them in a joint setting. <br><br>
+        <div class="panel-body collapseParent panel-collapse " ng-controller="tellmedaveCtrl">
+  
+
+          <div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <span class="pull-right clickableChild panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                <h3 class="panel-title">Online simulator</h3>
+              </div>
+              <div class="panel-body collapseChild collapse">
+             
+
+            <div class="contaier">   
+              <iframe src="http://tellmedave.com/livedemos" height="500" width="600">
+                <p>Your browser does not support iframes.</p>
+              </iframe>
+            </div >            
+              </div>
+            </div>
+          </div>
+
+          <span ng-click='loadMore()' class='pull-right' style="color:blue;cursor:pointer" id='loadmore'>Show More .....</span>
+          <div class="row" id="seemore" style='display:none'>
+            <a href="http://tellmedave.com" target="_blank" style="color:blue;text-decoration:underline;">
+             <h4> Learning to map text to actions</a></h4>
+            <p>Natural language is a popular choice for non-expert users to communicate to robots, computers etc. An important sub-task in this area is the problem of 
+            mapping imperative sentences (<i>get me water and clean the table?</i>) to actions in the physical world. One way to do this, which has gained popularity in the past decade is the use of compositional grammar with few rules and putting the main
+            burden of semantic parsing on lexicon. A lexicon of a language is a set of lexical item which maps parts of text to representation space. Tell Me Dave project
+            uses VEIL representation as its choice of lexicon which are stored in the RoboBrain. Plans are underway to store other type of lexicon e.g., CCG lexicon in the RoboBrain
+            and use them in a joint setting. <br><br>
+          
           <div class="col-md-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -341,27 +364,11 @@ and use them in a joint setting. <br><br>
           <br><br>The flowchar of using knowledge from RoboBrain is shown below:</p><img src="images/application/tellmedave_robobrain.png" class="application_image"  style="width:100%; height:180px;"> 
 
 
-          <div class="col-md-12">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <span class="pull-right clickableChild panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
-                <h3 class="panel-title">Online simulator</h3>
-              </div>
-              <div class="panel-body collapseChild collapse ">
-             
-
-            <div class="contaier">   
-              <iframe src="http://tellmedave.com/livedemos" height="500" width="600">
-                <p>Your browser does not support iframes.</p>
-              </iframe>
-            </div >            
-              </div>
-            </div>
-          </div>
           
+          
+          </div>
 
         </div>
-
       </div>
     </div>
 
