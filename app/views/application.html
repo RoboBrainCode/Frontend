@@ -38,7 +38,7 @@ With our
           <h3 class="panel-title">Play with RaQueL online</h3>
           
         </div>
-        <div class="panel-body collapseParent collapse">
+        <div class="panel-body collapseParent">
          	<div class="jumbotron">
 			<div class="container-fluid">
   
@@ -315,16 +315,16 @@ The assistive robots working with humans should be able to understand human acti
           <h3 class="panel-title">Tell Me Dave</h3>
           
         </div>
-        <div class="panel-body collapseParent panel-collapse " ng-controller="tellmedaveCtrl">
+        <div class="panel-body collapseParent panel-collapse " ng-controller="PlanItCtrl">
   
 
           <div class="col-md-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <span class="pull-right clickableChild panel-collapsed"><i class="glyphicon glyphicon-chevron-down"></i></span>
-                <h3 class="panel-title">Online simulator</h3>
+                <h3 class="panel-title">Live demos</h3>
               </div>
-              <div class="panel-body collapseChild collapse">
+              <div class="panel-body collapseChild">
              
 
             <div class="contaier">   
@@ -336,8 +336,8 @@ The assistive robots working with humans should be able to understand human acti
             </div>
           </div>
 
-          <span ng-click='loadMore()' class='pull-right' style="color:blue;cursor:pointer" id='loadmore'>Show More .....</span>
-          <div class="row" id="seemore" style='display:none'>
+          <span ng-click='loadedMore()' class='pull-right' style="color:blue;cursor:pointer" id='loadedmore'>Show More .....</span>
+          <div class="row" id="seenmore" style='display:none'>
             <a href="http://tellmedave.com" target="_blank" style="color:blue;text-decoration:underline;">
              <h4> Learning to map text to actions</a></h4>
             <p>Natural language is a popular choice for non-expert users to communicate to robots, computers etc. An important sub-task in this area is the problem of 
