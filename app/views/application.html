@@ -130,6 +130,9 @@ p.fetch,p.sort,p.len,p.map,p.filter{
         <div class="panel-body collapseParent " ng-controller="PlanItCtrl"><h4>
            <a href="http://planit.cs.cornell.edu/" target="_blank" ><b>A Crowdsourcing Approach for Learning to Plan Paths from Large</b></a></h4>
 PlanIt uses RoboBrain to fetch trajectory parameters from different attributes computed from web sources such as wikipedia etc. You can try the example below.
+<img src="images/application/planit_robobrain.png" style="width:98%" class="application_image"> 
+<br>
+<br>
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Activity Name</span>
@@ -151,7 +154,12 @@ PlanIt uses RoboBrain to fetch trajectory parameters from different attributes c
           <br>
             <button class="btn btn-lg btn-default" ng-click='getHeatMap()' >
               <span class="glyphicon glyphicon-refresh " id='wheel' ></span> Generate Heat Map    
-          </button>  <span id="warnDisp"></span>
+          </button>
+	  <button class="btn btn-default pull-right" ng-click="getTrajectory()">
+		<span class="glyphicon glyphicon-star"></span> Show Trajectory 
+	  </button>	
+  	  <span id="warnDisp"></span>
+      <div id="trajResult"></div>
           <div id="heatMapResult">
           <!-- <img src='images/planit/heatmap_activity_dancing.png'/> -->
           </div>
@@ -164,14 +172,14 @@ PlanIt uses RoboBrain to fetch trajectory parameters from different attributes c
                     <h3>Select files</h3>
                     Choose Multiple Files
                     <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
-                    Choose Single File
-                    <input type="file" nv-file-select="" uploader="uploader" />
+                    <!-- Choose Single File
+                    <input type="file" nv-file-select="" uploader="uploader" /> -->
                 </div>
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-8" style="margin-bottom: 40px">
 
-                    <h3>Upload queue</h3>
+                    <h3>Upload queue(Max items:2)</h3>
                     <p>Queue length: {{ uploader.queue.length }}</p>
 
                     <table class="table">
@@ -181,7 +189,7 @@ PlanIt uses RoboBrain to fetch trajectory parameters from different attributes c
                                 <th ng-show="uploader.isHTML5">Size</th>
                                 <th ng-show="uploader.isHTML5">Progress</th>
                                 <th>Status</th>
-                                <th>Actions</th>
+                                <!-- <th>Actions</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -198,7 +206,7 @@ PlanIt uses RoboBrain to fetch trajectory parameters from different attributes c
                                     <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
                                     <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
                                 </td>
-                                <td nowrap>
+                             <!--    <td nowrap>
                                     <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
                                         <span class="glyphicon glyphicon-upload"></span> Upload
                                     </button>
@@ -208,7 +216,7 @@ PlanIt uses RoboBrain to fetch trajectory parameters from different attributes c
                                     <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
                                         <span class="glyphicon glyphicon-trash"></span> Remove
                                     </button>
-                                </td>
+                                </td> -->
                             </tr>
                         </tbody>
                     </table>
@@ -248,7 +256,7 @@ PlanIt uses RoboBrain to fetch trajectory parameters from different attributes c
                       </div>
           </div>
           <br><br>
-          <img src="images/application/planit_robobrain.png" style="width:98%" class="application_image"> 
+          
 
 
 
