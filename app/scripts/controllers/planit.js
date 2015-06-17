@@ -1,6 +1,6 @@
 'use strict';
 angular.module('roboBrainApp')
-    .controller('PlanItCtrl', ['$scope', 'FileUploader', function($scope, FileUploader) {
+    .controller('PlanItCtrl', ['$scope', 'FileUploader','ENV', function($scope, FileUploader,ENV) {
         
 
     $scope.activity_name='dancing';
@@ -8,7 +8,7 @@ angular.module('roboBrainApp')
     $scope.getHeatMap=function()
     {
         console.log('Clicked');
-        var planitEndPoint="http://localhost:6363/planit/showHeatMap/"
+        var planitEndPoint=ENV.graphApiEndpoint+"planit/showHeatMap/"
         $("#wheel").addClass("spinning");
         $.getJSON(planitEndPoint, 
         {
@@ -32,7 +32,7 @@ angular.module('roboBrainApp')
 
 
         var uploader = $scope.uploader = new FileUploader({
-            url: 'http://localhost:6363/planit/uploadFile/'
+            url: ENV.graphApiEndpoint+'planit/uploadFile/'
         });
 
         // FILTERS
