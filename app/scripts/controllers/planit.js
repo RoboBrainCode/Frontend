@@ -1,6 +1,6 @@
 'use strict';
 angular.module('roboBrainApp')
-    .controller('PlanItCtrl', ['$scope', 'FileUploader','$rootScope','ENV', function($scope, FileUploader,$rootScope,ENV) {
+    .controller('PlanItCtrl', ['$scope', 'FileUploader','$rootScope','ENV','$window','$timeout', function($scope, FileUploader,$rootScope,ENV,$window,$timeout) {
         
 
     $scope.activity_name='dancing';
@@ -42,29 +42,91 @@ angular.module('roboBrainApp')
         });
 
     }
+
+
+
+
+    $scope.initPoll=function ()
+        {
+            $window.stopcond=0;
+            console.log('Initialised Polling');
+            // setTimeout($scope.worker, 5000);
+            $("#wheel1").addClass("spinning");
+            $window.uqId=$scope.randString(10);
+            $timeout($scope.worker);
+        };
+
+        $scope.worker=function () 
+        {
+        console.log('Polling Server');
+          var planitEndPoint=ENV.graphApiEndpoint+"planit/getLog/"
+          // console.log($window.uqId)
+          $.getJSON(planitEndPoint, 
+            {
+                uqId:$window.uqId
+            }, 
+        function(data) 
+        {
+            
+        // console.log(data);
+        document.getElementById('consolemsg').innerHTML=data['result'][0];
+        if ($window.stopcond==0)
+          {
+            $timeout($scope.worker, 5000);
+          }
+          else
+          {
+            console.log('Query stopped');
+          }
+
+        });
+
+        };
+
+        $scope.stopPoll=function()
+        {
+          $window.stopcond=1;
+          $("#wheel1").removeClass("spinning");
+        };
+
+
+
     $scope.getTrajectory=function()
     {
         console.log('getting trajectory');
+        $scope.initPoll();
         if ($rootScope.daeFile=="" || $rootScope.xmlFile=="")
         {
             alert('Upload Files before proceeding');
+             $scope.stopPoll();
             return;
         }
         var planitEndPoint=ENV.graphApiEndpoint+"planit/getTraj/"
         $.getJSON(planitEndPoint,
         {
             daeFile:$rootScope.daeFile,
-            xmlFile:$rootScope.xmlFile
+            xmlFile:$rootScope.xmlFile,
+            uqId:$window.uqId
+
         }, 
         function(data) 
         {
+            $scope.stopPoll();
             console.log(data);
             document.getElementById('trajResult').innerHTML='<a href="'+data['result']+'">Click here to download the trajectory </a>';
 
-            
-
         });
 
+    }
+
+    $scope.randString=function (x)
+    {
+    var s = "";
+    while(s.length<x&&x>0){
+        var r = Math.random();
+        s+= (r<0.1?Math.floor(r*100):String.fromCharCode(Math.floor(r*26) + (r>0.5?97:65)));
+    }
+    return s;
     }
 
         var uploader = $scope.uploader = new FileUploader({

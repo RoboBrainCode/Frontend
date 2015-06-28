@@ -6,6 +6,7 @@
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
+// graphApiEndpoint: 'http://52.25.65.189:6363/'
 
 module.exports = function (grunt) {
 
@@ -75,7 +76,7 @@ module.exports = function (grunt) {
           ENV: {
             name: 'local',
             apiEndpoint: 'http://test.robobrain.me:3000/',
-            graphApiEndpoint: 'http://localhost:6363/',
+            graphApiEndpoint: 'http://52.25.65.189:6363/',
             staticEndpoint: 'http://d1rygkc2z32bg1.cloudfront.net/'
           }
         }

@@ -155,19 +155,19 @@ PlanIt uses RoboBrain to fetch trajectory parameters from different attributes c
             <button class="btn btn-lg btn-default" ng-click='getHeatMap()' >
               <span class="glyphicon glyphicon-refresh " id='wheel' ></span> Generate Heat Map    
           </button>
-	  <button class="btn btn-default pull-right" ng-click="getTrajectory()">
+	  <!-- <button class="btn btn-default pull-right" ng-click="init()">
 		<span class="glyphicon glyphicon-star"></span> Show Trajectory 
-	  </button>	
+	  </button> -->	
   	  <span id="warnDisp"></span>
-      <div id="trajResult"></div>
+     
           <div id="heatMapResult">
           <!-- <img src='images/planit/heatmap_activity_dancing.png'/> -->
           </div>
 
 
   
-<span ng-click='loadMore()' class='pull-right' style="color:blue;cursor:pointer" id='loadmore'>Show More .....</span>
-<div class="row" id="seemore" style='display:none'>
+<!-- <span ng-click='loadMore()' class='pull-right' style="color:blue;cursor:pointer" id='loadmore'>Show More .....</span> -->
+<div class="row" id="seemore" style='display:block'>
                 <div class="col-md-3">
                     <h3>Select files</h3>
                     Choose Multiple Files
@@ -241,6 +241,18 @@ PlanIt uses RoboBrain to fetch trajectory parameters from different attributes c
 
                 </div>
 
+
+      <button class="btn btn-lg btn-default" ng-click='getTrajectory()' >
+              <span class="glyphicon glyphicon-refresh " id='wheel1' ></span> Generate Trajectory    
+      </button>
+      <br> <br>
+      <span style="font-size:1.3em">Output</span>
+      <br>
+       <div id="trajResult"></div>
+       <br>
+      <span style="font-size:1.3em">Console Messages</span>
+      <div class="col-md-12" id="consolemsg">
+      </div>
 
    <br><br>
    <div class="col-md-12">
@@ -336,7 +348,7 @@ The assistive robots working with humans should be able to understand human acti
              
 
             <div class="contaier">   
-              <iframe src="http://tellmedave.com/livedemos" height="500" width="600">
+              <!-- <iframe src="http://tellmedave.com/livedemos" height="500" width="600"> -->
                 <p>Your browser does not support iframes.</p>
               </iframe>
             </div >            
