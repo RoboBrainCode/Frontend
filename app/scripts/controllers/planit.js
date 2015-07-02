@@ -33,7 +33,7 @@ angular.module('roboBrainApp')
             var newImage = new Image();
             newImage.src = data['result'];
             console.log(data['result']);
-            document.getElementById('heatMapResult').innerHTML='<img src="'+data['result']+'" alt="Heat Map" title="Heat Map" />';
+            document.getElementById('heatMapResult').innerHTML='<img src="'+data['result']+'" alt="Heat Map" height="350" title="Heat Map" />';
 
         });
 
