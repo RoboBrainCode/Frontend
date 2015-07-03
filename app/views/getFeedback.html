@@ -1,0 +1,14 @@
+<div>
+<h2>Environment{{currentPage}}</h2>
+<img src='images/env/camera_image_env_{{currentPage}}_context_1.jpg' height='300'></img><br>
+<b style='font-size:1.5em'>Enter NLP Instruction </b>
+<form ng-submit="captureFeedback(feedbackVal)">
+<textarea class="form-control" rows="3" ng-model='feedbackVal' required></textarea>
+<button type='submit' class='btn btn-primary'> Submit feedback</button>
+</form>
+</div>
+<div>
+<ul class="pagination">
+<li ng-repeat="n in range(1,18)" ng-click='changeIt({{n}})' style='cursor:pointer'><a>{{n}}</a></li>
+</ul>
+</div>
