@@ -13,6 +13,7 @@ angular.module('roboBrainApp')
   .controller('getFeedbackCtrl', function ($scope) {
 
   	$scope.currentPage=1;
+    $scope.currobjlist=feedBackSystem[1];
   	$scope.range = function(min, max, step){
     step = step || 1;
     var input = [];
@@ -24,6 +25,13 @@ $scope.captureFeedback=function(feedback)
 {
 	console.log($scope.currentPage)
 	console.log(feedback);
+	console.log();
+  
+  // for (var key in ) 
+  // {
+  //   console.log(feedBackSystem[1][key]);
+  // }
+
 	var data={'envNumber':$scope.currentPage,'NLPInstruction':feedback};
 	console.log(data);
 	var recordFeedbackEndPoint=ENV.graphApiEndpoint+"e2eFeedback/nlpfeedback/";
@@ -38,5 +46,6 @@ $scope.captureFeedback=function(feedback)
     $scope.changeIt=function(val)
     {
     	$scope.currentPage=val;
+      $scope.currobjlist=feedBackSystem[val];
     }
   });
