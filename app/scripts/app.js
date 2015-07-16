@@ -94,6 +94,11 @@ angular
         templateUrl: 'views/planitDave.html',
         controller: 'PlanItDaveCtrl'
       })
+      .when('/localFeedback', {
+        templateUrl: 'views/localfeedback.html',
+        controller: 'localFeedbackCtrl'
+      })
+      
       .otherwise({
         redirectTo: '/'
       });

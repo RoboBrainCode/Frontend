@@ -1,0 +1,83 @@
+
+	<link href="styles/feedback.css" rel="stylesheet">
+	<style>
+		.item, .placeholder 
+		{
+			padding: 2px;
+			width: 50px;
+			height: 20px;
+			border: 1px solid #333;
+			background: #EEE;
+		}
+
+		.placeholder 
+		{
+		    background: #AEF;
+		}
+	</style>
+	
+		<div class="container">
+			<div class="row">
+				
+
+<h3> Instruction Sequence </h3>
+		<div class="col-md-12" style="padding-top:20px" ng-init="Init()">
+			<button class='btn btn-default' id='playT' ng-click='resumeTraj()' disabled> Play</button>
+			<button class='btn btn-default' id='stopT' ng-click='stopTraj()' disabled> Stop</button>
+			<button class='btn btn-default' id='capT' ng-click='capTraj1()' disabled> Capture WayPoint</button>
+			<button class='btn btn-default' id='nextT' ng-click='capTraj2()' disabled> Capture nextPoint</button>
+			<br>
+
+		    <!-- <ul ui:sortable ng:model="instructionSet"> -->
+		    <ul>
+		       <li ng:repeat="item in instructionSet">
+		       	<div class="">
+		       		 <div class="notice notice-success">
+
+			   <form class="form-inline">
+		       <select  class="form-control" ng-model="item.predicateVal"  ng-options="predicate.id as predicate.name for predicate in pedicateList"></select>
+		       	<select  class="form-control" ng-model="item.objVal" ng-show="item.objVal" ng-options="object.id as object.name for object in objectList"></select>
+
+		       	<select  class="form-control" ng-model="item.preposition" ng-show="item.preposition" ng-options="subject.id as subject.name for subject in preposition"></select>
+
+
+		       	<select  class="form-control" ng-model="item.subVal" ng-show="item.subVal" ng-options="subject.id as subject.name for subject in subjectList"></select>
+		       		<button class="playbtns pull-right btn btn-default" ng-click="playTraj($index)"><i class="glyphicon glyphicon-play  " style="padding:5px"></i> </button>
+
+<button class="playbtns pull-right btn btn-default" ng-click="deleteElement($index)">		       		<i class="glyphicon glyphicon-remove pull-right" style="padding:5px"></i>
+ </button>
+
+		       	</form>
+
+			    </div>
+
+		       
+        	</div>
+    		</li>
+		    </ul>
+		    <button ng-click='saveSequence()' class="btn btn-default pull-right">Save Sequence </button> <br><br>
+
+		    <hr />
+		    <!-- <div ng:repeat="item in list">{{item}}</div> -->
+		    <h3> Add Instruction </h3>
+	<div class="notice notice-info">
+		    <form class="form-inline" ng-submit='addEntry(submitForm)'>
+		       <select  class="form-control" ng-model="submitForm.predicateVal" ng-options="predicate.id as predicate.name for predicate in pedicateList"></select>
+		       	<select  class="form-control" ng-model="submitForm.objVal" ng-options="object.id as object.name for object in objectList"></select>
+		       	<select  class="form-control" ng-model="submitForm.preposition" ng-options="subject.id as subject.name for subject in preposition"></select>
+
+		       	<select  class="form-control" ng-model="submitForm.subVal" ng-options="subject.id as subject.name for subject in subjectList"></select>
+		       	
+
+		       	<button class='btn btn-default' type="submit">Add Element</button>
+		       	</form>
+		       </div>
+
+<!-- {{instructionSet}} -->
+
+		</div>
+	</div>
+</div>
+
+	</body>
+</html>

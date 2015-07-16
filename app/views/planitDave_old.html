@@ -1,10 +1,10 @@
 <div ng-init="init()">
-<ul class="list-unstyled">
+<ul class="list-unstyled" infinite-scroll="loadFeedback()">
   <li ng-repeat="f in feeds track by $index">
     
     <div id="{{ f._id }}" class="panel panel-default feed-{{ $index % 5}}">
       <div class="panel-body">
-       <p style="font-size:1.5em">Instruction:    {{f.actualInput}} </p> <button ng-click="captureLocalFeedback(f._id)">Provide Feedback >>></button>
+       <p style="font-size:1.5em">Instruction:    {{f.actualInput}}</p>
        <div class="row">
         <div class="col-md-6">
          <p style="font-size:1.2em"> Tell Me Dave Output </p>
@@ -15,17 +15,26 @@
           </ul>
         </div>
         <div class="col-md-6">
-          <div class="row text-center" style="vertical-align: top;">
+          <p style="font-size:1.2em"> PlanIt Input </p> 
+           <ul>
+          <li ng-repeat="g in f.planitInput ">
+            {{g}}
+          </li>
+         </ul>
+        </div>
+      </div>
+
+      <div class="row text-center" style="vertical-align: top;">
         <video width="350" height="360" preload controls> 
         <source src="{{f.videoPath}}" />
         </video>
       </div>
-        </div>
-      </div>
-
-      
         <br>
-        <div class="social-buttons pull-left">
+        <div class="social-buttons">
+         
+
+
+
           <span class="social-button upvote-region">
             <a class="upvote" ng-class="{on: f.upvoted==true}" ng-click="vote(f._id, 1)">
               <b class="social-button-text">
@@ -44,6 +53,20 @@
           </span>
         </div>
 
+<p style="font-size:1.2em">Feedback</p>
+<form class="form-inline" ng-submit="recordFeedback(f._id,feedback)">
+  <div class="form-group">
+    <label for="exampleInputName2">Language</label>
+    <input type="text" class="form-control" ng-model='feedback.language' required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Planning</label>
+    <input type="text" class="form-control"  ng-model='feedback.planning' required>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
 
       </div>
     </div>
@@ -53,7 +76,5 @@
 
   </li>
 </ul>
-<br><br>
-<button ng-click="loadFeedback()" class="btn btn-primary"> Click to load more feeds </button>
 <br>
 </div>
