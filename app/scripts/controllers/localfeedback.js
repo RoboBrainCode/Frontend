@@ -82,10 +82,12 @@ $scope.getName=function(name)
             }
             $scope.$apply();
 
-
+        var netOutput="";
          for (var i=0;i<data['tellmedaveOutput'].length;i++)
          {
+            netOutput=netOutput+data['tellmedaveOutput'][i]+'<br>';
             var actionList=data['tellmedaveOutput'][i].split(" ");
+
             var arr={}
             if (actionList.length==2)
             {
@@ -113,6 +115,7 @@ $scope.getName=function(name)
          }
          $scope.envName=data['envName'];
          $scope.$apply();
+         document.getElementById('instructionSeq').innerHTML=netOutput;
 
         });
 
