@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('roboBrainApp')
-  .controller('localFeedbackCtrl',['$scope','$rootScope','ENV',function ($scope,$rootScope,ENV) {
+  .controller('localFeedbackCtrl',['$scope','$rootScope','ENV','$location',function ($scope,$rootScope,ENV,$location) {
     
   	$scope.pedicateList=[
     {id:'moveto',name:'move'},
@@ -42,6 +42,11 @@ angular.module('roboBrainApp')
 
     $scope.Init=function()
     {
+        if (!$rootScope.currentFeedbackId)
+        {
+            $location.path("/planitDave");
+        }
+
   
 		$.getJSON( "http://localhost:6363/gui/initApp/", function( data ) 
         {
@@ -53,32 +58,46 @@ angular.module('roboBrainApp')
 
         $.getJSON(getFeedEndPoint,{query:JSON.stringify($rootScope.currentFeedbackId)} , function( data ) 
         {
-         
+
+            $scope.objectList=[];
+            $scope.subjectList=[];
+            for (var i in data['objList'] )
+            {
+                var element={};
+                element['id']=data['objList'][i];
+                element['name']=data['objList'][i];
+                $scope.objectList.push(element);
+                $scope.subjectList.push(element);
+            }
+            $scope.$apply();
+
+
          for (var i=0;i<data['tellmedaveOutput'].length;i++)
          {
             var actionList=data['tellmedaveOutput'][i].split(" ");
             var arr={}
             if (actionList.length==2)
             {
-                arr['predicateVal']=actionList[0]
-                arr['objVal']=actionList[1]
+                arr['predicateVal']=actionList[0];
+                arr['objVal']=actionList[1].toLowerCase();
 
             }
             else if (actionList.length==2)
             {
-                arr['predicateVal']=actionList[0]
-                arr['objVal']=actionList[1]
-                arr['subVal']=actionList[2]
+                arr['predicateVal']=actionList[0];
+                arr['objVal']=actionList[1].toLowerCase();
+                arr['subVal']=actionList[2].toLowerCase();
                 
             }
             else if (actionList.length==4)
             {
-                arr['predicateVal']=actionList[0]
-                arr['objVal']=actionList[1]
-                arr['subVal']=actionList[3]
-                arr['preposition']=actionList[2]
+                arr['predicateVal']=actionList[0];
+                arr['objVal']=actionList[1].toLowerCase();
+                arr['subVal']=actionList[3].toLowerCase();
+                arr['preposition']=actionList[2];
             }
             $scope.instructionSet.push(arr);
+            console.log(arr);
            
          }
          $scope.envName=data['envName'];
@@ -112,7 +131,7 @@ angular.module('roboBrainApp')
             }
                 
         }
-        console.log('Move From',startPos,endPos);
+        // console.log('Move From',startPos,endPos);
         var envNo=2;
     	var elements = document.getElementsByClassName('playbtns pull-right btn btn-default');
     	for(var i =0; i < elements.length; i++)
@@ -123,7 +142,7 @@ angular.module('roboBrainApp')
 		document.getElementById('stopT').disabled=false;
 		document.getElementById('capT').disabled=true;
 		document.getElementById('nextT').disabled=true;
-        console.log($scope.envName)
+        // console.log($scope.envName)
     	$.getJSON( "http://localhost:6363/gui/playTraj/",{'env':$scope.envName,'startPos':startPos,'endPos':endPos}, function( data ) {
 		 
 		  });
@@ -145,7 +164,7 @@ angular.module('roboBrainApp')
             }  
             insSeq.push(str);   
         }
-        console.log(insSeq);
+        // console.log(insSeq);
 
     	$.getJSON( "http://localhost:6363/e2eFeedback/tellmedaveFeedback/",{feedback:JSON.stringify(insSeq),feedId:$rootScope.currentFeedbackId} , function(data) 
         {
