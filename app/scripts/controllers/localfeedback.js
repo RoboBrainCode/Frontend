@@ -39,7 +39,18 @@ angular.module('roboBrainApp')
 
     $scope.envName="";
      $scope.instructionSet = [];
-
+$scope.getName=function(name)
+{
+    console.log(name);
+    if (name.indexOf('PowerButton') > -1 || name.indexOf('PR2') > -1)
+    {
+        return name;
+    }
+    else
+    {
+        return name.toLowerCase();
+    }
+}
     $scope.Init=function()
     {
         if (!$rootScope.currentFeedbackId)
@@ -79,21 +90,21 @@ angular.module('roboBrainApp')
             if (actionList.length==2)
             {
                 arr['predicateVal']=actionList[0];
-                arr['objVal']=actionList[1].toLowerCase();
+                arr['objVal']=$scope.getName(actionList[1]);
 
             }
             else if (actionList.length==2)
             {
                 arr['predicateVal']=actionList[0];
-                arr['objVal']=actionList[1].toLowerCase();
-                arr['subVal']=actionList[2].toLowerCase();
+                arr['objVal']=$scope.getName(actionList[1]);
+                arr['subVal']=$scope.getName(actionList[2]);
                 
             }
             else if (actionList.length==4)
             {
                 arr['predicateVal']=actionList[0];
-                arr['objVal']=actionList[1].toLowerCase();
-                arr['subVal']=actionList[3].toLowerCase();
+                arr['objVal']=$scope.getName(actionList[1]);
+                arr['subVal']=$scope.getName(actionList[3]);
                 arr['preposition']=actionList[2];
             }
             $scope.instructionSet.push(arr);
