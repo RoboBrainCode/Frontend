@@ -86,6 +86,10 @@ angular
         templateUrl: 'views/planit.html',
         controller: 'PlanItCtrl'
       })
+      .when('/planitDave', {
+        templateUrl: 'views/planitDave.html',
+        controller: 'PlanItDaveCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

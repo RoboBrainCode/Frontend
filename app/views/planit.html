@@ -1,115 +1,168 @@
-<style>
-.glyphicon.spinning 
-{
-    animation: spin 1s infinite linear;
-  -webkit-animation: spin2 1s infinite linear;
-}
+<h3> Original Instruction </h3> 
+ <p>'move to couch' </p>
+ <h4> Tell Me Dave Output </h4><li> moveto Bed_1 </li> 
+ <h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to Bed_1</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_1_context_1_move_to_couch.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'move to the blackcouch' </p>
+ <h4> Tell Me Dave Output </h4><li> moveto Blackcouch_1 </li> 
+ <h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to Blackcouch_1</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_7_context_1_move_to_the_blackcouch.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'go to the couch' </p>
+ <h4> Tell Me Dave Output </h4><h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to PR2</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_go_to_the_couch.mp4" />
+ </video>
+ <br><br><br>
 
-@keyframes spin 
-{
-    from { transform: scale(1) rotate(0deg);}
-    to { transform: scale(1) rotate(360deg);}
-}
-
-@-webkit-keyframes spin2 
-{
-    from { -webkit-transform: rotate(0deg);}
-    to { -webkit-transform: rotate(360deg);}
-}
-</style>
-
-
-<div class="row">
-                <div class="col-md-3">
-                    <h3>Select files</h3>
-                    Choose Multiple Files
-                    <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
-                    Choose Single File
-                    <input type="file" nv-file-select="" uploader="uploader" />
-                </div>
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-8" style="margin-bottom: 40px">
-
-                    <h3>Upload queue</h3>
-                    <p>Queue length: {{ uploader.queue.length }}</p>
-
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th width="50%">Name</th>
-                                <th ng-show="uploader.isHTML5">Size</th>
-                                <th ng-show="uploader.isHTML5">Progress</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="item in uploader.queue">
-                                <td><strong>{{ item.file.name }}</strong></td>
-                                <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
-                                <td ng-show="uploader.isHTML5">
-                                    <div class="progress" style="margin-bottom: 0;">
-                                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
-                                    </div>
-                                </td>
-                                <td class="text-center">
-                                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                                </td>
-                                <td nowrap>
-                                    <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                                        <span class="glyphicon glyphicon-upload"></span> Upload
-                                    </button>
-                                    <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                                        <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
-                                        <span class="glyphicon glyphicon-trash"></span> Remove
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div>
-                        <div>
-                            Queue progress:
-                            <div class="progress" style="">
-                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
-                            <span class="glyphicon glyphicon-upload"></span> Upload all
-                        </button>
-                        <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
-                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
-                        </button>
-                        <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
-                            <span class="glyphicon glyphicon-trash"></span> Remove all
-                        </button>
-                    </div>
-
-                </div>
-
-</div>
-
-<hr>
-      
-<div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Activity Name</span>
-  <input type="text" class="form-control" ng-model='activity_name' placeholder="Activity Name" aria-describedby="basic-addon1">
-</div>
-<br>
-  <button class="btn btn-lg btn-default" ng-click='getHeatMap()' >
-    <span class="glyphicon glyphicon-refresh " id='wheel' ></span> Generate Heat Map    
-</button> 
-<div id="heatMapResult">
-<!-- <img src='images/planit/heatmap_activity_dancing.png'/> -->
-</div>
+<h3> Original Instruction </h3> 
+ <p>'move to the Vase. move to couch' </p>
+ <h4> Tell Me Dave Output </h4><li> moveto Vase_1 </li> 
+ <li> moveto Sofa_1 </li> 
+ <h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to Vase_1</li> 
+<li> MoveFrom: Vase_1 to Sofa_1</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_move_to_the_Vase._move_to_couch.mp4" />
+ </video>
+ <br><br><br>
 
 
-
-
-
+ <h3> Original Instruction </h3> 
+ <p>'move to lamp,move to couch, move to lamp' </p>
+ <h4> Tell Me Dave Output </h4><li> moveto Floorlamp_1 </li> 
+ <li> moveto Sofa_1 </li> 
+ <h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to Floorlamp_1</li> 
+<li> MoveFrom: Floorlamp_1 to Sofa_1</li> 
+</ul> 
+<p> ISSUE:If RRT fails the first time , it fails the next time as well since it samples the same set of points again and again and we do not add any obstacle since the trajectory was empty in the previous case. Thus we need to change the heuristic at some point for random sampling. </p>
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_move_to_lamp,move_to_couch,_move_to_lamp.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'move to couch but stay away from human' </p>
+ <h4> Tell Me Dave Output </h4><li> moveto Sofa_1 </li> 
+ <h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to Sofa_1</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_move_to_couch_but_stay_away_from_human.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'move to human and couch' </p>
+ <h4> Tell Me Dave Output </h4><li> moveto Sofa_1 </li> 
+ <h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to Sofa_1</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_move_to_human_and_couch.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'pick up the vase' </p>
+ <h4> Tell Me Dave Output </h4><h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to PR2</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_pick_up_the_vase.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'keep vase on table' </p>
+ <h4> Tell Me Dave Output </h4><h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to PR2</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_keep_vase_on_table.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'grasp the vase' </p>
+ <h4> Tell Me Dave Output </h4><h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to PR2</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_grasp_the_vase.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'move to lamp and then  to vase' </p>
+ <h4> Tell Me Dave Output </h4><li> moveto Vase_1 </li> 
+ <h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to Vase_1</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_move_to_lamp_and_then_to_vase.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'move to lamp and then move to vase' </p>
+ <h4> Tell Me Dave Output </h4><li> moveto Floorlamp_1 </li> 
+ <li> moveto Vase_1 </li> 
+ <h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to Floorlamp_1</li> 
+<li> MoveFrom: Floorlamp_1 to Vase_1</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_move_to_lamp_and_then_move_to_vase.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'turn on tv' </p>
+ <h4> Tell Me Dave Output </h4><h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to PR2</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_turn_on_tv.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'turn on tv' </p>
+ <h4> Tell Me Dave Output </h4><h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to PR2</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_1_context_1_turn_on_tv.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'take vase to table' </p>
+ <h4> Tell Me Dave Output </h4><h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to PR2</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_take_vase_to_table.mp4" />
+ </video>
+ <br><br><br>
+<h3> Original Instruction </h3> 
+ <p>'move vase on table' </p>
+ <h4> Tell Me Dave Output </h4><li> moveto Vase_1 </li> 
+ <h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to Vase_1</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_move_vase_on_table.mp4" />
+ </video>
+ <br><br><br>
+ <h3> Original Instruction </h3> 
+ <p>'place the vase on the couch' </p>
+ <h4> Tell Me Dave Output </h4><h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to PR2</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_place_the_vase_on_the_couch.mp4" />
+ </video>
+ <br><br><br><h3> Original Instruction </h3> 
+ <p>'grasp the  vase  and put it on table' </p>
+ <h4> Tell Me Dave Output </h4><h4> PlanIt Input </h4> 
+ <ul><li> MoveFrom: PR2 to PR2</li> 
+</ul> 
+ <video width="640" height="360" preload controls> 
+ <source src="images/video/env_9_context_1_grasp_the__vase__and_put_it_on_table.mp4" />
+ </video>
+ <br><br><br>
