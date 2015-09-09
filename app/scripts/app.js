@@ -86,10 +86,19 @@ angular
         templateUrl: 'views/planit.html',
         controller: 'PlanItCtrl'
       })
+      .when('/getFeedback', {
+        templateUrl: 'views/getFeedback.html',
+        controller: 'getFeedbackCtrl'
+      })
       .when('/planitDave', {
         templateUrl: 'views/planitDave.html',
         controller: 'PlanItDaveCtrl'
       })
+      .when('/localFeedback', {
+        templateUrl: 'views/localfeedback.html',
+        controller: 'localFeedbackCtrl'
+      })
+      
       .otherwise({
         redirectTo: '/'
       });

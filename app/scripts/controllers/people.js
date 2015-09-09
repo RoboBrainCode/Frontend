@@ -102,6 +102,14 @@ angular.module('roboBrainApp')
       photo: 'images/contrib/gkho.jpg',
       url: 'mailto:gabriel.d.kho@gmail.com'
     }
+    ,{
+      name: 'Arpit Agarwal',
+      institution: 'IIT Kanpur',
+      role: 'RaQueL and Co-active learning',
+      photo: 'images/contrib/arpitag.jpg',
+      roleUrl: 'https://github.com/RoboBrainCode/RoboBrainWiki/blob/master/RaQueL.md#welcome-to-raquel',
+      url: 'mailto:arpit15945@gmail.com'
+    }
     ];
 
 

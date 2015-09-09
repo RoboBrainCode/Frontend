@@ -1,0 +1,29 @@
+<div>
+	<ul class="pagination">
+<li ng-repeat="n in range(1,16)" ng-click='changeIt({{n}})' style='cursor:pointer'><a>{{n}}</a></li>
+</ul>
+
+<h2>Environment{{currentPage}}</h2>
+<div class="row" style="height:360px;overflow-y:scroll">
+	<div class="col-md-9">
+<img src='images/env/env_{{currentPage}}.png' width='500'></img><br>
+	</div>
+	<div class="col-md-3">
+		<ul>
+		<li ng-repeat="n in currobjlist">{{n}}</li>
+		</ul>
+	</div>
+</div>
+<b style='font-size:1.5em'>Enter NLP Instruction </b>
+<form ng-submit="captureFeedback(feedbackVal)">
+<textarea class="form-control" rows="3" ng-model='feedbackVal' required></textarea>
+<button type='submit' class='btn btn-primary'> Submit feedback</button>
+</form>
+</div>
+<div>
+
+
+
+
+
+</div>

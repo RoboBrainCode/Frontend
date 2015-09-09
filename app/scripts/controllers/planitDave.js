@@ -10,16 +10,25 @@
  * Media content type must be one of: image
  */
 angular.module('roboBrainApp')
-  .controller('PlanItDaveCtrl', ['$scope','$cookieStore','ENV', function ($scope, $cookieStore, ENV) {
+  .controller('PlanItDaveCtrl', ['$scope','$cookieStore','ENV','$rootScope','$location', function ($scope, $cookieStore, ENV,$rootScope,$location) {
     
+
+   $scope.captureLocalFeedback=function(id)
+   {
+    $rootScope.currentFeedbackId=id;
+    console.log($rootScope.currentFeedbackId);
+    $location.path('/localFeedback');
+   } ;
+
 $scope.init=function()
 {
 	$scope.feeds={};
 	$scope.offset=0;
-	$scope.number=5;
+	$scope.number=2;
 	$scope.isScrolling = true;
 	$scope.votelock=false;
 	$scope.feedbackLock=false;
+  $scope.loadFeedback();
 
 }    
 
@@ -95,22 +104,19 @@ $scope.vote=function(Feedid,voteVal)
 
 $scope.loadFeedback=function()
  	{
-  		console.log('Triggered Feedback');
+    console.log("Helloworld");
  		var feed_endpoint = ENV.graphApiEndpoint+'e2eFeedback/getMoreFeeds/';
         var isScrolling=$scope.isScrolling
         if (isScrolling) 
         {
           isScrolling = false;
-          // var val = $cookies.csrftoken;
-          // if (!val) {
-          //   $http.get(upvotesEndpoint);
-          // }
 	        var data = {'num':$scope.number,'current':$scope.offset};
 	      	$.getJSON(
 	      			feed_endpoint,
 	      			data,
 	      			function(data) 
 			        {
+                console.log(data);
 						for (var k = 0; k < data.length; ++k) 
 						{
 							var feed_id = data[k]['_id'];
@@ -133,7 +139,7 @@ $scope.loadFeedback=function()
 	      }
  	}
 
-
+// $scope.$apply();
   			
 
 
