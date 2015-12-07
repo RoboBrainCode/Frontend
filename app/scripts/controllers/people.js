@@ -108,7 +108,8 @@ angular.module('roboBrainApp')
       role: 'RaQueL and Co-active learning',
       photo: 'images/contrib/arpitag.jpg',
       roleUrl: 'https://github.com/RoboBrainCode/RoboBrainWiki/blob/master/RaQueL.md#welcome-to-raquel',
-      url: 'mailto:arpit15945@gmail.com'
+      url: 'http://home.iitk.ac.in/~arpitag/',
+      email:'arpit15945@gmail.com'
     }
     ];
 
